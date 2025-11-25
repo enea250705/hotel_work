@@ -5,6 +5,22 @@
     --dark: #0F172B;
 }
 
+body > .container-fluid {
+    max-width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+/* Ensure header and hero are full width */
+.container-fluid.bg-dark,
+.hero-container,
+.hero-slide {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
 .fw-medium {
     font-weight: 500 !important;
 }
@@ -104,6 +120,10 @@
     position: relative;
     width: 100%;
     overflow: hidden;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
 }
 
 #hero-carousel {
@@ -119,6 +139,9 @@
     display: flex;
     align-items: center;
     padding: 100px 0;
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
 }
 
 .hero-overlay {
