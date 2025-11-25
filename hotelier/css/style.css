@@ -13,11 +13,17 @@ body > .container-fluid {
 
 /* Ensure header and hero are full width */
 .container-fluid.bg-dark,
-.hero-simple {
+.hero-simple,
+.page-header {
     width: 100% !important;
     max-width: 100% !important;
     margin-left: 0 !important;
     margin-right: 0 !important;
+}
+
+body > .container-fluid {
+    width: 100% !important;
+    max-width: 100% !important;
 }
 
 .fw-medium {
@@ -470,10 +476,22 @@ body > .container-fluid {
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
 }
 
 .page-header-inner {
     background: rgba(15, 23, 43, .7);
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
 }
 
 .breadcrumb-item + .breadcrumb-item::before {
