@@ -127,6 +127,8 @@ body > .container-fluid {
     height: 90vh;
     min-height: 650px;
     overflow: hidden;
+    margin-bottom: 0;
+    padding-bottom: 0;
 }
 
 #hero-carousel {
@@ -500,8 +502,21 @@ body > .container-fluid {
 
 .booking {
     position: relative;
-    margin-top: -100px !important;
+    margin-top: -60px !important;
+    margin-bottom: 0 !important;
+    padding-top: 20px !important;
+    padding-bottom: 2rem !important;
     z-index: 1;
+}
+
+.booking .container {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.booking .bg-white {
+    border-radius: 10px;
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.15) !important;
 }
 
 
