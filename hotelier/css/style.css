@@ -862,6 +862,42 @@ body > .container-fluid {
     position: relative;
     margin-top: -110px;
     padding-top: 180px;
+    background-color: transparent !important;
+}
+
+.footer.bg-dark {
+    background-color: transparent !important;
+}
+
+.container-fluid.bg-dark.footer {
+    background-color: transparent !important;
+}
+
+.footer.text-light,
+.footer .text-light,
+.footer p,
+.footer h6,
+.footer h1,
+.footer h2,
+.footer h3,
+.footer h4,
+.footer h5 {
+    color: #000000 !important;
+}
+
+.footer .section-title {
+    color: var(--primary) !important;
+}
+
+.footer .bg-primary {
+    background-color: transparent !important;
+    border: 2px solid var(--primary);
+}
+
+.footer .bg-primary .text-white,
+.footer .bg-primary h1,
+.footer .bg-primary p {
+    color: #000000 !important;
 }
 
 .footer .btn.btn-social {
@@ -871,14 +907,15 @@ body > .container-fluid {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--light);
-    border: 1px solid #FFFFFF;
+    color: #000000;
+    border: 1px solid #000000;
     border-radius: 35px;
     transition: .3s;
 }
 
 .footer .btn.btn-social:hover {
     color: var(--primary);
+    border-color: var(--primary);
 }
 
 .footer .btn.btn-link {
@@ -886,7 +923,7 @@ body > .container-fluid {
     margin-bottom: 5px;
     padding: 0;
     text-align: left;
-    color: #FFFFFF;
+    color: #000000;
     font-size: 15px;
     font-weight: normal;
     text-transform: capitalize;
