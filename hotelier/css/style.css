@@ -163,6 +163,11 @@ body > .container-fluid {
     padding-bottom: 0;
 }
 
+/* Reduce spacing after hero section */
+.hero-simple + .container-xxl {
+    padding-top: 1rem !important;
+}
+
 #hero-carousel {
     height: 100%;
 }
