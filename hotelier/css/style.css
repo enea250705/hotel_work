@@ -32,6 +32,11 @@
     border-color: #FFD700 !important;
 }
 
+/* Center navbar menu items */
+.navbar-collapse.justify-content-center .navbar-nav {
+    margin: 0 auto;
+}
+
 body > .container-fluid {
     max-width: 100%;
     padding-left: 0;
