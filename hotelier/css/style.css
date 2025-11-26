@@ -156,8 +156,8 @@ body > .container-fluid {
 .hero-simple {
     position: relative;
     width: 100%;
-    height: 90vh;
-    min-height: 650px;
+    height: 95vh;
+    min-height: 750px;
     overflow: hidden;
     margin-bottom: 0;
     padding-bottom: 0;
@@ -401,8 +401,8 @@ body > .container-fluid {
 /* Responsive */
 @media (max-width: 991.98px) {
     .hero-simple {
-        height: 80vh;
-        min-height: 550px;
+        height: 85vh;
+        min-height: 650px;
     }
     
     .hero-title-simple {
@@ -421,7 +421,7 @@ body > .container-fluid {
 
 @media (max-width: 768px) {
     .hero-simple {
-        height: 75vh;
+        height: 80vh;
         min-height: 500px;
     }
     
