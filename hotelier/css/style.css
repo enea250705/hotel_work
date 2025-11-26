@@ -165,7 +165,8 @@ body > .container-fluid {
 
 /* Consistent spacing after hero section */
 .hero-simple + .container-xxl {
-    padding-top: 3rem !important;
+    padding-top: 0.5rem !important;
+    margin-top: 0 !important;
 }
 
 #hero-carousel {
