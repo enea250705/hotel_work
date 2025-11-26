@@ -163,9 +163,20 @@ body > .container-fluid {
     padding-bottom: 0;
 }
 
-/* Consistent spacing after hero section */
-.hero-simple + .container-xxl {
-    padding-top: 0.5rem !important;
+/* Consistent spacing after hero section - remove all spacing */
+.hero-simple {
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+.hero-simple + .container-xxl,
+.hero-simple ~ .container-xxl {
+    padding-top: 0 !important;
+    margin-top: 0 !important;
+}
+
+/* Also target any container immediately after hero */
+.hero-simple + * {
     margin-top: 0 !important;
 }
 
