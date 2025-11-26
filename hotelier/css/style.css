@@ -890,13 +890,19 @@ body > .container-fluid {
 }
 
 .footer .bg-primary {
-    background-color: transparent !important;
-    border: 2px solid var(--primary);
+    background-color: var(--primary) !important;
+    border: none !important;
 }
 
 .footer .bg-primary .text-white,
 .footer .bg-primary h1,
-.footer .bg-primary p {
+.footer .bg-primary p,
+.footer .bg-primary a {
+    color: #000000 !important;
+}
+
+.footer .copyright,
+.footer .copyright a {
     color: #000000 !important;
 }
 
