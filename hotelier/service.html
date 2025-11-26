@@ -30,6 +30,45 @@
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+    
+    <!-- Custom Carousel Styles -->
+    <style>
+        .owl-carousel .item {
+            opacity: 0;
+            transition: opacity 0.8s ease-in-out;
+        }
+        .owl-carousel .item.active {
+            opacity: 1;
+        }
+        .owl-carousel .owl-item {
+            transition: opacity 0.8s ease-in-out;
+        }
+        .owl-carousel .owl-item.active .item {
+            opacity: 1;
+        }
+        .owl-dots {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .owl-dots .owl-dot {
+            display: inline-block;
+            margin: 0 5px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: #ddd;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .owl-dots .owl-dot.active {
+            background-color: #0d6efd;
+            transform: scale(1.3);
+        }
+        .owl-dots .owl-dot:hover {
+            background-color: #0d6efd;
+            transform: scale(1.2);
+        }
+    </style>
 </head>
 
 <body>
@@ -427,7 +466,7 @@
         $(document).ready(function() {
             // Wait a bit to ensure all libraries are loaded
             setTimeout(function() {
-                // Restaurant Carousel - Show ONE photo at a time (Instagram style)
+                // Restaurant Carousel - Show ONE photo at a time with beautiful fade transition
                 if ($('.restaurant-carousel').length) {
                     $('.restaurant-carousel').owlCarousel({
                         loop: true,
@@ -435,15 +474,17 @@
                         nav: false,
                         dots: true,
                         autoplay: true,
-                        autoplayTimeout: 1500,
+                        autoplayTimeout: 2000,
                         autoplayHoverPause: true,
-                        smartSpeed: 500,
+                        animateOut: 'fadeOut',
+                        animateIn: 'fadeIn',
+                        smartSpeed: 800,
                         items: 1,
                         singleItem: true
                     });
                 }
                 
-                // Menu Carousel - Show ONE photo at a time (Instagram style)
+                // Menu Carousel - Show ONE photo at a time with beautiful fade transition
                 if ($('.menu-carousel').length) {
                     $('.menu-carousel').owlCarousel({
                         loop: true,
@@ -451,15 +492,17 @@
                         nav: false,
                         dots: true,
                         autoplay: true,
-                        autoplayTimeout: 1500,
+                        autoplayTimeout: 2000,
                         autoplayHoverPause: true,
-                        smartSpeed: 500,
+                        animateOut: 'fadeOut',
+                        animateIn: 'fadeIn',
+                        smartSpeed: 800,
                         items: 1,
                         singleItem: true
                     });
                 }
                 
-                // Serving Carousel - Show ONE photo at a time (Instagram style)
+                // Serving Carousel - Show ONE photo at a time with beautiful fade transition
                 if ($('.serving-carousel').length) {
                     $('.serving-carousel').owlCarousel({
                         loop: true,
@@ -467,9 +510,11 @@
                         nav: false,
                         dots: true,
                         autoplay: true,
-                        autoplayTimeout: 1500,
+                        autoplayTimeout: 2000,
                         autoplayHoverPause: true,
-                        smartSpeed: 500,
+                        animateOut: 'fadeOut',
+                        animateIn: 'fadeIn',
+                        smartSpeed: 800,
                         items: 1,
                         singleItem: true
                     });
