@@ -904,3 +904,17 @@ body > .container-fluid {
     padding-right: 0;
     border-right: none;
 }
+
+/* Hide all carousel dots and indicators */
+.owl-dots,
+.owl-dots .owl-dot {
+    display: none !important;
+}
+
+.carousel-indicators {
+    display: none !important;
+}
+
+.carousel-indicators [data-bs-target] {
+    display: none !important;
+}
