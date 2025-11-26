@@ -57,13 +57,13 @@
         }
         .owl-carousel .item {
             opacity: 0;
-            transition: opacity 0.8s ease-in-out;
+            transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1);
         }
         .owl-carousel .item.active {
             opacity: 1;
         }
         .owl-carousel .owl-item {
-            transition: opacity 0.8s ease-in-out;
+            transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1);
         }
         .owl-carousel .owl-item.active .item {
             opacity: 1;
@@ -73,6 +73,13 @@
         }
         .owl-dots .owl-dot {
             display: none !important;
+        }
+        .carousel-fade .carousel-item {
+            opacity: 0;
+            transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .carousel-fade .carousel-item.active {
+            opacity: 1;
         }
     </style>
 </head>
@@ -124,7 +131,7 @@
 
         <!-- Hero Section Start -->
         <div class="hero-simple">
-            <div id="hero-carousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="1500">
+            <div id="hero-carousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="3000">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
                         <div class="hero-bg" style="background-image: url('img/restaurant-1.jpg'); background-size: cover; background-position: center center;"></div>
@@ -441,11 +448,12 @@
                         nav: false,
                         dots: false,
                         autoplay: true,
-                        autoplayTimeout: 2000,
+                        autoplayTimeout: 3000,
                         autoplayHoverPause: true,
                         animateOut: 'fadeOut',
                         animateIn: 'fadeIn',
-                        smartSpeed: 800,
+                        smartSpeed: 1200,
+                        autoplaySpeed: 1200,
                         items: 1,
                         singleItem: true
                     });
@@ -459,11 +467,12 @@
                         nav: false,
                         dots: false,
                         autoplay: true,
-                        autoplayTimeout: 2000,
+                        autoplayTimeout: 3000,
                         autoplayHoverPause: true,
                         animateOut: 'fadeOut',
                         animateIn: 'fadeIn',
-                        smartSpeed: 800,
+                        smartSpeed: 1200,
+                        autoplaySpeed: 1200,
                         items: 1,
                         singleItem: true
                     });
@@ -477,11 +486,12 @@
                         nav: false,
                         dots: false,
                         autoplay: true,
-                        autoplayTimeout: 2000,
+                        autoplayTimeout: 3000,
                         autoplayHoverPause: true,
                         animateOut: 'fadeOut',
                         animateIn: 'fadeIn',
-                        smartSpeed: 800,
+                        smartSpeed: 1200,
+                        autoplaySpeed: 1200,
                         items: 1,
                         singleItem: true
                     });

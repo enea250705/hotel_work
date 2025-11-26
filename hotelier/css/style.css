@@ -1,4 +1,13 @@
 /********** Template CSS **********/
+/* Smooth scrolling for entire page */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    scroll-behavior: smooth;
+}
+
 :root {
     --primary: #FFD700; /* Gold to match logo */
     --light: #F1F8FF;
@@ -399,14 +408,28 @@ body > .container-fluid {
     filter: brightness(0) invert(1);
 }
 
-/* Carousel Fade */
+/* Carousel Fade - Smooth and beautiful transitions */
 .carousel-fade .carousel-item {
     opacity: 0;
-    transition: opacity 1s ease-in-out;
+    transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .carousel-fade .carousel-item.active {
     opacity: 1;
+}
+
+/* Smooth transitions for all carousel items */
+.carousel-item {
+    transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1), transform 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Owl Carousel smooth transitions */
+.owl-carousel .owl-item {
+    transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.owl-carousel .owl-stage-outer {
+    transition: transform 1.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Responsive */
