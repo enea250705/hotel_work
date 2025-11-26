@@ -1,8 +1,35 @@
 /********** Template CSS **********/
 :root {
-    --primary: #FEA116;
+    --primary: #FFD700; /* Gold to match logo */
     --light: #F1F8FF;
     --dark: #000000; /* Pure black */
+}
+
+/* Override Bootstrap primary color to gold */
+.btn-primary {
+    background-color: #FFD700 !important;
+    border-color: #FFD700 !important;
+    color: #000000 !important; /* Black text on gold buttons for better contrast */
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active {
+    background-color: #FFC700 !important; /* Slightly darker gold on hover */
+    border-color: #FFC700 !important;
+    color: #000000 !important;
+}
+
+.text-primary {
+    color: #FFD700 !important;
+}
+
+.bg-primary {
+    background-color: #FFD700 !important;
+}
+
+.border-primary {
+    border-color: #FFD700 !important;
 }
 
 body > .container-fluid {
@@ -267,7 +294,7 @@ body > .container-fluid {
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     text-transform: uppercase;
     letter-spacing: 1.5px;
-    box-shadow: 0 10px 30px rgba(254, 161, 22, 0.35);
+    box-shadow: 0 10px 30px rgba(255, 215, 0, 0.35); /* Gold shadow */
     position: relative;
     overflow: hidden;
 }
@@ -291,9 +318,9 @@ body > .container-fluid {
 }
 
 .btn-hero-simple:hover {
-    background: #ffb133;
+    background: #FFD700; /* Gold */
     transform: translateY(-3px);
-    box-shadow: 0 15px 40px rgba(254, 161, 22, 0.5);
+    box-shadow: 0 15px 40px rgba(255, 215, 0, 0.5); /* Gold shadow */
     color: #FFFFFF;
     text-decoration: none;
 }
