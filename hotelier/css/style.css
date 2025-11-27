@@ -178,25 +178,66 @@ body > .container-fluid {
     padding-bottom: 0 !important;
 }
 
+/* Target any element immediately after hero section - remove all spacing */
 .hero-simple + .container-xxl,
 .hero-simple ~ .container-xxl,
 .hero-simple + div,
-.hero-simple ~ div {
+.hero-simple ~ div,
+.hero-simple + .container,
+.hero-simple ~ .container {
     padding-top: 0 !important;
-    margin-top: -50px !important;
+    margin-top: 0 !important;
 }
 
-/* Also target any container immediately after hero */
+/* Also target any element immediately after hero (universal selector) */
 .hero-simple + * {
-    margin-top: -50px !important;
+    margin-top: 0 !important;
     padding-top: 0 !important;
 }
 
 /* Remove any default spacing from containers after hero */
 .hero-simple ~ .container-xxl .container,
-.hero-simple + .container-xxl .container {
+.hero-simple + .container-xxl .container,
+.hero-simple ~ .container-xxl > .container,
+.hero-simple + .container-xxl > .container {
     padding-top: 0 !important;
     margin-top: 0 !important;
+}
+
+/* Target page-header (for other pages) */
+.page-header + .container-xxl,
+.page-header ~ .container-xxl,
+.page-header + div,
+.page-header ~ div,
+.page-header + .container,
+.page-header ~ .container {
+    padding-top: 0 !important;
+    margin-top: 0 !important;
+}
+
+.page-header + * {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+}
+
+/* Ensure no spacing on first section after hero/page-header */
+body > .container-fluid > .hero-simple ~ .container-xxl:first-of-type,
+body > .container-fluid > .page-header ~ .container-xxl:first-of-type {
+    padding-top: 0 !important;
+    margin-top: 0 !important;
+}
+
+/* Remove any potential spacing from body or html */
+body {
+    margin: 0;
+    padding: 0;
+}
+
+/* Ensure container-fluid doesn't add spacing after hero */
+.container-fluid > .hero-simple + *,
+.container-fluid > .page-header + * {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
 }
 
 #hero-carousel {
