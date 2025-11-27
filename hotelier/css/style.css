@@ -182,6 +182,7 @@ body > .container-fluid {
     padding-bottom: 0 !important;
     margin-top: 0 !important;
     padding-top: 0 !important;
+    z-index: 1;
 }
 
 /* Consistent spacing after hero section - remove all spacing */
@@ -236,7 +237,7 @@ body > .container-fluid > .hero-simple ~ .container-xxl:first-of-type {
     margin-top: 0 !important;
     padding-top: 0 !important;
     position: relative;
-    z-index: 1;
+    z-index: 0;
 }
 
 /* If there's still a gap, pull the first section up with negative margin */
