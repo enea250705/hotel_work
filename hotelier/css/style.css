@@ -77,35 +77,6 @@ body > .container-fluid {
     overflow-x: hidden !important;
 }
 
-/* Prevent horizontal overflow on all containers */
-.container,
-.container-fluid,
-.container-xxl,
-.container-xl,
-.container-lg,
-.container-md,
-.container-sm {
-    max-width: 100%;
-    overflow-x: hidden;
-}
-
-/* Ensure media elements respect viewport width */
-img, video, iframe, embed, object {
-    max-width: 100%;
-    height: auto;
-}
-
-/* Prevent horizontal overflow on common elements */
-.row, .col, [class*="col-"] {
-    max-width: 100%;
-}
-
-/* Ensure no element causes horizontal scroll */
-section, div, article, aside, header, footer, nav, main {
-    max-width: 100%;
-    box-sizing: border-box;
-}
-
 .fw-medium {
     font-weight: 500 !important;
 }
