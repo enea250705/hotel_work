@@ -183,12 +183,12 @@ body > .container-fluid {
 .hero-simple + div,
 .hero-simple ~ div {
     padding-top: 0 !important;
-    margin-top: 0 !important;
+    margin-top: -50px !important;
 }
 
 /* Also target any container immediately after hero */
 .hero-simple + * {
-    margin-top: 0 !important;
+    margin-top: -50px !important;
     padding-top: 0 !important;
 }
 
