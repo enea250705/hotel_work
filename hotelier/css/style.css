@@ -191,59 +191,55 @@ body > .container-fluid {
     padding-bottom: 0 !important;
 }
 
-/* Target any element immediately after hero section - remove all spacing */
+/* Target any element immediately after hero section - add proper spacing */
 .hero-simple + .container-xxl,
-.hero-simple ~ .container-xxl,
-.hero-simple + div,
-.hero-simple ~ div,
-.hero-simple + .container,
-.hero-simple ~ .container {
-    padding-top: 0 !important;
+.hero-simple ~ .container-xxl:first-of-type {
+    padding-top: 2rem !important;
     margin-top: 0 !important;
 }
 
-/* More aggressive - target any element after hero with negative margin */
+/* More aggressive - target any element after hero with proper spacing */
 .hero-simple ~ .container-xxl:first-of-type {
     margin-top: 0 !important;
-    padding-top: 0 !important;
+    padding-top: 2rem !important;
     margin-bottom: 0 !important;
 }
 
-/* Option 1: Force all sections after hero to flush up */
-.hero-simple ~ * {
+/* Option 1: Add spacing to first section after hero */
+.hero-simple ~ .container-xxl:first-of-type {
     margin-top: 0 !important;
-    padding-top: 0 !important;
+    padding-top: 2rem !important;
 }
 
 /* Option 3: target the exact first section after hero */
 .hero-simple + .container-xxl {
     margin-top: 0 !important;
-    padding-top: 0 !important;
+    padding-top: 2rem !important;
 }
 
-/* Remove ALL padding from first container after hero, including Bootstrap classes */
+/* Add proper spacing to first container after hero, including Bootstrap classes */
 .hero-simple + .container-xxl.pb-5,
 .hero-simple ~ .container-xxl.pb-5:first-of-type,
 .hero-simple + .container-xxl.py-5,
 .hero-simple ~ .container-xxl.py-5:first-of-type {
-    padding-top: 0 !important;
+    padding-top: 2rem !important;
     margin-top: 0 !important;
     padding-bottom: 3rem !important; /* Keep bottom padding for content spacing */
 }
 
-/* ULTIMATE FIX - Target the exact structure in HTML and use negative margin to eliminate gap */
+/* ULTIMATE FIX - Target the exact structure in HTML and add proper spacing */
 body > .container-fluid > .hero-simple + .container-xxl,
 body > .container-fluid > .hero-simple ~ .container-xxl:first-of-type {
     margin-top: 0 !important;
-    padding-top: 0 !important;
+    padding-top: 2rem !important;
     position: relative;
     z-index: 0;
 }
 
-/* If there's still a gap, pull the first section up with negative margin */
+/* Add proper spacing to first section after hero */
 .hero-simple ~ .container-xxl:first-of-type {
     margin-top: 0 !important;
-    padding-top: 0 !important;
+    padding-top: 2rem !important;
 }
 
 /* Also remove any gap from the container-fluid wrapper */
@@ -258,17 +254,11 @@ body > .container-fluid {
     padding-bottom: 0 !important;
 }
 
-/* Remove any whitespace/newline spacing between hero and next element */
-.hero-simple + * {
+/* Add proper spacing between hero and next element */
+.hero-simple + .container-xxl {
     margin-top: 0 !important;
-    padding-top: 0 !important;
+    padding-top: 2rem !important;
     display: block; /* Ensure it's a block element */
-}
-
-/* Also target any element immediately after hero (universal selector) */
-.hero-simple + * {
-    margin-top: 0 !important;
-    padding-top: 0 !important;
 }
 
 /* Remove any default spacing from containers after hero */
