@@ -208,6 +208,12 @@ body > .container-fluid {
     margin-bottom: 0 !important;
 }
 
+/* Option 3: target the exact first section after hero */
+.hero-simple + .container-xxl {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+}
+
 /* Remove ALL padding from first container after hero, including Bootstrap classes */
 .hero-simple + .container-xxl.pb-5,
 .hero-simple ~ .container-xxl.pb-5:first-of-type,
