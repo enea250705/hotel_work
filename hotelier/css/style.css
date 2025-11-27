@@ -208,6 +208,40 @@ body > .container-fluid {
     padding-bottom: 3rem !important; /* Keep bottom padding for content spacing */
 }
 
+/* ULTIMATE FIX - Target the exact structure in HTML and use negative margin to eliminate gap */
+body > .container-fluid > .hero-simple + .container-xxl,
+body > .container-fluid > .hero-simple ~ .container-xxl:first-of-type {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+    position: relative;
+    z-index: 1;
+}
+
+/* If there's still a gap, pull the first section up with negative margin */
+.hero-simple ~ .container-xxl:first-of-type {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+}
+
+/* Also remove any gap from the container-fluid wrapper */
+body > .container-fluid {
+    margin: 0;
+    padding: 0;
+}
+
+/* Make sure hero doesn't have any bottom spacing */
+.hero-simple {
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+/* Remove any whitespace/newline spacing between hero and next element */
+.hero-simple + * {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+    display: block; /* Ensure it's a block element */
+}
+
 /* Also target any element immediately after hero (universal selector) */
 .hero-simple + * {
     margin-top: 0 !important;
