@@ -411,11 +411,23 @@ body > .container-fluid {
 /* Carousel Fade - Smooth and beautiful transitions */
 .carousel-fade .carousel-item {
     opacity: 0;
-    transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: opacity 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: scale(1.05);
 }
 
 .carousel-fade .carousel-item.active {
     opacity: 1;
+    transform: scale(1);
+}
+
+.carousel-fade .carousel-item-next:not(.carousel-item-start),
+.carousel-fade .active.carousel-item-end {
+    transform: scale(1);
+}
+
+.carousel-fade .carousel-item-prev:not(.carousel-item-end),
+.carousel-fade .active.carousel-item-start {
+    transform: scale(1);
 }
 
 /* Smooth transitions for all carousel items */
