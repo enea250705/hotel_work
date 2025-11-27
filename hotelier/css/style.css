@@ -208,6 +208,12 @@ body > .container-fluid {
     margin-bottom: 0 !important;
 }
 
+/* Option 1: Force all sections after hero to flush up */
+.hero-simple ~ * {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+}
+
 /* Option 3: target the exact first section after hero */
 .hero-simple + .container-xxl {
     margin-top: 0 !important;
