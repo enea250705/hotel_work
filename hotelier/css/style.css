@@ -179,13 +179,23 @@ body > .container-fluid {
 }
 
 .hero-simple + .container-xxl,
-.hero-simple ~ .container-xxl {
+.hero-simple ~ .container-xxl,
+.hero-simple + div,
+.hero-simple ~ div {
     padding-top: 0 !important;
     margin-top: 0 !important;
 }
 
 /* Also target any container immediately after hero */
 .hero-simple + * {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+}
+
+/* Remove any default spacing from containers after hero */
+.hero-simple ~ .container-xxl .container,
+.hero-simple + .container-xxl .container {
+    padding-top: 0 !important;
     margin-top: 0 !important;
 }
 
