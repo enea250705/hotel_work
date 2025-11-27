@@ -319,6 +319,7 @@ body {
     height: 100%;
 }
 
+#hero-carousel.carousel-item,
 #hero-carousel .carousel-item {
     height: 100%;
     position: relative;
@@ -330,8 +331,9 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-size: cover;
-    background-position: center center;
+    background-size: cover !important;
+    background-position: center !important;
+    z-index: -1;
     background-repeat: no-repeat;
     transition: transform 10s ease-out, opacity 1.5s ease-in-out;
     will-change: transform, opacity;
