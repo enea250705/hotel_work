@@ -238,6 +238,29 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+    
+    <!-- Rooms Carousel Initialization -->
+    <script>
+        $(document).ready(function() {
+            if ($('.rooms-carousel').length) {
+                $('.rooms-carousel').owlCarousel({
+                    loop: true,
+                    margin: 0,
+                    nav: false,
+                    dots: false,
+                    autoplay: true,
+                    autoplayTimeout: 3000,
+                    autoplayHoverPause: true,
+                    animateOut: 'fadeOut',
+                    animateIn: 'fadeIn',
+                    smartSpeed: 1200,
+                    autoplaySpeed: 1200,
+                    items: 1,
+                    singleItem: true
+                });
+            }
+        });
+    </script>
 </body>
 
 </html>
