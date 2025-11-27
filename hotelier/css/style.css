@@ -165,12 +165,13 @@ body > .container-fluid {
 .hero-simple {
     position: relative;
     width: 100%;
-    height: 120vh;
-    min-height: 1100px;
+    height: 100vh;
+    min-height: 900px;
     overflow: hidden;
     margin-bottom: 0;
     padding-bottom: 0;
-    margin-top: 80px;
+    margin-top: 0;
+    padding-top: 0;
 }
 
 /* Consistent spacing after hero section - remove all spacing */
@@ -286,6 +287,7 @@ body {
     text-align: center;
     z-index: 2;
     padding: 3rem 2rem;
+    padding-top: 120px;
 }
 
 .hero-badge-elegant {
@@ -499,9 +501,13 @@ body {
 /* Responsive */
 @media (max-width: 991.98px) {
     .hero-simple {
-        height: 110vh;
-        min-height: 1000px;
-        margin-top: 60px;
+        height: 100vh;
+        min-height: 900px;
+        margin-top: 0;
+    }
+    
+    .hero-content-simple {
+        padding-top: 100px;
     }
     
     .hero-title-simple {
@@ -521,8 +527,12 @@ body {
 @media (max-width: 768px) {
     .hero-simple {
         height: 100vh;
-        min-height: 900px;
-        margin-top: 50px;
+        min-height: 800px;
+        margin-top: 0;
+    }
+    
+    .hero-content-simple {
+        padding-top: 80px;
     }
     
     .hero-title-simple {
@@ -568,9 +578,13 @@ body {
 
 @media (max-width: 576px) {
     .hero-simple {
-        height: 95vh;
-        min-height: 800px;
-        margin-top: 40px;
+        height: 100vh;
+        min-height: 700px;
+        margin-top: 0;
+    }
+    
+    .hero-content-simple {
+        padding-top: 70px;
     }
     
     .hero-title-simple {
