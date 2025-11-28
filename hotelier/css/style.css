@@ -95,6 +95,44 @@ body > .container-fluid {
     overscroll-behavior-y: contain;
 }
 
+/* Prevent scroll jumps when passing carousel sections */
+.container-xxl .owl-carousel,
+.container .owl-carousel {
+    position: relative;
+    min-height: 500px;
+    height: 500px;
+    margin: 0;
+    padding: 0;
+}
+
+/* Prevent layout shifts during carousel transitions */
+.owl-carousel .owl-stage-outer {
+    contain: layout style paint;
+}
+
+/* Prevent scroll position from being affected by carousel animations */
+.owl-carousel,
+.owl-carousel .owl-stage-outer,
+.owl-carousel .owl-stage {
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+    will-change: transform;
+}
+
+/* Prevent scroll jumps - lock carousel container heights */
+.container-xxl .owl-carousel,
+.container .owl-carousel {
+    contain: layout size style paint;
+}
+
+/* Ensure carousel sections don't affect scroll position */
+.container-xxl .container .owl-carousel,
+.container .owl-carousel {
+    position: relative;
+    min-height: 500px;
+    height: 500px;
+}
+
 .fw-medium {
     font-weight: 500 !important;
 }
@@ -577,21 +615,50 @@ body {
 .carousel-inner {
     overflow: hidden;
     -webkit-overflow-scrolling: touch;
+    height: 500px;
+    min-height: 500px;
 }
 
-/* Owl Carousel smooth transitions - prevent bouncing */
+.carousel-fade {
+    height: 500px;
+    min-height: 500px;
+    position: relative;
+}
+
+.carousel-fade .carousel-item {
+    height: 500px;
+    min-height: 500px;
+}
+
+.carousel-fade .carousel-item img {
+    height: 500px;
+    min-height: 500px;
+    object-fit: cover;
+    width: 100%;
+}
+
+/* Owl Carousel smooth transitions - prevent bouncing and scroll jumps */
+.owl-carousel {
+    position: relative;
+    min-height: 500px;
+    height: 500px;
+}
+
 .owl-carousel .owl-item {
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
     transform: translateZ(0);
     -webkit-transform: translateZ(0);
     will-change: transform;
+    position: relative;
 }
 
 .owl-carousel .owl-stage-outer {
     overflow: hidden;
     position: relative;
     -webkit-overflow-scrolling: touch;
+    height: 500px;
+    min-height: 500px;
 }
 
 .owl-carousel .owl-stage {
@@ -599,6 +666,22 @@ body {
     will-change: transform;
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
+    height: 500px;
+}
+
+.owl-carousel .item {
+    height: 500px;
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.owl-carousel .item img {
+    height: 500px;
+    min-height: 500px;
+    object-fit: cover;
+    width: 100%;
 }
 
 /* Responsive */

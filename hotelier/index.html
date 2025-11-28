@@ -55,23 +55,40 @@
         .container-fluid.bg-dark {
             background-color: #000000 !important;
         }
-        /* Fix Owl Carousel transitions - prevent bouncing */
+        /* Fix Owl Carousel transitions - prevent bouncing and scroll jumps */
+        .owl-carousel {
+            position: relative;
+            min-height: 500px;
+            height: 500px;
+        }
         .owl-carousel .owl-stage-outer {
             overflow: hidden;
             position: relative;
+            height: 500px;
+            min-height: 500px;
         }
         .owl-carousel .owl-stage {
             display: flex;
             will-change: transform;
+            height: 500px;
         }
         .owl-carousel .owl-item {
             backface-visibility: hidden;
             -webkit-backface-visibility: hidden;
             transform: translateZ(0);
             -webkit-transform: translateZ(0);
+            position: relative;
         }
         .owl-carousel .item {
             display: block;
+            width: 100%;
+            height: 500px;
+            min-height: 500px;
+        }
+        .owl-carousel .item img {
+            height: 500px;
+            min-height: 500px;
+            object-fit: cover;
             width: 100%;
         }
         .owl-dots {
@@ -509,10 +526,15 @@
                         autoplaySpeed: 800,
                         items: 1,
                         singleItem: true,
-                        touchDrag: true,
-                        mouseDrag: true,
-                        pullDrag: true,
-                        freeDrag: false
+                        touchDrag: false,
+                        mouseDrag: false,
+                        pullDrag: false,
+                        freeDrag: false,
+                        onInitialized: function() {
+                            // Lock height to prevent scroll jumps
+                            $(this).css('height', '500px');
+                            $(this).find('.owl-stage-outer').css('height', '500px');
+                        }
                     });
                 }
                 
@@ -532,10 +554,15 @@
                         autoplaySpeed: 800,
                         items: 1,
                         singleItem: true,
-                        touchDrag: true,
-                        mouseDrag: true,
-                        pullDrag: true,
-                        freeDrag: false
+                        touchDrag: false,
+                        mouseDrag: false,
+                        pullDrag: false,
+                        freeDrag: false,
+                        onInitialized: function() {
+                            // Lock height to prevent scroll jumps
+                            $(this).css('height', '500px');
+                            $(this).find('.owl-stage-outer').css('height', '500px');
+                        }
                     });
                 }
                 
@@ -555,10 +582,15 @@
                         autoplaySpeed: 800,
                         items: 1,
                         singleItem: true,
-                        touchDrag: true,
-                        mouseDrag: true,
-                        pullDrag: true,
-                        freeDrag: false
+                        touchDrag: false,
+                        mouseDrag: false,
+                        pullDrag: false,
+                        freeDrag: false,
+                        onInitialized: function() {
+                            // Lock height to prevent scroll jumps
+                            $(this).css('height', '500px');
+                            $(this).find('.owl-stage-outer').css('height', '500px');
+                        }
                     });
                 }
                 
@@ -578,10 +610,15 @@
                         autoplaySpeed: 800,
                         items: 1,
                         singleItem: true,
-                        touchDrag: true,
-                        mouseDrag: true,
-                        pullDrag: true,
-                        freeDrag: false
+                        touchDrag: false,
+                        mouseDrag: false,
+                        pullDrag: false,
+                        freeDrag: false,
+                        onInitialized: function() {
+                            // Lock height to prevent scroll jumps
+                            $(this).css('height', '500px');
+                            $(this).find('.owl-stage-outer').css('height', '500px');
+                        }
                     });
                 }
             }, 100);
