@@ -1,10 +1,12 @@
 /********** Template CSS **********/
-/* Smooth scrolling for entire page */
+/* Smooth scrolling for entire page - fix bouncing */
 html {
     scroll-behavior: smooth;
     overflow-x: hidden;
     width: 100%;
     max-width: 100vw;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-y: contain;
 }
 
 body {
@@ -13,6 +15,8 @@ body {
     width: 100%;
     max-width: 100vw;
     position: relative;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-y: contain;
 }
 
 :root {
@@ -59,6 +63,8 @@ body > .container-fluid {
     padding-right: 0;
     overflow-x: hidden;
     width: 100%;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-y: contain;
 }
 
 /* Ensure header and hero are full width */
@@ -69,12 +75,24 @@ body > .container-fluid {
     max-width: 100% !important;
     margin-left: 0 !important;
     margin-right: 0 !important;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
 }
 
 body > .container-fluid {
     width: 100% !important;
     max-width: 100% !important;
     overflow-x: hidden !important;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-y: contain;
+}
+
+/* Prevent bouncing in all containers */
+.container-xxl,
+.container {
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-y: contain;
 }
 
 .fw-medium {
@@ -527,40 +545,60 @@ body {
     filter: brightness(0) invert(1);
 }
 
-/* Carousel Fade - Smooth and beautiful transitions */
+/* Carousel Fade - Smooth and beautiful transitions - prevent bouncing */
 .carousel-fade .carousel-item {
     opacity: 0;
-    transition: opacity 1.5s cubic-bezier(0.4, 0, 0.2, 1);
-    transform: scale(1.05);
+    transition: opacity 0.8s ease-in-out;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
 }
 
 .carousel-fade .carousel-item.active {
     opacity: 1;
-    transform: scale(1);
 }
 
 .carousel-fade .carousel-item-next:not(.carousel-item-start),
 .carousel-fade .active.carousel-item-end {
-    transform: scale(1);
+    transform: none;
 }
 
 .carousel-fade .carousel-item-prev:not(.carousel-item-end),
 .carousel-fade .active.carousel-item-start {
-    transform: scale(1);
+    transform: none;
 }
 
-/* Smooth transitions for all carousel items */
+/* Smooth transitions for all carousel items - prevent bouncing */
 .carousel-item {
-    transition: opacity 1.5s cubic-bezier(0.4, 0, 0.2, 1), transform 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: opacity 0.8s ease-in-out;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
 }
 
-/* Owl Carousel smooth transitions */
+.carousel-inner {
+    overflow: hidden;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Owl Carousel smooth transitions - prevent bouncing */
 .owl-carousel .owl-item {
-    transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+    will-change: transform;
 }
 
 .owl-carousel .owl-stage-outer {
-    transition: transform 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+    position: relative;
+    -webkit-overflow-scrolling: touch;
+}
+
+.owl-carousel .owl-stage {
+    display: flex;
+    will-change: transform;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
 }
 
 /* Responsive */
@@ -1009,6 +1047,9 @@ body {
     margin-top: 0 !important;
     padding-top: 0 !important;
     background-color: transparent !important;
+    overflow: hidden;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-y: contain;
 }
 
 .footer.bg-dark {

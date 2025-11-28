@@ -55,18 +55,24 @@
         .container-fluid.bg-dark {
             background-color: #000000 !important;
         }
-        .owl-carousel .item {
-            opacity: 0;
-            transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+        /* Fix Owl Carousel transitions - prevent bouncing */
+        .owl-carousel .owl-stage-outer {
+            overflow: hidden;
+            position: relative;
         }
-        .owl-carousel .item.active {
-            opacity: 1;
+        .owl-carousel .owl-stage {
+            display: flex;
+            will-change: transform;
         }
         .owl-carousel .owl-item {
-            transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+            transform: translateZ(0);
+            -webkit-transform: translateZ(0);
         }
-        .owl-carousel .owl-item.active .item {
-            opacity: 1;
+        .owl-carousel .item {
+            display: block;
+            width: 100%;
         }
         .owl-dots {
             display: none !important;
@@ -74,13 +80,7 @@
         .owl-dots .owl-dot {
             display: none !important;
         }
-        .carousel-fade .carousel-item {
-            opacity: 0;
-            transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .carousel-fade .carousel-item.active {
-            opacity: 1;
-        }
+        /* Fix Bootstrap carousel fade transitions */
         .carousel-fade .carousel-item {
             opacity: 0;
             transition: opacity 0.8s ease-in-out;
@@ -198,7 +198,7 @@
         <!-- Room Start -->
         <div class="container-xxl py-5">
             <div class="container">
-                <div class="owl-carousel rooms-carousel" style="max-width: 100%;">
+                <div class="owl-carousel rooms-carousel" style="max-width: 100%; overflow: hidden;">
                     <div class="item">
                         <img class="img-fluid w-100" src="img/room-1.jpg" alt="Camera" style="height: 500px; object-fit: cover;">
                     </div>
@@ -271,7 +271,7 @@
                     <h6 class="section-title text-center text-primary text-uppercase">Il Nostro Ristorante</h6>
                     <h1 class="mb-5">Esplora Il Nostro <span class="text-primary text-uppercase">Ristorante</span></h1>
                 </div>
-                <div class="owl-carousel restaurant-carousel" style="max-width: 100%;">
+                <div class="owl-carousel restaurant-carousel" style="max-width: 100%; overflow: hidden;">
                     <div class="item">
                         <img class="img-fluid w-100" src="img/restaurant-1.jpg" alt="Ristorante" style="height: 500px; object-fit: cover;">
                     </div>
@@ -318,7 +318,7 @@
                     <h6 class="section-title text-center text-primary text-uppercase">I Nostri Menu</h6>
                     <h1 class="mb-5">Scopri Le Nostre <span class="text-primary text-uppercase">Specialità</span></h1>
                 </div>
-                <div class="owl-carousel menu-carousel" style="max-width: 100%;">
+                <div class="owl-carousel menu-carousel" style="max-width: 100%; overflow: hidden;">
                     <div class="item">
                         <img class="img-fluid w-100" src="img/menu-1.jpg" alt="Menu" style="height: 500px; object-fit: cover;">
                     </div>
@@ -353,7 +353,7 @@
                     <h6 class="section-title text-center text-primary text-uppercase">Servizio</h6>
                     <h1 class="mb-5">Il Nostro <span class="text-primary text-uppercase">Servizio</span></h1>
                 </div>
-                <div class="owl-carousel serving-carousel" style="max-width: 100%;">
+                <div class="owl-carousel serving-carousel" style="max-width: 100%; overflow: hidden;">
                     <div class="item">
                         <img class="img-fluid w-100" src="img/serving-1.jpg" alt="Servizio" style="height: 500px; object-fit: cover;">
                     </div>
@@ -505,10 +505,14 @@
                         autoplayHoverPause: true,
                         animateOut: 'fadeOut',
                         animateIn: 'fadeIn',
-                        smartSpeed: 1200,
-                        autoplaySpeed: 1200,
+                        smartSpeed: 800,
+                        autoplaySpeed: 800,
                         items: 1,
-                        singleItem: true
+                        singleItem: true,
+                        touchDrag: true,
+                        mouseDrag: true,
+                        pullDrag: true,
+                        freeDrag: false
                     });
                 }
                 
@@ -524,10 +528,14 @@
                         autoplayHoverPause: true,
                         animateOut: 'fadeOut',
                         animateIn: 'fadeIn',
-                        smartSpeed: 1200,
-                        autoplaySpeed: 1200,
+                        smartSpeed: 800,
+                        autoplaySpeed: 800,
                         items: 1,
-                        singleItem: true
+                        singleItem: true,
+                        touchDrag: true,
+                        mouseDrag: true,
+                        pullDrag: true,
+                        freeDrag: false
                     });
                 }
                 
@@ -543,10 +551,14 @@
                         autoplayHoverPause: true,
                         animateOut: 'fadeOut',
                         animateIn: 'fadeIn',
-                        smartSpeed: 1200,
-                        autoplaySpeed: 1200,
+                        smartSpeed: 800,
+                        autoplaySpeed: 800,
                         items: 1,
-                        singleItem: true
+                        singleItem: true,
+                        touchDrag: true,
+                        mouseDrag: true,
+                        pullDrag: true,
+                        freeDrag: false
                     });
                 }
                 
@@ -562,10 +574,14 @@
                         autoplayHoverPause: true,
                         animateOut: 'fadeOut',
                         animateIn: 'fadeIn',
-                        smartSpeed: 1200,
-                        autoplaySpeed: 1200,
+                        smartSpeed: 800,
+                        autoplaySpeed: 800,
                         items: 1,
-                        singleItem: true
+                        singleItem: true,
+                        touchDrag: true,
+                        mouseDrag: true,
+                        pullDrag: true,
+                        freeDrag: false
                     });
                 }
             }, 100);
