@@ -1,0 +1,5 @@
+# Cartelle molto pesanti (evitano timeout push)
+photos_hotel/
+hotelier/img_backup/
+
+replace_token.ps1

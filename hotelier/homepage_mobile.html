@@ -1,0 +1,1937 @@
+<!DOCTYPE html>
+<html lang="en" class="" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <script type="text/javascript">
+    window._currentDevice = 'mobile';
+    window.Parameters = window.Parameters || {
+        HomeUrl: 'https://www.hotelplazavenice.com/',
+        AccountUUID: '0b1f513a7785432e9f1dc25d202f887c',
+        SystemID: 'US_DIRECT_PRODUCTION',
+        SiteAlias: '8f5df2ca',
+        SiteType: atob('RFVEQU9ORQ=='),
+        PublicationDate: 'Fri Oct 24 07:32:10 UTC 2025',
+        ExternalUid: null,
+        IsSiteMultilingual: true,
+        InitialPostAlias: '',
+        InitialPostPageUuid: '',
+        InitialDynamicItem: '',
+        DynamicPageInfo: {
+            isDynamicPage: false,
+            base64JsonRowData: 'null',
+        },
+        InitialPageAlias: 'home',
+        InitialPageUuid: 'f56ef18fe61f4bed9fb5b6bc76330d4c',
+        InitialPageId: '34542675',
+        InitialEncodedPageAlias: 'aG9tZQ==',
+        InitialHeaderUuid: 'ab6c30bebfbc4247967c78c081d2e91d',
+        CurrentPageUrl: '',
+        IsCurrentHomePage: true,
+        AllowAjax: false,
+        AfterAjaxCommand: null,
+        HomeLinkText: 'Back To Home',
+        UseGalleryModule: false,
+        CurrentThemeName: 'Layout Theme',
+        ThemeVersion: '500000',
+        DefaultPageAlias: '',
+        RemoveDID: true,
+        WidgetStyleID: null,
+        IsHeaderFixed: false,
+        IsHeaderSkinny: false,
+        IsBfs: true,
+        StorePageAlias: 'null',
+        StorePagesUrls: 'e30=',
+        IsNewStore: 'false',
+        StorePath: '',
+        StoreId: 'null',
+        StoreVersion: 0,
+        StoreBaseUrl: '',
+        StoreCleanUrl: true,
+        StoreDisableScrolling: true,
+        IsStoreSuspended: false,
+        HasCustomDomain: true,
+        SimpleSite: false,
+        showCookieNotification: false,
+        cookiesNotificationMarkup: 'null',
+        translatedPageUrl: '',
+        isFastMigrationSite: false,
+        sidebarPosition: 'NA',
+        currentLanguage: 'en',
+        currentLocale: 'en-gb',
+        NavItems: '{}',
+        errors: {
+            general: 'There was an error connecting to the page.<br/> Make sure you are not offline.',
+            password: 'Incorrect name/password combination',
+            tryAgain: 'Try again'
+        },
+        NavigationAreaParams: {
+            ShowBackToHomeOnInnerPages: true,
+            NavbarSize: 5,
+            NavbarLiveHomePage: 'https://www.hotelplazavenice.com/',
+            BlockContainerSelector: '.dmBody',
+            NavbarSelector: '#dmNav:has(a)',
+            SubNavbarSelector: '#subnav_main'
+        },
+        hasCustomCode: true,
+        planID: '7',
+        customTemplateId: 'null',
+        siteTemplateId: 'null',
+        productId: 'DM_DIRECT',
+        disableTracking: false,
+        pageType: 'FROM_SCRATCH',
+        isRuntimeServer: true,
+        isInEditor: false,
+        hasNativeStore: false,
+        defaultLang: 'en-gb',
+        hamburgerMigration: null,
+        isFlexSite: false
+    };
+
+    window.Parameters.LayoutID = {};
+    window.Parameters.LayoutID[window._currentDevice] = 22;
+    window.Parameters.LayoutVariationID = {};
+    window.Parameters.LayoutVariationID[window._currentDevice] = 5;
+</script><!-- Injecting site-wide to the head -->
+    <!-- End Injecting site-wide to the head -->
+    <!-- Inject secured cdn script -->
+    <!-- ========= Meta Tags ========= -->
+    <!-- PWA settings -->
+    <script>
+    function toHash(str) {
+        var hash = 5381, i = str.length;
+        while (i) {
+            hash = hash * 33 ^ str.charCodeAt(--i)
+        }
+        return hash >>> 0
+    }
+</script>
+    <script>
+    (function (global) {
+    //const cacheKey = global.cacheKey;
+    const isOffline = 'onLine' in navigator && navigator.onLine === false;
+    const hasServiceWorkerSupport = 'serviceWorker' in navigator;
+    if (isOffline) {
+        console.log('offline mode');
+    }
+    if (!hasServiceWorkerSupport) {
+        console.log('service worker is not supported');
+    }
+    if (hasServiceWorkerSupport && !isOffline) {
+        window.addEventListener('load', function () {
+            const serviceWorkerPath = '/runtime-service-worker.js?v=3';
+            navigator.serviceWorker
+                .register(serviceWorkerPath, { scope: './' })
+                .then(
+                    function (registration) {
+                        // Registration was successful
+                        console.log(
+                            'ServiceWorker registration successful with scope: ',
+                            registration.scope
+                        );
+                    },
+                    function (err) {
+                        // registration failed :(
+                        console.log('ServiceWorker registration failed: ', err);
+                    }
+                )
+                .catch(function (err) {
+                    console.log(err);
+                });
+        });
+
+        // helper function to refresh the page
+        var refreshPage = (function () {
+            var refreshing;
+            return function () {
+                if (refreshing) return;
+                // prevent multiple refreshes
+                var refreshkey = 'refreshed' + location.href;
+                var prevRefresh = localStorage.getItem(refreshkey);
+                if (prevRefresh) {
+                    localStorage.removeItem(refreshkey);
+                    if (Date.now() - prevRefresh < 30000) {
+                        return; // dont go into a refresh loop
+                    }
+                }
+                refreshing = true;
+                localStorage.setItem(refreshkey, Date.now());
+                console.log('refereshing page');
+                window.location.reload();
+            };
+        })();
+
+        function messageServiceWorker(data) {
+            return new Promise(function (resolve, reject) {
+                if (navigator.serviceWorker.controller) {
+                    var worker = navigator.serviceWorker.controller;
+                    var messageChannel = new MessageChannel();
+                    messageChannel.port1.onmessage = replyHandler;
+                    worker.postMessage(data, [messageChannel.port2]);
+                    function replyHandler(event) {
+                        resolve(event.data);
+                    }
+                } else {
+                    resolve();
+                }
+            });
+        }
+    }
+})(window);
+</script><!-- Add manifest -->
+    <!-- End PWA settings -->
+    <link href="https://www.hotelplazavenice.com/" rel="canonical" />
+    <meta content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=5, viewport-fit=cover"
+
+      name="viewport" id="view" />
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <!--Add favorites icons-->
+    <link href="https://irp.cdn-website.com/8f5df2ca/site_favicon_16_1695822094010.ico"
+
+      type="image/x-icon" rel="apple-touch-icon" />
+    <!-- End favorite icons -->
+    <link href="https://lirp.cdn-website.com/" rel="preconnect" />
+    <!-- render the required CSS and JS in the head section -->
+    <script id="d-js-dmapi">
+    window.SystemID = 'US_DIRECT_PRODUCTION';
+
+    if (!window.dmAPI) {
+        window.dmAPI = {
+            registerExternalRuntimeComponent: function () {
+            },
+            getCurrentDeviceType: function () {
+                return window._currentDevice;
+            },
+            runOnReady: (ns, fn) => {
+                const safeFn = dmAPI.toSafeFn(fn);
+                ns = ns || 'global_' + Math.random().toString(36).slice(2, 11);
+                const eventName = 'afterAjax.' + ns;
+
+                if (document.readyState === 'complete') {
+                    $.DM.events.off(eventName).on(eventName, safeFn);
+                    setTimeout(function () {
+                        safeFn({
+                            isAjax: false,
+                        });
+                    }, 0);
+                } else {
+                    window?.waitForDeferred?.('dmAjax', () => {
+                        $.DM.events.off(eventName).on(eventName, safeFn);
+                        safeFn({
+                            isAjax: false,
+                        });
+                    });
+                }
+            },
+            toSafeFn: (fn) => {
+                if (fn?.safe) {
+                    return fn;
+                }
+                const safeFn = function (...args) {
+                    try {
+                        return fn?.apply(null, args);
+                    } catch (e) {
+                        console.log('function failed ' + e.message);
+                    }
+                };
+                safeFn.safe = true;
+                return safeFn;
+            }
+        };
+    }
+
+    if (!window.requestIdleCallback) {
+        window.requestIdleCallback = function (fn) {
+            setTimeout(fn, 0);
+        }
+    }
+</script><!-- loadCSS function header.jsp-->
+    <script id="d-js-load-css">
+/**
+ * There are a few <link> tags with CSS resource in them that are preloaded in the page
+ * in each of those there is a "onload" handler which invokes the loadCSS callback
+ * defined here.
+ * We are monitoring 3 main CSS files - the runtime, the global and the page.
+ * When each load we check to see if we can append them all in a batch. If threre
+ * is no page css (which may happen on inner pages) then we do not wait for it
+ */
+(function () {
+  let cssLinks = {};
+  function loadCssLink(link) {
+    link.onload = null;
+    link.rel = "stylesheet";
+    link.type = "text/css";
+  }
+  
+    function checkCss() {
+      const pageCssLink = document.querySelector("[id*='CssLink']");
+      const widgetCssLink = document.querySelector("[id*='widgetCSS']");
+
+        if (cssLinks && cssLinks.runtime && cssLinks.global && (!pageCssLink || cssLinks.page) && (!widgetCssLink || cssLinks.widget)) {
+            const storedRuntimeCssLink = cssLinks.runtime;
+            const storedPageCssLink = cssLinks.page;
+            const storedGlobalCssLink = cssLinks.global;
+            const storedWidgetCssLink = cssLinks.widget;
+
+            storedGlobalCssLink.disabled = true;
+            loadCssLink(storedGlobalCssLink);
+
+            if (storedPageCssLink) {
+                storedPageCssLink.disabled = true;
+                loadCssLink(storedPageCssLink);
+            }
+
+            if(storedWidgetCssLink) {
+                storedWidgetCssLink.disabled = true;
+                loadCssLink(storedWidgetCssLink);
+            }
+
+            storedRuntimeCssLink.disabled = true;
+            loadCssLink(storedRuntimeCssLink);
+
+            requestAnimationFrame(() => {
+                setTimeout(() => {
+                    storedRuntimeCssLink.disabled = false;
+                    storedGlobalCssLink.disabled = false;
+                    if (storedPageCssLink) {
+                      storedPageCssLink.disabled = false;
+                    }
+                    if (storedWidgetCssLink) {
+                      storedWidgetCssLink.disabled = false;
+                    }
+                    // (SUP-4179) Clear the accumulated cssLinks only when we're
+                    // sure that the document has finished loading and the document 
+                    // has been parsed.
+                    if(document.readyState === 'interactive') {
+                      cssLinks = null;
+                    }
+                }, 0);
+            });
+        }
+    }
+  
+
+  function loadCSS(link) {
+    try {
+      var urlParams = new URLSearchParams(window.location.search);
+      var noCSS = !!urlParams.get("nocss");
+      var cssTimeout = urlParams.get("cssTimeout") || 0;
+
+      if (noCSS) {
+        return;
+      }
+      if (link.href && link.href.includes("d-css-runtime")) {
+        cssLinks.runtime = link;
+        checkCss();
+      } else if (link.id === "siteGlobalCss") {
+        cssLinks.global = link;
+        checkCss();
+      } 
+      
+      else if (link.id && link.id.includes("CssLink")) {
+        cssLinks.page = link;
+        checkCss();
+      } else if (link.id && link.id.includes("widgetCSS")) {
+        cssLinks.widget = link;
+        checkCss();
+      }
+      
+      else {
+        requestIdleCallback(function () {
+          window.setTimeout(function () {
+            loadCssLink(link);
+          }, parseInt(cssTimeout, 10));
+        });
+      }
+    } catch (e) {
+      throw e
+    }
+  }
+  window.loadCSS = window.loadCSS || loadCSS;
+})();
+</script>
+    <script type="text/javascript" data-role="deferred-init">
+    /* usage: window.getDeferred(<deferred name>).resolve() or window.getDeferred(<deferred name>).promise.then(...)*/
+    function Def() {
+        this.promise = new Promise((function (a, b) {
+            this.resolve = a, this.reject = b
+        }).bind(this))
+    }
+
+    const defs = {};
+    window.getDeferred = function (a) {
+        return null == defs[a] && (defs[a] = new Def), defs[a]
+    }
+    window.waitForDeferred = function (b, a, c) {
+        let d = window?.getDeferred?.(b);
+        d
+            ? d.promise.then(a)
+            : c && ["complete", "interactive"].includes(document.readyState)
+                ? setTimeout(a, 1)
+                : c
+                    ? document.addEventListener("DOMContentLoaded", a)
+                    : console.error(`Deferred  does not exist`);
+    };
+</script>
+    <style id="forceCssIncludes">
+    /* This file is auto-generated from a `scss` file with the same name */
+
+.videobgwrapper{overflow:hidden;position:absolute;z-index:0;width:100%;height:100%;top:0;left:0;pointer-events:none;border-radius:inherit}.videobgframe{position:absolute;width:101%;height:100%;top:50%;left:50%;transform:translateY(-50%) translateX(-50%);object-fit:fill}#dm video.videobgframe{margin:0}@media (max-width:767px){.dmRoot .dmPhotoGallery.newPhotoGallery:not(.photo-gallery-done){min-height:80vh}}@media (min-width:1025px){.dmRoot .dmPhotoGallery.newPhotoGallery:not(.photo-gallery-done){min-height:45vh}}@media (min-width:768px) and (max-width:1024px){.responsiveTablet .dmPhotoGallery.newPhotoGallery:not(.photo-gallery-done){min-height:45vh}}#dm [data-show-on-page-only]{display:none!important}#dmRoot div.stickyHeaderFix div.site_content{margin-top:0!important}#dmRoot div.stickyHeaderFix div.hamburger-header-container{position:relative}
+    #dmRoot div.site_content {
+    margin-top: 92px !important;
+}
+
+
+</style>
+    <style type="text/css" id="cssVariables">
+    :root {
+  --color_1: rgba(54, 54, 54, 1);
+  --color_2: rgba(255,255,255,1);
+  --color_3: rgba(255,0,56,1);
+}
+</style>
+    <style id="hideAnimFix">
+  .dmDesktopBody:not(.editGrid) [data-anim-desktop]:not([data-anim-desktop='none']), .dmDesktopBody:not(.editGrid) [data-anim-extended] {
+    visibility: hidden;
+  }
+
+  .dmDesktopBody:not(.editGrid) .dmNewParagraph[data-anim-desktop]:not([data-anim-desktop='none']), .dmDesktopBody:not(.editGrid) .dmNewParagraph[data-anim-extended] {
+    visibility: hidden !important;
+  }
+
+
+  #dmRoot:not(.editGrid) .flex-element [data-anim-extended] {
+    visibility: hidden;
+  }
+
+</style>
+    <style id="criticalCss">
+    @charset "UTF-8";.clearfix:after,.clearfix:before,.dmRespRow:after,.dmRespRow:before,.slides:after{content:" "}@font-face{font-family:FontAwesome;font-display:block;src:url(https://static.cdn-website.com/fonts/fontawesome-webfont.eot?v=6);src:url(https://static.cdn-website.com/fonts/fontawesome-webfont.eot?#iefix&v=6) format("embedded-opentype"),url(https://static.cdn-website.com/fonts/fontawesome-webfont.woff?v=6) format("woff"),url(https://static.cdn-website.com/fonts/fontawesome-webfont.ttf?v=6) format("truetype"),url(https://static.cdn-website.com/fonts/fontawesome-webfont.svg#fontawesomeregular?v=6) format("svg");font-weight:400;font-style:normal}@font-face{font-family:dm-font;font-display:block;src:url(https://static.cdn-website.com/fonts/dm-font.woff?v=12) format("woff"),url(https://static.cdn-website.com/fonts/dm-font.ttf?v=12) format("truetype"),url(https://static.cdn-website.com/fonts/dm-font.svg?v=12#dm-font) format("svg");font-weight:400;font-style:normal}@font-face{font-family:'Source Sans Pro';font-style:normal;font-weight:700;font-display:swap;src:url(https://irp.cdn-website.com/fonts/s/sourcesanspro/v23/6xKydSBYKcSV-LCoeQqfX1RYOo3ig4vwlxdu.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:Raleway;font-style:normal;font-weight:100 900;font-display:swap;src:url(https://irp.cdn-website.com/fonts/s/raleway/v37/1Ptug8zYS_SKggPNyC0ITw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Abril Fatface';font-style:normal;font-weight:400;font-display:swap;src:url(https://irp.cdn-website.com/fonts/s/abrilfatface/v25/zOL64pLDlL1D99S8g8PtiKchq-dmjQ.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}:root{--color_1:rgba(54, 54, 54, 1);--color_2:rgba(255,255,255,1);--color_3:rgba(255,0,56,1)}.dmInner{min-height:100vh!important;position:relative}[dmtemplateid*=amburger] .dmLayoutWrapper{overflow:hidden}#dmRoot.dmMobileBody #dm .dmOuter :not(.dmInner){background-attachment:scroll!important}.clearfix:after{clear:both;visibility:hidden;line-height:0;height:0}.clearfix:after,.clearfix:before{display:table}.clearfix{display:inline-block}#dm .dmWidget .icon{font-size:26px}body.dmRoot #dm .dmOuter .dmInner .dmWidget .icon.hasFontIcon{height:26px;margin-top:-13px;line-height:normal;text-align:center;background-image:none}#dm .dmBody div.u_place,#dm .p_hfcontainer a.u_1777798433,.dmRoot .hasFontIcon{background-image:none!important}.dmPopupMask{position:fixed;margin:0;display:none;width:10px;z-index:1000000999;top:0;left:0}#dmRoot .dmPopup,.dmPopup,.dmPopupClose:before,[data-display-type=block]{display:block}.dmPopup{text-align:left;position:fixed;top:10px;left:0;width:93%;z-index:1000009999!important;box-sizing:border-box;background:#f5f5f5;overflow-y:auto;height:100%}.dmPopup .dmPopupTitle{text-align:left;font:700 19px Helvetica,Arial;margin:20px 20px 35px;color:#999}#dmPopup{opacity:0}.dmPopupClose,.dmPopupClose:before{position:absolute;visibility:visible}#dm .dmBackToTop,#dm .sticky-widgets-container-global [data-element-type]{position:fixed!important}.dmPopupClose{border-radius:25px;width:27px;height:27px;z-index:1;background-color:rgba(255,255,255,.4);top:12px;right:12px}.dmPopupClose:before{font-size:20px;color:#000;top:3px;right:3px}#dm .header-over-content .site_content{margin-top:0!important}[class*=" dm-icon-"]:before{font-family:dm-font!important}[data-background-parallax-selector] .multilingualWidget{margin-top:10px}.dmMobileBody [data-background-parallax-selector] .multilingualWidget{margin-top:0}.dmRespRow.fullBleedMode>.dmRespColsWrapper{width:100%!important;max-width:100%!important}.dmRespRow.fullBleedMode{padding-left:0!important;padding-right:0!important}#dm .dmRespRow .dmRespColsWrapper{display:flex}.dmMobileBody #dm .dmRespRow .dmRespColsWrapper{flex-wrap:wrap}#dm .dmInner .dmWidget.align-center,.align-center{margin-left:auto;margin-right:auto}body.fix-mobile-scrolling{overflow:initial}#dmRoot{text-decoration-skip-ink:none}@media (max-width:767px){#dmRoot.responsiveTablet #dm .dmInner .hide-for-small{display:none!important}}#dm .flexslider[sliderscriptparams*="'isFade':true"] .slides li{width:100%!important;float:left!important;margin-right:-100%!important;position:relative!important}#dm .flexslider .slides li:first-child>a>img,#dm .flexslider .slides li:first-child>img{width:100%;height:100%;object-fit:contain;position:absolute;display:block}#dm .flexslider[sliderscriptparams*="'stretch':true"] .slides li:first-child img{object-fit:cover}body{-webkit-overflow-scrolling:touch}:not(.runtime-module-container) .layout-drawer,:not(.runtime-module-container) .layout-drawer-hamburger,:not(.runtime-module-container) .layout-drawer-overlay{visibility:hidden}:not(.runtime-module-container) .layout-drawer{position:fixed;transform:translate(-100%,-100%)}:not(.runtime-module-container) .layout-drawer-overlay{opacity:0}.runtime-module-container{width:100%}.runtime-module-container[dmtemplateid*=amburger] #site_content,.runtime-module-container[dmtemplateid*=amburger] .dmInner{position:static}.runtime-module-container[dmtemplateid*=amburger] #site_content .site_content{position:relative}.runtime-module-container[dmtemplateid*=amburger] .dmLayoutWrapper{background-color:transparent}.runtime-module-container .hamburger-header-container{position:fixed;z-index:2;top:0;left:0;width:100%}.runtime-module-container .hamburger-header-container .hamburger-header{min-height:43px}.runtime-module-container .layout-drawer,.runtime-module-container .layout-drawer-hamburger,.runtime-module-container .layout-drawer-overlay{visibility:visible}.runtime-module-container[dmtemplateid*=amburger] .site_content{margin-top:59px}.runtime-module-container .layout-drawer,.runtime-module-container .layout-drawer-overlay{height:100%;position:fixed;top:0;left:0}.runtime-module-container .layout-drawer{background-color:#fff;width:75vw;transform:translate(-100%,0);overflow:auto;-webkit-overflow-scrolling:auto;z-index:13;display:flex;flex-direction:column}.runtime-module-container .layout-drawer .dmRespRow:not(.dmPlaceHolderRespRow) .dmRespColsWrapper .dmRespCol:not(.content-removed):only-child:empty{min-height:0}.runtime-module-container .layout-drawer[data-origin=top]{min-height:20vh;min-width:40vw;max-height:100%;height:auto;width:100%;transform:translate(0,-100%)}.runtime-module-container .layout-drawer[data-origin=top]#mobile-hamburger-drawer{min-height:40vh}.runtime-module-container .layout-drawer[data-origin=top][data-auto-height]{height:auto}.runtime-module-container .layout-drawer-overlay{width:100vw;background-color:rgba(0,0,0,.4);opacity:0;z-index:6}.runtime-module-container.layout-drawer_fixed-header #dmFirstContainer,.runtime-module-container.layout-drawer_fixed-header #hamburger-header-container{z-index:7}.runtime-module-container.layout-drawer_fixed-header #hamburger-header-container{background-color:#fff}.runtime-module-container.layout-drawer_fixed-header .layout-drawer{opacity:1}.runtime-module-container.layout-drawer_fixed-header .layout-drawer:not([open]){opacity:0}body:not([data-flex-site]) .layout-drawer .dmRespRow:not(:first-of-type):not(:last-of-type){flex:1 1 auto}.layout-drawer-hamburger{background:0 0;-webkit-appearance:none;appearance:none;position:fixed;left:18px;margin-left:env(safe-area-inset-left);padding:17px 11px;z-index:14;width:52px;height:52px;color:#787878;display:flex;flex-direction:column;border:0;justify-content:space-between;align-items:stretch;top:18px;border-radius:0}.layout-drawer-hamburger:not(:focus){outline:unset}.layout-drawer-hamburger .hamburger__slice{display:block;height:0;width:100%;border:1px solid currentColor;transform-origin:center}@media (max-width:767px){.layout-drawer-hamburger{background:0 0;-webkit-appearance:none;appearance:none;position:fixed;left:10px;margin-left:env(safe-area-inset-left);padding:13px 9px;z-index:14;width:40px;height:40px;color:#787878;display:flex;flex-direction:column;border:0;justify-content:space-between;align-items:stretch;top:10px;border-radius:0}.layout-drawer-hamburger:not(:focus){outline:unset}.layout-drawer-hamburger .hamburger__slice{display:block;height:0;width:100%;border:1px solid currentColor;transform-origin:center}}#dm-outer-wrapper #hamburger-header-container #mobile-hamburger-header .dmRespRow .dmRespCol{display:flex;flex-direction:column;justify-content:center}#dm-outer-wrapper #hamburger-header-container #mobile-hamburger-header .dmRespRow .dmRespCol [data-element-type=dButtonLinkId] .text{padding:0!important}nav{display:block}html{font-family:Source Sans Pro;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%}img{border:0;max-width:100%;-ms-interpolation-mode:bicubic;display:inline-block}svg:not(:root){overflow:hidden}button{font-family:inherit;font-size:100%;margin:0;line-height:normal;text-transform:none;-webkit-appearance:button}button::-moz-focus-inner{border:0;padding:0}*,:after,:before{box-sizing:border-box}.dmRespRow{padding-top:15px;padding-bottom:15px}.dmRespRow:after,.dmRespRow:before{display:table}.dmRespRow:after{clear:both}.dmRespRow,.dmRespRow .dmRespColsWrapper{max-width:960px;position:relative;margin:0 auto;width:100%}.dmRespRow .dmRespCol{position:relative;width:100%;display:inline-block;vertical-align:top;float:left}.dmRespRow .dmRespCol>*{max-width:100%}.dmMobileBody .dmRespRow .dmRespCol{position:relative;padding-left:15px;padding-right:15px;float:left}.dmMobileBody .dmRespRow .small-2{position:relative;width:16.66667%}.dmMobileBody .dmRespRow .small-4{position:relative;width:33.33333%}.dmMobileBody .dmRespRow .small-6{position:relative;width:50%}.dmMobileBody .dmRespRow .small-12{position:relative;width:100%}[class*=" dm-icon-"]{speak:none;font-style:normal;font-weight:400;font-variant:normal;text-transform:none;line-height:1;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;font-family:dm-font}.dm-icon-chevron-down:before{content:"\e954"}[class*=" dm-common-icons-"]{speak:none;font-style:normal;font-weight:400;font-variant:normal;text-transform:none;line-height:1;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;font-family:dm-common-icons!important}.dm-common-icons-close:before{content:"\e901"}#dm div.dmContent [class*=" icon-"],[class*=" icon-"]{font-family:FontAwesome!important;font-weight:400;font-style:normal;text-decoration:inherit;-webkit-font-smoothing:antialiased}[class*=" icon-"]:before{text-decoration:none;display:inline-block;speak:none}a [class*=" icon-"]{display:inline}[class*=" icon-"]{display:inline;width:auto;height:auto;line-height:normal;vertical-align:baseline;background-image:none;background-position:0 0;background-repeat:repeat;margin-top:0}.icon-star:before{content:"\f005"}.icon-angle-right:before{content:"\f105"}.icon-angle-down:before{content:"\f107"}#dm .dmRespRow .dmRespCol>.dmWidget{overflow:initial}@media (max-width:767px){#dm .dmInner .dmWidget{width:100%}}#dm .dmInner .dmWidget:not(.displayNone){display:inline-block}#dm .dmInner .dmWidget:not(.flexButton):not(.displayNone)[data-display-type=block]{display:block}#dm .dmInner .dmWidget{text-decoration:none;margin:10px 0;clear:both;position:relative;text-align:center;line-height:22px;box-shadow:none;background-image:none;padding:0;height:auto;border-style:solid;white-space:nowrap}#dm .dmInner .dmWidget.slide-button{margin-bottom:0}#dm .dmInner .dmWidget:after{content:"";display:inline-block;height:100%;vertical-align:middle;width:0;margin-right:-.25em}#dm .dmInner .dmWidget .iconBg{position:absolute;left:0;width:50px;top:50%;margin-top:-13px}#dm .dmWidget .text{display:inline-block;vertical-align:middle;font-size:1.125em;line-height:normal;white-space:normal;padding:10px 7px;max-width:98%}.dmNewParagraph[data-version],.multilingualWidget .language a span,.multilingualWidget .language a:after{line-height:initial}#dm .dmWidget.slide-button:after{display:none}p.rteBlock{margin:0}.dmLayoutWrapper.dmStandardMobile{overflow:hidden}.dmImageSlider{height:250px;position:relative;clear:both}#dm .dmInner .dmBody .hide-for-small,.hide-for-small{display:none!important}#dm .dmRespCol .dmNoMargin{margin-left:0!important;margin-right:0!important}.mobile-columns-reversed>.dmRespColsWrapper{display:flex;flex-direction:column-reverse}@supports (padding:max(0px)){.dmMobileBody .dmRespColsWrapper:not(.dmRespColsWrapper *){padding-left:env(safe-area-inset-left)!important;padding-right:env(safe-area-inset-right)!important}}#dm .sticky-widgets-container-global [data-element-type].sticky-mobile-position-bottom,#dm .sticky-widgets-container-global [data-element-type].sticky-mobile-position-bottom-left,#dm .sticky-widgets-container-global [data-element-type].sticky-mobile-position-bottom-right{top:initial!important;bottom:0!important;margin-bottom:25px}#dm .sticky-widgets-container-global [data-element-type].sticky-mobile-position-bottom-left{right:initial!important;left:0!important;margin-left:25px}#dm .sticky-widgets-container-global [data-element-type].sticky-mobile-position-bottom{right:initial!important;left:50%!important;transform:translateX(-50%);margin-left:0;margin-right:0}#dm .sticky-widgets-container-global [data-element-type].sticky-mobile-position-bottom-right{right:0!important;left:initial!important;margin-right:25px}.hide-back-to-top #dmBackToTop{display:none}.dmNewParagraph[data-version] h2,.dmNewParagraph[data-version] p{margin-top:0;margin-bottom:0}.graphicWidget{width:200px;height:200px;margin:10px auto;text-align:center}.graphicWidget svg.svg{width:100%;height:100%;color:#000;fill:#000}.imageWidget{position:relative}.imageWidget a{font-style:italic;text-align:center}.slides{margin:0;padding:0;list-style:none}.flexslider,.flexslider .slides>li{height:100%;overflow:hidden;position:relative}.flexslider{padding:0;-webkit-transform:translateZ(0);direction:ltr;margin:0;zoom:1;opacity:1!important}.flexslider .slides{height:100%;zoom:1}.flexslider .slides>li{display:none;text-align:center}.flexslider .slides>li a{display:block;width:100%;height:100%}.flexslider .slides img{width:100%;display:block;margin:auto}.flexslider .slides>li a img{opacity:0}.slides:after{display:block;clear:both;visibility:hidden;line-height:0;height:0}html[xmlns] .slides{display:block}.flexslider .color-overlay{position:absolute;top:0;left:0;width:100%;height:100%;background-color:rgba(0,0,0,.25);display:block}.flexslider .slides>li .slide-inner{font-weight:700;color:#fff;position:absolute;z-index:1;visibility:hidden}.flexslider .slides>li .slide-inner *{line-height:normal}.flexslider .slides>li .slide-inner .slide-title{margin:0}.flexslider .slides>li .slide-inner .slide-text{margin:0;font-size:19px;font-weight:400;white-space:pre-line}#dm .dmInner .flexslider .slides>li .slide-inner .slide-button{margin-top:20px;margin-left:auto;margin-right:auto}.flexslider .slides>li[layout=center] .slide-inner{max-width:70%;max-height:80%}#dm .flexslider .slides .dmWidget .text{max-width:100%;width:100%;padding:10px 20px!important}#dm .dmInner .flexslider.ed-version .slide-button{-js-display:inline-flex;display:inline-flex;justify-content:center;align-items:center}.flexslider.ed-version .slides img{display:none}.flexslider.ed-version[layout=center] .slides>li{-ms-flex-pack:center;-ms-flex-align:center;display:flex!important;justify-content:center;align-items:center}.flexslider.ed-version[layout=center] .slides>li .slide-inner{position:static!important;top:auto!important;left:auto!important;margin:0!important}.flexslider.ed-version[layout=center] .slides>li a{position:absolute;left:0;top:0}.flexslider.ed-version[layout=center] .slide-inner{max-width:70%;max-height:80%;background-color:transparent;top:50%!important;left:50%!important;right:auto!important;width:auto}.flexslider.ed-version[layout=center] .slide-inner .slide-title{display:block!important;text-align:center!important}#dm .dmPhotoGallery.newPhotoGallery .photoGalleryThumbs .caption-container .caption-inner div,#dm .dmPhotoGallery.newPhotoGallery .photoGalleryThumbs .caption-container .caption-inner h3,#dm .dmPhotoGallery.newPhotoGallery.captionAlignment-center_center .photoGalleryThumbs .caption-container .caption-inner:not(:has(>.caption-link)) div,#dm .dmPhotoGallery.newPhotoGallery.captionAlignment-center_center .photoGalleryThumbs .caption-container .caption-inner:not(:has(>.caption-link)) h3,.dmMobileBody .imageWidget,.dmPhotoGallery.newPhotoGallery .photoGalleryThumbs .caption-container .caption-inner,.dmPhotoGalleryHolder,.multilingualWidget .language a{text-align:center}.flexslider.ed-version[layout=empty] .slide-inner{display:none!important}.dmShape{width:200px;height:200px;margin:auto;position:relative}.dmShape .shadow{filter:drop-shadow(0 3px 11px rgba(0, 0, 0, .34))}.dmShape .container-text{display:flex;justify-content:center;align-items:center;flex-direction:column;height:100%;width:100%;position:absolute;z-index:1}.dmShape .container-padding{padding:20px}.dmShape .container-text .shape-text{margin:0}#dm .dmShape .container-text .shape-text{color:#fff}.dmShape .container-text .shape-description{width:100%;color:#fff;font-size:16px}.dmShape[text-position=center_center] .container-text{justify-content:center;align-items:center}.dmShape [data-link-id=shape-link-container]{display:block;width:100%;height:100%}.dmPhotoGallery.newPhotoGallery .photoGalleryThumbs .caption-container .caption-inner h3{margin:0;line-height:normal;font-size:21px}.dmPhotoGallery.newPhotoGallery .photoGalleryThumbs .caption-container .caption-inner .caption-text,.dmPhotoGallery.newPhotoGallery .photoGalleryThumbs .caption-container .caption-inner .caption-title{max-width:100%}#dm .dmPhotoGallery.newPhotoGallery.captionAlignment-center_center .photoGalleryThumbs .caption-container .caption-inner:not(:has(>.caption-link)){justify-content:center;align-items:center}#dm .dmPhotoGallery.newPhotoGallery.captionAlignment-center_center .photoGalleryThumbs .caption-container .caption-inner .caption-button{margin:10px auto}#dm .dmPhotoGallery.newPhotoGallery .dmPhotoGalleryHolder{width:100%;padding:0;display:none}#dm .dmPhotoGallery.newPhotoGallery .layout-container .photogallery-column .photoGalleryThumbs .image-container a img{display:none!important}#dm .dmPhotoGallery.newPhotoGallery .photoGalleryThumbs .caption-container .caption-inner{align-items:center;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden;z-index:1;background-color:rgba(255,255,255,.9);color:#333;padding:15px;height:100%;box-sizing:border-box}#dm .dmPhotoGallery.newPhotoGallery .photoGalleryThumbs .caption-container .caption-inner .caption-button{margin:10px auto;max-width:100%}#dm .dmPhotoGallery.newPhotoGallery .photoGalleryThumbs .caption-container .caption-inner .caption-button .text{padding:10px 20px!important}#dm .dmPhotoGallery.newPhotoGallery.text-layout-over .photoGalleryThumbs .caption-container{height:100%;width:100%;position:absolute;top:0;left:0;padding:inherit}#dm .dmPhotoGallery.newPhotoGallery.text-layout-over .photoGalleryThumbs .caption-inner{display:flex;flex-direction:column;justify-content:center;box-sizing:border-box;min-height:0!important;padding:10px;transform:scale(1.05);opacity:0;filter:alpha(opacity=0)}.multilingualWidget{clear:both;margin:0;vertical-align:top;display:table!important;font-size:0;font-family:sans-serif}.multilingualWidget>div{position:relative}.multilingualWidget .language{color:#888;display:inline-block}.multilingualWidget .language a{display:inline-block;color:inherit;border:1px solid #dadada;background-color:#fff}.multilingualWidget .language a img{width:24px;height:26px;min-width:24px;min-height:26px}.multilingualWidget .language a span{display:none}.multilingualWidget .language a span.name{margin-top:5px;margin-left:7px;font-size:12px;font-weight:400;text-transform:capitalize}.multilingualWidget .language a span.short-label{font-size:12px}.multilingualWidget.dropdown .language{width:100%}.multilingualWidget.dropdown .language a{display:block;padding:1px 5px}.multilingualWidget.dropdown .language.other-languages{position:absolute;z-index:800;max-height:0;overflow:hidden}.multilingualWidget.dropdown .language.other-languages a{border-top:0!important}.multilingualWidget.dropdown .current-language{position:relative}.multilingualWidget.dropdown .current-language span.name{padding-right:25px}.multilingualWidget.dropdown .dm-icon{font-size:9px;display:inline-block;position:absolute;top:46%;transform:translateY(-50%);right:8px}.multilingualWidget.dropdown .other-languages,.multilingualWidget.no-flag a img{display:none}.multilingualWidget.dropdown.short-label.no-flag a span.short-label{margin:0;display:inline-block}.multilingualWidget.dropdown.short-label.no-flag a{padding:8px 22px 9px 10px;font-size:12px;min-height:32px;height:auto;box-sizing:border-box}.multilingualWidget.dropdown.short-label.no-flag .current-language a:after{top:12px}.multilingualWidget.short-label span.short-label{text-transform:uppercase}*{border:0 solid #333;scrollbar-arrow-color:#fff;scrollbar-track-color:#F2F2F2;scrollbar-face-color:silver;scrollbar-highlight-color:silver;scrollbar-3dlight-color:silver;scrollbar-shadow-color:silver;scrollbar-darkshadow-color:silver;scrollbar-width:12px}body{width:100%;overflow:hidden;-webkit-text-size-adjust:100%!important;-ms-text-size-adjust:100%!important}A IMG{border:none}h2,h3,ul{margin-left:0;margin-right:0}.dmInner *{-webkit-font-smoothing:antialiased}.clearfix,a,img,li,ul{vertical-align:top}#site_content{position:relative}.dmOuter{word-wrap:break-word}.dmInner{font-size:16px;background:#fff;color:#666}.dmInner a{color:#463939;outline:0;vertical-align:inherit}.dmInner ul:not(.defaultList){padding:0}DIV.dmBody{padding:0;clear:both}.dmContent{margin:0;padding:0}#site_content ul:not(.defaultList){-webkit-padding-start:0;-moz-padding-start:0;list-style-position:inside}.dmMobileBody .dmLayoutWrapper{background-color:#fff}.dmRespRowsWrapper{max-width:960px;margin:0 auto}.dmRespCol>[dmle_extension]:not(:first-child){margin-top:10px}.imageWidget:not(.displayNone) img{width:100%}h3{font-weight:400;font-size:23px}#dm .dmRespColsWrapper{display:block}.dmNewParagraph{text-align:left;margin:8px 0;padding:2px 0}#dmFirstContainer .dmRespRowsWrapper:after,#dmFirstContainer .dmRespRowsWrapper:before{content:"";display:table}.dmLinksMenu>ul{display:block;margin:0;font-size:inherit}.dmPhotoGalleryHolder{font-size:medium!important;margin:0;list-style:none}#dm .dmPhotoGallery .dmPhotoGalleryHolder{width:100%;padding:0}#dm .dmBackToTop{width:30px;height:30px;opacity:0;background:rgba(0,0,0,.6);z-index:200;bottom:10px;right:10px;border:1px solid #fff;-moz-box-shadow:0 0 1px rgba(247,247,247,.4);-webkit-box-shadow:0 0 1px rgba(247,247,247,.4);box-shadow:0 0 1px rgba(247,247,247,.4)}#dm .dmBackToTop:after,#dm .dmBackToTop:before{content:'';position:absolute;width:4px;height:15px;background:#fff;border-radius:2px;left:8px;top:6px;transform:rotate(45deg)}#dm .dmBackToTop:after{left:16px;transform:rotate(-45deg)}body{background-color:#eee}.main-navigation.unifiednav{-js-display:flex;display:flex;justify-content:flex-start;align-items:stretch;overflow:visible}.main-navigation.unifiednav ul{list-style:none;padding:0;margin:0;font-size:1rem}.main-navigation.unifiednav .unifiednav__container{-js-display:flex;display:flex;justify-content:flex-start;list-style:none}.main-navigation.unifiednav .unifiednav__container>.unifiednav__item-wrap{-js-display:flex;display:flex;justify-content:flex-start;position:relative;font-weight:400}.main-navigation.unifiednav .unifiednav__container:not([data-depth])>.unifiednav__item-wrap::after,.main-navigation.unifiednav .unifiednav__container:not([data-depth])>.unifiednav__item-wrap::before{content:'';align-self:center;font-weight:700}.main-navigation.unifiednav .unifiednav__container>.unifiednav__item-wrap>.unifiednav__item{-js-display:flex;display:flex;justify-content:flex-start;align-items:center;flex-direction:row;color:inherit;text-decoration:none;position:relative;padding:12px 15px;margin:0;font-weight:inherit;letter-spacing:.03em}.main-navigation.unifiednav .unifiednav__container:not([data-depth])>.unifiednav__item-wrap>.unifiednav__item{padding:0 15px}.main-navigation.unifiednav .unifiednav__container>.unifiednav__item-wrap>.unifiednav__item .nav-item-text{white-space:nowrap}.main-navigation.unifiednav .unifiednav__container:not([data-depth])>.unifiednav__item-wrap>.unifiednav__item .nav-item-text::after,.main-navigation.unifiednav .unifiednav__container:not([data-depth])>.unifiednav__item-wrap>.unifiednav__item .nav-item-text::before{content:'';width:100%;height:0;border:0 solid transparent;border-top-color:currentColor;display:block;opacity:0}.main-navigation.unifiednav.effect-text-color{padding:12px 15px}.main-navigation.unifiednav .unifiednav__container .unifiednav__item:not(.unifiednav__item_has-sub-nav) .icon{display:none}.main-navigation.unifiednav .unifiednav__container[data-depth]{position:absolute;top:0;left:0;flex-direction:column;opacity:0;z-index:100;background-color:#faf9f9}.main-navigation.unifiednav .unifiednav__container[data-depth='0']{top:100%;transform:translateY(-10px)}.main-navigation.unifiednav .unifiednav__container>.unifiednav__item-wrap .unifiednav__container>.unifiednav__item-wrap{flex-direction:column}.main-navigation.unifiednav .unifiednav__container[data-depth]>.unifiednav__item-wrap .unifiednav__item{padding:15px 30px 15px 15px;margin:0}.main-navigation.unifiednav .unifiednav__container[data-depth]>.unifiednav__item-wrap:not(:last-child)::after{content:''!important;width:100%;height:0;color:#ececec;align-self:center;border:0 solid currentColor}.main-navigation.unifiednav.unifiednav_vertical .unifiednav__container[data-depth]{left:0}.main-navigation.unifiednav.unifiednav_vertical .unifiednav__container>.unifiednav__item-wrap:not(:last-child)::after{content:''!important}.main-navigation.unifiednav.unifiednav_vertical .unifiednav__container>.unifiednav__item-wrap>.unifiednav__item{flex:1 1 auto}.main-navigation.unifiednav .unifiednav__container>.unifiednav__item-wrap>.unifiednav__item.unifiednav__item_has-sub-nav .icon{display:initial;padding-left:10px;margin-left:0}#dm .p_hfcontainer nav.main-navigation.unifiednav{min-width:9em!important;text-align:initial!important}#dm .main-navigation.unifiednav .unifiednav__container[data-depth]{background-color:transparent}#dm .main-navigation.unifiednav .unifiednav__container[data-depth]>.unifiednav__item-wrap:not(:last-child)::after{color:#d1d1d1}#dm .main-navigation.unifiednav[data-nav-structure=VERTICAL] .unifiednav__container{flex-direction:column;flex:1 1 100%}#dm .main-navigation.unifiednav[data-nav-structure=VERTICAL] .unifiednav__container>.unifiednav__item-wrap>.unifiednav__item{padding:8px 0;margin:0}#dm .main-navigation.unifiednav[data-nav-structure=VERTICAL] .unifiednav__container>.unifiednav__item-wrap>.unifiednav__item.unifiednav__item_has-sub-nav .icon{padding-left:15px}#dm .main-navigation.unifiednav[data-nav-structure=VERTICAL] .unifiednav__container>.unifiednav__item-wrap>.unifiednav__item .nav-item-text{white-space:initial}#dm .main-navigation.unifiednav[data-nav-structure=VERTICAL] .unifiednav__container:not([data-depth])>.unifiednav__item-wrap{flex-direction:column}#dm .main-navigation.unifiednav[data-nav-structure=VERTICAL] .unifiednav__container:not([data-depth])>.unifiednav__item-wrap .unifiednav__container[data-depth]{opacity:1;position:static;transform:translate(0)}#dm .main-navigation.unifiednav[data-nav-structure=VERTICAL] .unifiednav__container:not([data-depth])>.unifiednav__item-wrap .unifiednav__container[data-depth]>.unifiednav__item-wrap .unifiednav__item{justify-content:inherit;padding:8px 1em;margin:0;font-size:.8em}#dm .main-navigation.unifiednav[data-nav-structure=VERTICAL] .unifiednav__container:not([data-depth])>.unifiednav__item-wrap::after{content:''!important;width:100%;height:0;color:#d1d1d1;align-self:flex-start;border:0 solid currentColor}#dm .main-navigation.unifiednav[data-nav-structure=VERTICAL][layout-main=vertical_nav_layout_1] .unifiednav__container:not([data-depth])>.unifiednav__item-wrap>.unifiednav__item{padding:15px 0}#dm .main-navigation.unifiednav[data-nav-structure=VERTICAL][layout-main=vertical_nav_layout_1] .unifiednav__container:not([data-depth])>.unifiednav__item-wrap>.unifiednav__container[data-depth]>.unifiednav__item-wrap .unifiednav__item{padding:8px 12px}#dm .main-navigation.unifiednav[data-nav-structure=VERTICAL][layout-main=vertical_nav_layout_1] .unifiednav__container:not([data-depth])>.unifiednav__item-wrap::after{border-top-width:1px}#dm .main-navigation.unifiednav[data-nav-structure=VERTICAL][data-show-vertical-sub-items=HIDE] .unifiednav__container[data-depth]{transform-origin:top;height:auto;overflow:hidden}#dm .main-navigation.unifiednav[data-nav-structure=VERTICAL][data-show-vertical-sub-items=HIDE]>.unifiednav__container:not([data-depth])>.unifiednav__item-wrap .unifiednav__container[data-depth]{opacity:0;max-height:0}#dm .main-navigation.unifiednav:not([data-nav-structure=SPLIT]) .unifiednav__container:not([data-depth])>.unifiednav__item-wrap:last-child .unifiednav__container[data-depth='0']{left:auto;right:0}.dmMobileBody #dm .main-navigation.unifiednav .nav-item-text{position:relative}#dm .main-navigation.unifiednav[data-nav-structure=VERTICAL] .unifiednav__container>.unifiednav__item-wrap>.unifiednav__item.unifiednav__item_has-sub-nav .icon{display:inline-block;padding-right:0}.dmMobileBody #dm .main-navigation.unifiednav .unifiednav__container>.unifiednav__item-wrap>.unifiednav__item.unifiednav__item_has-sub-nav .icon{transform:scale(1.3)}#dm .dmBody .dmRespRowsWrapper{max-width:none;background-color:transparent}.dm-bfs.dm-layout-home div.dmInner{background-color:#fff}.dmRespRow:not(.dmPlaceHolderRespRow) .dmRespColsWrapper .dmRespCol:not(.content-removed).empty-column,.dmRespRow:not(.dmPlaceHolderRespRow) .dmRespColsWrapper .dmRespCol:not(.content-removed):only-child:empty{min-height:100px}.dmMobileBody .hamburger-header .dmRespRow:not(.dmPlaceHolderRespRow) .dmRespColsWrapper .dmRespCol:not(.content-removed).empty-column{min-height:55px}.dmRespRow:not(.dmPlaceHolderRespRow) .dmRespCol:not(.content-removed).empty-column,.dmRespRow:not(.dmPlaceHolderRespRow) .dmRespCol:not(.content-removed):empty{min-height:1px}.dmMobileBody .hamburger-drawer .dmRespRow:not(.dmPlaceHolderRespRow):first-child .dmRespColsWrapper .dmRespCol:not(.content-removed):only-child.empty-column,.dmMobileBody .hamburger-drawer .dmRespRow:not(.dmPlaceHolderRespRow):first-child .dmRespColsWrapper .dmRespCol:not(.content-removed):only-child:empty{min-height:0!important}.dmRespRow:not(.dmPlaceHolderRespRow) .dmRespColsWrapper .dmRespCol:not(.content-removed):only-child.empty-column{min-height:100px}#dm div.dmRespCol>*{line-height:1.5}#dm div.dmContent h2,#dm div.dmContent h2 *{color:rgba(68,68,68,1);font-weight:700}#dm div.dmInner,#dm div.dmInner .dmRespCol{font-family:Cabin,"Cabin Fallback";color:rgba(136,136,136,1);font-size:14px}#dm .dmRespCol div.dmNewParagraph,#dm div.dmInner,#dm div.dmInner .dmRespCol,.dmPhotoGallery .caption-text.caption-text{font-family:Raleway,"Raleway Fallback";color:var(--color_1);font-weight:400}#dm div.dmContent h2,#dm div.dmContent h3,#dm div.dmFooter h3,#dm div.p_hfcontainer h3{font-family:"Abril Fatface","Abril Fatface Fallback";font-weight:400;font-style:normal}#dm div.dmContent h2{color:var(--color_1);direction:ltr;text-decoration:#444}#dm div.dmContent .dmNewParagraph[data-version] h2{text-decoration:inherit}#dm div.dmContent .dmNewParagraph[data-version] h2 *{text-decoration:#444}#dm div.dmNewParagraph p{line-height:1.5}#dm DIV.dmOuter DIV.dmInner{background-color:var(--color_2)}#dm .dmRespCol div.dmNewParagraph,#dm div.dmInner,#dm div.dmInner .dmRespCol,#dm div.dmNewParagraph p,.dmPhotoGallery .caption-text.caption-text{font-size:16px}#dm div.dmContent h2{font-size:24px}#dm div.dmContent h3,#dm div.dmFooter h3,#dm div.p_hfcontainer h3{color:#000;direction:ltr;text-decoration:none;font-size:18px;line-height:1.5}@media all{:root{--btn-text-direction:ltr;--btn-border-r-color:var(--btn-border-color);--btn-border-l-color:var(--btn-border-color);--btn-border-b-width:var(--btn-border-width);--btn-border-width:1px;--btn-border-radius:10px;--btn-border-t-width:var(--btn-border-width);--btn-border-tl-radius:var(--btn-border-radius);--btn-border-br-radius:var(--btn-border-radius);--btn-border-bl-radius:var(--btn-border-radius);--btn-bg-color:rgba(0, 0, 0, 0);--btn-box-shadow:rgba(0, 0, 0, 0.25) 0px 0px 11px 0px;--btn-border-color:var(--color_1);--btn-border-tr-radius:var(--btn-border-radius);--btn-border-r-width:var(--btn-border-width);--btn-border-b-color:var(--btn-border-color);--btn-border-l-width:var(--btn-border-width);--btn-border-t-color:var(--btn-border-color);--btn-text-align:center;--btn-text-color:var(--color_1);--btn-text-decoration:none;--btn-text-font-weight:400;--btn-text-font-family:Raleway,"Raleway Fallback";--btn-icon-color:rgb(247, 247, 247);--btn-icon-fill:rgb(247, 247, 247);--btn-icon-wrpr-display:none;--btn-hover-border-b-color:var(--btn-hover-border-color);--btn-hover-bg:var(--color_1);--btn-hover-border-t-color:var(--btn-hover-border-color);--btn-hover-border-r-color:var(--btn-hover-border-color);--btn-hover-border-l-color:var(--btn-hover-border-color);--btn-hover-border-color:rgba(0, 0, 0, 0);--btn-hover-text-color:var(--color_2);--btn-hover-text-font-weight:var(--btn-text-font-weight);--btn-hover-text-decoration:var(--btn-text-decoration);--btn-hover-text-font-style:var(--btn-text-font-style)}}@media (min-width:0px) and (max-width:767px){:root{--btn-text-font-size:24px}}#dm .dmWidget:not([data-buttonstyle]){border-radius:50px}#dm .dmWidget:not([data-buttonstyle]) .text{padding:10px 0}#dm .dmWidget:not([data-buttonstyle]) .iconBg{display:none}#dm div.dmInner #site_content .dmWidget{background-color:var(--btn-bg-color);border-color:var(--btn-border-color);border-bottom-color:var(--btn-border-b-color);border-left-color:var(--btn-border-l-color);border-right-color:var(--btn-border-r-color);border-top-color:var(--btn-border-t-color);border-radius:var(--btn-border-radius);border-bottom-left-radius:var(--btn-border-bl-radius);border-bottom-right-radius:var(--btn-border-br-radius);border-top-left-radius:var(--btn-border-tl-radius);border-top-right-radius:var(--btn-border-tr-radius);border-width:var(--btn-border-width);border-bottom-width:var(--btn-border-b-width);border-left-width:var(--btn-border-l-width);border-right-width:var(--btn-border-r-width);border-top-width:var(--btn-border-t-width);box-shadow:var(--btn-box-shadow);direction:var(--btn-text-direction);text-align:var(--btn-text-align)}#dm div.dmInner #site_content .dmWidget span.text{color:var(--btn-text-color);font-family:var(--btn-text-font-family);font-size:var(--btn-text-font-size);font-weight:var(--btn-text-font-weight);text-decoration:var(--btn-text-decoration)}#dm div.dmInner #site_content .dmWidget span.icon{color:var(--btn-icon-color);fill:var(--btn-icon-fill)}#dm div.dmInner #site_content .dmWidget:not([data-buttonstyle]) .iconBg{display:var(--btn-icon-wrpr-display)}#dm .p_hfcontainer div.u_1668991152 img{border-radius:0!important;-moz-border-radius:0!important;-webkit-border-radius:0!important}#dm .p_hfcontainer a.u_1777798433{background-repeat:no-repeat!important;background-size:cover!important;border-radius:50px!important;-moz-border-radius:50px!important;-webkit-border-radius:50px!important;border-style:solid!important;border-width:0!important;background-color:var(--color_1)!important}#dm .p_hfcontainer nav.u_1485260124.main-navigation.unifiednav .unifiednav__container[data-depth]>.unifiednav__item-wrap:not(:last-child)::after{border-top-width:0!important}#dm .p_hfcontainer div.u_1094507572{border-bottom-style:solid!important;border-bottom-color:rgba(112,114,114,1)!important;border-bottom-width:0!important}#dm .p_hfcontainer div.u_1882702236{border-style:solid!important;border-width:0!important;border-color:rgba(220,220,220,1)!important}#dm .p_hfcontainer .u_1485260124.main-navigation.unifiednav[data-nav-structure=VERTICAL] .unifiednav__container:not([data-depth])>.unifiednav__item-wrap::after{align-self:flex-start!important}#dm .p_hfcontainer div.u_1810842836 .svg,#dm .p_hfcontainer div.u_1954229605 .svg{color:rgba(39,42,47,1)!important;fill:rgba(39,42,47,1)!important}#dm .p_hfcontainer .u_1485260124.main-navigation.unifiednav .unifiednav__container:not([data-depth])>.unifiednav__item-wrap>.unifiednav__item{text-align:left!important;padding-top:10px!important;padding-bottom:10px!important}.u_1371053964 .shape-text,.u_1551011297 .shape-text,.u_1597791220 .shape-text{text-align:CENTER!important}#dm .p_hfcontainer .u_1485260124.main-navigation.unifiednav:not([image]) .unifiednav__container[data-depth="0"]{top:calc(100% - 10px - 0px)!important}#dm .p_hfcontainer div.u_1482440403{border-left-style:solid!important;border-left-width:1px!important;border-left-color:rgba(220,220,220,1)!important}#dm .p_hfcontainer nav.u_1485260124.main-navigation.unifiednav .unifiednav__container[data-depth] .unifiednav__item{color:rgba(39,42,47,1)!important;font-weight:400!important}#dm .p_hfcontainer a.u_1777798433 span.text,div.u_1371053964 .shape-text,div.u_1551011297 .shape-text,div.u_1597791220 .shape-text{color:var(--color_2)!important;font-family:'Abril Fatface'!important}#dm .p_hfcontainer .u_1485260124.main-navigation.unifiednav .unifiednav__container[data-depth] .unifiednav__item{padding-top:5px!important;padding-bottom:5px!important}#dm .p_hfcontainer div.u_1461233494{border-right-style:solid!important;border-right-color:rgba(220,220,220,1)!important;border-right-width:0!important}#dm .p_hfcontainer div.u_1744859768{border-style:solid!important;border-width:0 1px 0 0!important;border-right-color:rgba(220,220,220,1)!important}#dm .p_hfcontainer nav.u_1485260124.main-navigation.unifiednav[data-nav-structure=VERTICAL] .unifiednav__container:not([data-depth])>.unifiednav__item-wrap::after{border-top-color:rgba(220,220,220,1)!important;border-top-width:1px!important;border-top-style:solid!important}div.u_1446697123,div.u_1779824143{border-color:#fff!important;border-radius:50%!important;background-color:var(--color_2)!important}div.u_1597791220 .shape-text{font-weight:400!important;font-style:italic!important}div.u_1551011297 .shape-text{font-style:normal!important}#dm .p_hfcontainer a.u_1777798433 span.text{font-weight:400!important;font-style:normal!important;font-size:18px!important}div.u_1371053964 .shape-text{font-weight:400!important;font-style:normal!important}div.u_1779824143{border-width:1px!important}div.u_1779824143 .svg{color:var(--color_1)!important;fill:var(--color_1)!important;width:50%!important}div.u_1446697123{border-width:1px!important}div.u_1446697123 .svg{color:var(--color_1)!important;fill:var(--color_1)!important;width:50%!important}#dm .p_hfcontainer div.u_1606771225 .mobileMultilingual .language{color:var(--color_1)!important}#dm .p_hfcontainer .u_1258772770,#dm .p_hfcontainer .u_1364604484{display:none!important}#dm .p_hfcontainer div.u_1250011272 .caption-inner{background-color:rgba(0,0,0,0)!important}[dmtemplateid=mobileHamburgerLayout].runtime-module-container .layout-drawer-hamburger{top:17.5px!important}[dmtemplateid=mobileHamburgerLayout] .site_content{margin-top:75px!important}#dm .p_hfcontainer div.u_1011055710{padding-right:0!important;padding-left:0!important}#dm .p_hfcontainer div.u_1142168709{margin:0!important;padding:0 0 0 5px!important}#dm .p_hfcontainer div.u_1233363101{padding:10px 7px!important}#dm .p_hfcontainer a.u_1777798433{float:none!important;top:0!important;left:0!important;width:70px!important;position:relative!important;height:70px!important;max-width:100%!important;min-width:0!important;text-align:center!important;display:block!important;padding:0!important;margin:2px 0 0 auto!important}#dm .p_hfcontainer div.u_1295243590,#dm .p_hfcontainer div.u_1936223317{margin:0!important;padding:0!important}[dmtemplateid=mobileHamburgerLayout] div.layout-drawer-overlay{background-color:rgba(0,0,0,.4)!important}#dm .p_hfcontainer div#mobile-hamburger-drawer.layout-drawer,#dm .p_hfcontainer div#mobile-hamburger-header,#dm .p_hfcontainer div.u_1606771225 .mobileMultilingual a{background-color:rgba(255,255,255,1)!important}.layout-drawer_fixed-header[dmtemplateid=mobileHamburgerLayout] #mobile-hamburger-drawer.layout-drawer,[dmtemplateid=mobileHamburgerLayout].layout-drawer_fixed-header #mobile-hamburger-drawer.layout-drawer{top:71px!important;max-height:calc(100% - 71px)!important}#dm .p_hfcontainer div.u_1883835797{padding:0!important}#dm .p_hfcontainer nav.u_1485260124.main-navigation.unifiednav .unifiednav__container[data-depth] .unifiednav__item{font-size:15px!important}#dm .p_hfcontainer div.u_1482440403,#dm .p_hfcontainer div.u_1744859768{padding-right:5px!important;padding-left:5px!important}#dm .p_hfcontainer div.u_1882702236{margin:0!important;padding:20px 0!important}#dm .p_hfcontainer nav.u_1485260124.main-navigation.unifiednav .unifiednav__container:not([data-depth])>.unifiednav__item-wrap>.unifiednav__item{color:var(--color_1)!important;font-weight:700!important;font-size:16px!important}#dm .p_hfcontainer nav.u_1485260124{float:none!important;top:0!important;left:0!important;width:100%!important;position:relative!important;height:auto!important;max-width:calc(100% - 0px)!important;justify-content:center!important;align-items:stretch!important;min-width:25px!important;text-align:start!important;padding:0!important;margin:0 auto!important}#dm .p_hfcontainer div.u_1094507572{margin:0!important;padding:15px 20px 0!important}#dm .p_hfcontainer div.u_1606771225,div.u_1597791220{padding:0!important;left:0!important;position:relative!important}#dm .p_hfcontainer div.u_1606771225{float:none!important;top:0!important;width:52px!important;height:auto!important;max-width:calc(100% - 0px)!important;min-width:25px!important;text-align:center!important;margin:0 0 10px!important}div.u_1371053964,div.u_1597791220{width:80px!important;top:0!important;text-align:center!important}div.u_1597791220{height:80px!important;display:block!important;float:none!important;max-width:100%!important;min-width:0!important}#dm .p_hfcontainer div.u_1597791220 .shape-text{font-style:normal!important;font-size:18px!important}#dm .p_hfcontainer div.u_1461233494{padding:0 5px!important;margin:0!important}#dm .p_hfcontainer div.u_1597791220{margin:0 17.17px 0 17.16px!important;padding:0!important}#dm .p_hfcontainer div.u_1810842836,#dm .p_hfcontainer div.u_1954229605{width:calc(100% - 26px)!important;height:60px!important;float:none!important;top:0!important;left:0!important;position:relative!important;max-width:60px!important;min-width:25px!important;text-align:center!important;display:block!important;padding:0!important;margin:10px 26.67px 0 26.66px!important}#dm .dmBody div.u_1543639101,#dm .p_hfcontainer div.u_1668991152,div.u_1371053964{display:block!important;float:none!important;left:0!important;position:relative!important;max-width:100%!important}[dmtemplateid=mobileHamburgerLayout] .layout-drawer-hamburger.hamburger-on-header{color:var(--color_1)!important;background-color:rgba(0,0,0,0)!important}div.u_1371053964 .shape-text{font-size:18px!important}div.u_1371053964{height:80px!important;min-width:0!important;padding:0!important;margin:0 0 3px!important}div.u_1779824143{width:44px!important;height:44px!important;margin:0 0 3px 3px!important;padding:0!important}#dm .p_hfcontainer div#mobile-hamburger-header{box-shadow:rgba(0,0,0,.25) 0 3px 11px 0!important;-moz-box-shadow:rgba(0,0,0,.25) 0 3px 11px 0!important;-webkit-box-shadow:rgba(0,0,0,.25) 0 3px 11px 0!important;border-style:solid!important;border-width:0!important;padding:0!important;margin:0!important}div.u_1551011297{width:100px!important;height:100px!important;margin:0 25px 25px 0!important}#dm .p_hfcontainer div.u_1668991152{top:0!important;width:130px!important;min-width:25px!important;text-align:center!important;height:auto!important;padding:0!important;margin:0 24.75px 0 43px!important}div.u_1446697123{width:44px!important;height:44px!important;padding:0!important;margin:0 3px 3px 0!important}#dm .p_hfcontainer div.u_1606771225 .language a{border-style:solid!important;border-width:1px!important;border-color:var(--color_1)!important}.responsiveTablet [dmtemplateid=mobileHamburgerLayout].runtime-module-container .layout-drawer-hamburger{top:26px!important}.responsiveTablet [dmtemplateid=mobileHamburgerLayout] .site_content{margin-top:92px!important}.responsiveTablet [dmtemplateid=mobileHamburgerLayout].layout-drawer_fixed-header #mobile-hamburger-drawer.layout-drawer{top:92px!important;max-height:calc(100% - 92px)!important}#dm .dmBody .u_place:before{opacity:.5!important;background-color:#999!important}#dm .dmBody div.u_place:before{background-color:rgba(153,153,153,1)!important;opacity:.09!important}#dm .dmBody div.u_1139560360 .color-overlay,#dm .dmBody div.u_1191661707 .color-overlay,#dm .dmBody div.u_1828317811 .color-overlay,#dm .dmBody div.u_place{background-color:rgba(0,0,0,0)!important}#dm .dmBody div.u_place{background-repeat:no-repeat!important;background-size:cover!important}#dm .dmBody .u_1105779781,#dm .dmBody .u_1301805793,#dm .dmBody .u_1478094830,#dm .dmBody .u_1913865478{background-position:50% 50%!important}#dm .dmBody .rteBlock{text-shadow:2px 2px 10px #000!important}#dm .dmBody div.u_1988099631 .slides .slide-button span.text{color:var(--color_2)!important;font-family:'Abril Fatface'!important;font-style:normal!important;font-size:20px!important}#dm .dmBody div.u_1988099631 .color-overlay{background-color:rgba(0,0,0,.2)!important}#dm .dmBody div.u_1988099631 .slides .slide-button{border-radius:50px!important;-moz-border-radius:50px!important;-webkit-border-radius:50px!important;background-color:var(--color_1)!important;border-color:var(--color_2)!important;box-shadow:rgba(0,0,0,.25) 0 0 11px 0!important;-moz-box-shadow:rgba(0,0,0,.25) 0 0 11px 0!important;-webkit-box-shadow:rgba(0,0,0,.25) 0 0 11px 0!important}#dm .dmBody .u_1473513603{background-position:50% 50%!important;background-image:url(img/room-2.jpg),url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAABhGlDQ1BJQ0MgcHJvZmlsZQAAKJF9kT1Iw0AcxV9TpUUqHSwo4pChOlkQFemoVShChVArtOpgcukXNGlIUlwcBdeCgx+LVQcXZ10dXAVB8APEzc1J0UVK/F9aaBHjwXE/3t173L0DhEaFaVbPBKDptplOJsRsblUMvEJAGEEMIi4zy5iTpBQ8x9c9fHy9i/Es73N/jn41bzHAJxLPMsO0iTeIZzZtg/M+cYSVZJX4nHjcpAsSP3JdafEb56LLAs+MmJn0PHGEWCx2sdLFrGRqxNPEUVXTKV/ItljlvMVZq9RY+578haG8vrLMdZojSGIRS5AgQkENZVRgI0arToqFNO0nPPzDrl8il0KuMhg5FlCFBtn1g//B726twtRkKymUAHpfHOdjFAjsAs2643wfO07zBPA/A1d6x19tAPFP0usdLXoEhLeBi+uOpuwBlzvA0JMhm7Ir+WkKhQLwfkbflAMGboG+tVZv7X2cPgAZ6ip1AxwcAmNFyl73eHewu7d/z7T7+wFwJnKmZ9+MiwAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAAuIwAALiMBeKU/dgAAAAd0SU1FB+UCDwksLkLIPkkAAAAZdEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIEdJTVBXgQ4XAAAAC0lEQVQI12NgAAIAAAUAAeImBZsAAAAASUVORK5CYII=)!important}#dm .dmBody .u_1229503412,#dm .dmBody .u_1452211991{background-position:50% 50%!important}#dm .dmBody div.u_1117545222 .color-overlay{background-color:rgba(0,0,0,.2)!important}#dm .dmBody .u_1606441391{background-position:50% 50%!important;background-image:url(img/carousel-1.jpg),url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAABhGlDQ1BJQ0MgcHJvZmlsZQAAKJF9kT1Iw0AcxV9TpUUqHSwo4pChOlkQFemoVShChVArtOpgcukXNGlIUlwcBdeCgx+LVQcXZ10dXAVB8APEzc1J0UVK/F9aaBHjwXE/3t173L0DhEaFaVbPBKDptplOJsRsblUMvEJAGEEMIi4zy5iTpBQ8x9c9fHy9i/Es73N/jn41bzHAJxLPMsO0iTeIZzZtg/M+cYSVZJX4nHjcpAsSP3JdafEb56LLAs+MmJn0PHGEWCx2sdLFrGRqxNPEUVXTKV/ItljlvMVZq9RY+578haG8vrLMdZojSGIRS5AgQkENZVRgI0arToqFNO0nPPzDrl8il0KuMhg5FlCFBtn1g//B726twtRkKymUAHpfHOdjFAjsAs2643wfO07zBPA/A1d6x19tAPFP0usdLXoEhLeBi+uOpuwBlzvA0JMhm7Ir+WkKhQLwfkbflAMGboG+tVZv7X2cPgAZ6ip1AxwcAmNFyl73eHewu7d/z7T7+wFwJnKmZ9+MiwAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAAuIwAALiMBeKU/dgAAAAd0SU1FB+UCDwksLkLIPkkAAAAZdEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIEdJTVBXgQ4XAAAAC0lEQVQI12NgAAIAAAUAAeImBZsAAAAASUVORK5CYII=)!important}#dm .dmBody .u_1287780172{background-position:50% 50%!important;background-image:url(img/carousel-1.jpg),url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAABhGlDQ1BJQ0MgcHJvZmlsZQAAKJF9kT1Iw0AcxV9TpUUqHSwo4pChOlkQFemoVShChVArtOpgcukXNGlIUlwcBdeCgx+LVQcXZ10dXAVB8APEzc1J0UVK/F9aaBHjwXE/3t173L0DhEaFaVbPBKDptplOJsRsblUMvEJAGEEMIi4zy5iTpBQ8x9c9fHy9i/Es73N/jn41bzHAJxLPMsO0iTeIZzZtg/M+cYSVZJX4nHjcpAsSP3JdafEb56LLAs+MmJn0PHGEWCx2sdLFrGRqxNPEUVXTKV/ItljlvMVZq9RY+578haG8vrLMdZojSGIRS5AgQkENZVRgI0arToqFNO0nPPzDrl8il0KuMhg5FlCFBtn1g//B726twtRkKymUAHpfHOdjFAjsAs2643wfO07zBPA/A1d6x19tAPFP0usdLXoEhLeBi+uOpuwBlzvA0JMhm7Ir+WkKhQLwfkbflAMGboG+tVZv7X2cPgAZ6ip1AxwcAmNFyl73eHewu7d/z7T7+wFwJnKmZ9+MiwAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAAuIwAALiMBeKU/dgAAAAd0SU1FB+UCDwksLkLIPkkAAAAZdEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIEdJTVBXgQ4XAAAAC0lEQVQI12NgAAIAAAUAAeImBZsAAAAASUVORK5CYII=)!important}#dm .dmBody .u_1269594948{background-image:url(https://lirp.cdn-website.com/8f5df2ca/dms3rep/multi/opt/Spaghetti-Pomodoro-d2f6a099-b32b47b8-640w.jpg),url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAABhGlDQ1BJQ0MgcHJvZmlsZQAAKJF9kT1Iw0AcxV9TpUUqHSwo4pChOlkQFemoVShChVArtOpgcukXNGlIUlwcBdeCgx+LVQcXZ10dXAVB8APEzc1J0UVK/F9aaBHjwXE/3t173L0DhEaFaVbPBKDptplOJsRsblUMvEJAGEEMIi4zy5iTpBQ8x9c9fHy9i/Es73N/jn41bzHAJxLPMsO0iTeIZzZtg/M+cYSVZJX4nHjcpAsSP3JdafEb56LLAs+MmJn0PHGEWCx2sdLFrGRqxNPEUVXTKV/ItljlvMVZq9RY+578haG8vrLMdZojSGIRS5AgQkENZVRgI0arToqFNO0nPPzDrl8il0KuMhg5FlCFBtn1g//B726twtRkKymUAHpfHOdjFAjsAs2643wfO07zBPA/A1d6x19tAPFP0usdLXoEhLeBi+uOpuwBlzvA0JMhm7Ir+WkKhQLwfkbflAMGboG+tVZv7X2cPgAZ6ip1AxwcAmNFyl73eHewu7d/z7T7+wFwJnKmZ9+MiwAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAAuIwAALiMBeKU/dgAAAAd0SU1FB+UCDwksLkLIPkkAAAAZdEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIEdJTVBXgQ4XAAAAC0lEQVQI12NgAAIAAAUAAeImBZsAAAAASUVORK5CYII=)!important;background-position:50% 50%!important}#dm .dmBody .u_1876711946{background-position:50% 50%!important;background-image:url(img/room-1.jpg),url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAABhGlDQ1BJQ0MgcHJvZmlsZQAAKJF9kT1Iw0AcxV9TpUUqHSwo4pChOlkQFemoVShChVArtOpgcukXNGlIUlwcBdeCgx+LVQcXZ10dXAVB8APEzc1J0UVK/F9aaBHjwXE/3t173L0DhEaFaVbPBKDptplOJsRsblUMvEJAGEEMIi4zy5iTpBQ8x9c9fHy9i/Es73N/jn41bzHAJxLPMsO0iTeIZzZtg/M+cYSVZJX4nHjcpAsSP3JdafEb56LLAs+MmJn0PHGEWCx2sdLFrGRqxNPEUVXTKV/ItljlvMVZq9RY+578haG8vrLMdZojSGIRS5AgQkENZVRgI0arToqFNO0nPPzDrl8il0KuMhg5FlCFBtn1g//B726twtRkKymUAHpfHOdjFAjsAs2643wfO07zBPA/A1d6x19tAPFP0usdLXoEhLeBi+uOpuwBlzvA0JMhm7Ir+WkKhQLwfkbflAMGboG+tVZv7X2cPgAZ6ip1AxwcAmNFyl73eHewu7d/z7T7+wFwJnKmZ9+MiwAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAAuIwAALiMBeKU/dgAAAAd0SU1FB+UCDwksLkLIPkkAAAAZdEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIEdJTVBXgQ4XAAAAC0lEQVQI12NgAAIAAAUAAeImBZsAAAAASUVORK5CYII=)!important}#dm .dmBody div.u_1543639101{top:0!important;width:100%!important;height:auto!important;min-width:0!important;padding:2px 0!important;margin:8px auto 8px 0!important}#dm .dmBody div.u_1645854659{padding-bottom:30px!important;padding-top:30px!important}#dm .dmBody div.u_place{padding-top:0!important;padding-bottom:0!important}#dm .dmBody div.u_1610327324{width:auto!important;margin:0!important;padding:0!important}#dm .dmBody div.u_1988099631 .slides .slide-button{width:100px!important;height:100px!important}#dm .dmBody div.u_1988099631 .slides .slide-text{font-size:24px!important}#dm .dmBody div.u_1988099631 .slides .slide-title{font-style:normal!important;color:var(--color_2)!important;text-shadow:2px 2px 10px #000!important;font-size:36px!important}#dm .dmBody div.u_1166113357{margin:0!important;padding:0!important}#dm .dmBody div.u_1988099631{margin-top:0!important;margin-bottom:0!important;margin-right:0!important;important:true!important;width:100%!important;height:750px!important;padding:0!important}#dm .dmBody div.u_1117545222 .slides .slide-button{border-radius:50px!important;-moz-border-radius:50px!important;-webkit-border-radius:50px!important;background-color:var(--color_1)!important;border-color:var(--color_2)!important;box-shadow:rgba(0,0,0,.25) 0 0 11px 0!important;-moz-box-shadow:rgba(0,0,0,.25) 0 0 11px 0!important;-webkit-box-shadow:rgba(0,0,0,.25) 0 0 11px 0!important;width:100px!important;height:100px!important}#dm .dmBody div.u_1117545222 .slides .slide-text{font-size:24px!important}#dm .dmBody div.u_1117545222 .slides .slide-title{font-style:normal!important;color:var(--color_2)!important;text-shadow:2px 2px 10px #000!important;font-size:36px!important}#dm .dmBody div.u_1117545222{important:true!important;width:100%!important;height:750px!important;padding:0!important}#dm .dmBody div.u_1117545222 .slides .slide-button span.text{color:var(--color_2)!important;font-family:'Abril Fatface'!important;font-style:normal!important;font-size:18px!important}#\31 010830504,#\31 011055710,#\31 057038809,#\31 129672199,#\31 141224006,#\31 142168709,#\31 209778559,#\31 233061007,#\31 245035913,#\31 330913342,#\31 375851229,#\31 419232824,#\31 508978804,#\31 546993987,#\31 581737154,#\31 732008938,#\31 766856785,#\31 896802789,#\31 905693504,#\31 962110711,#layout-drawer-hamburger,#mobile-hamburger-drawer{order:0}#\31 057038809,#\31 375851229,#\31 419232824,#\31 508978804,#\31 732008938,#\31 896802789,#\31 905693504,#\31 962110711{flex-direction:row}#\31 001566277,#\31 033279329,#\31 156503097,#\31 163236989,#\31 178122496,#\31 268586454,#\31 269594948,#\31 287780172,#\31 332365287,#\31 473513603,#\31 485260124,#\31 606441391,#\31 730433094,#\31 876711946,#\31 923630611{order:0;flex-direction:row}#\31 399932385{order:0;flex-direction:column-reverse}#\31 245035913{flex-direction:column-reverse} #dm .dmPhotoGallery.newPhotoGallery .dmPhotoGalleryHolder:not(.photo-gallery-done) {display: none;} @media (max-width:767px){ [data-hidden-on-mobile] {display:none!important}}
+    .dmDesktopBody [data-anim-desktop]:not([data-anim-desktop='none']) {
+      visibility: hidden;
+    }
+
+    
+</style>
+    <style id="fontFallbacks">
+    @font-face {
+  font-family: "Raleway Fallback";
+  src: local('Arial');
+  ascent-override: 89.616%;
+  descent-override: 22.3087%;
+  size-adjust: 104.892%;
+  line-gap-override: 0%;
+ }@font-face {
+  font-family: "Lobster Fallback";
+  src: local('Arial');
+  ascent-override: 114.651%;
+  descent-override: 28.6627%;
+  size-adjust: 87.2212%;
+  line-gap-override: 0%;
+ }@font-face {
+  font-family: "Cabin Fallback";
+  src: local('Arial');
+  ascent-override: 101.7818%;
+  descent-override: 26.3684%;
+  size-adjust: 94.8106%;
+  line-gap-override: 0%;
+ }@font-face {
+  font-family: "Abril Fatface Fallback";
+  src: local('Arial');
+  ascent-override: 102.6391%;
+  descent-override: 28.2306%;
+  size-adjust: 103.0796%;
+  line-gap-override: 0%;
+ }@font-face {
+  font-family: "Montserrat Fallback";
+  src: local('Arial');
+  ascent-override: 84.9466%;
+  descent-override: 22.0264%;
+  size-adjust: 113.954%;
+  line-gap-override: 0%;
+ }@font-face {
+  font-family: "Amiko Fallback";
+  src: local('Arial');
+  ascent-override: 82.254%;
+  descent-override: 35.9861%;
+  size-adjust: 112.8212%;
+  line-gap-override: 0%;
+ }@font-face {
+  font-family: "Pacifico Fallback";
+  src: local('Arial');
+  ascent-override: 140.9687%;
+  descent-override: 49.0091%;
+  size-adjust: 92.4319%;
+  line-gap-override: 0%;
+ }@font-face {
+  font-family: "Helvetica Fallback";
+  src: local('Arial');
+  ascent-override: 77.002%;
+  descent-override: 22.998%;
+  line-gap-override: 0%;
+ }@font-face {
+  font-family: "Open Sans Fallback";
+  src: local('Arial');
+  ascent-override: 101.1768%;
+  descent-override: 27.7323%;
+  size-adjust: 105.6416%;
+  line-gap-override: 0%;
+ }
+</style><!-- End render the required css and JS in the head section -->
+    <link href="https://www.hotelplazavenice.com/zh" hreflang="zh" rel="alternate" />
+    <link href="https://www.hotelplazavenice.com/ko" hreflang="ko" rel="alternate" />
+    <link href="https://www.hotelplazavenice.com/pt" hreflang="pt" rel="alternate" />
+    <link href="https://www.hotelplazavenice.com/de" hreflang="de" rel="alternate" />
+    <link href="https://www.hotelplazavenice.com/" hreflang="en-gb" rel="alternate" />
+    <link href="https://www.hotelplazavenice.com/it" hreflang="it" rel="alternate" />
+    <link href="https://www.hotelplazavenice.com/es" hreflang="es" rel="alternate" />
+    <link href="https://www.hotelplazavenice.com/ja" hreflang="ja" rel="alternate" />
+    <link href="https://www.hotelplazavenice.com/fr" hreflang="fr" rel="alternate" />
+    <link href="https://www.hotelplazavenice.com/feed/rss2" rel="alternate" type="application/rss+xml" />
+    <link href="https://www.hotelplazavenice.com/feed/atom" rel="alternate" type="application/atom+xml" />
+    <meta content="website" property="og:type" />
+    <meta content="https://www.thetowerhotel.it/" property="og:url" />
+    <meta content="img/carousel-1.jpg" property="og:image" />
+    <title> The Tower Hotel - Hotel di Lusso a Milano </title>
+    <meta content="The Tower Hotel, hotel di lusso Milano, camere eleganti, ristorante gourmet, spa, eventi, prenotazione hotel Milano"
+
+      name="keywords" />
+    <meta content="The Tower Hotel è un accogliente hotel nel cuore di Torreglia, ideale per chi cerca tranquillità, comfort e una posizione strategica per scoprire i Colli Euganei."
+
+      name="description" />
+    <meta content="summary" name="twitter:card" />
+    <meta content="The Tower Hotel - Hotel di Lusso a Torreglia" name="twitter:title" />
+    <meta content="Vivi l'esperienza del The Tower Hotel: camere raffinate, ristorante d'eccellenza e servizi premium nel cuore di Milano."
+
+      name="twitter:description" />
+    <meta content="The Tower Hotel è un accogliente hotel nel cuore di Torreglia, ideale per chi cerca tranquillità, comfort e una posizione strategica per scoprire i Colli Euganei."
+
+      property="og:description" />
+    <meta content="The Tower Hotel - Hotel di Lusso a Torreglia" property="og:title" />
+    <!-- SYS- VVNfRElSRUNUX1BST0RVQ1RJT04= -->
+  </head>
+  <body style="padding:0;margin:0;" class="dmRoot dmMobileBody fix-mobile-scrolling addCanvasBorder dmResellerSite mac safariFix responsiveTablet "
+
+    data-page-alias="home" id="dmRoot">
+    <!-- ========= Site Content ========= -->
+    <div class="dmwr" id="dm">
+      <div class="dm_wrapper mobileHamburgerLayout-var5 null mobileHamburgerLayout">
+        <div mobile-global-classes="header-over-content" tablet-global-classes="header-over-content"
+
+          desktop-global-classes="header-over-content" themewaschanged="true" class="dm-home-page"
+
+          id="1901957768" dmwrapped="true">
+          <div data-background-parallax-selector=".dmHomeSection1, .dmSectionParallex"
+
+            data-soch="true" data-page-class="1716942098" id="dm-outer-wrapper"
+
+            class="runtime-module-container dm-bfs dm-layout-home hasAnimations inMiniHeaderMode hasStickyHeader rows-1200 hide-back-to-top layout-drawer_fixed-header header-over-content dmPageBody d-page-1716942098 inputs-css-clean dmFreeHeader"
+
+            dmtemplateid="mobileHamburgerLayout">
+            <div class="dmOuter" id="dmStyle_outerContainer">
+              <div class="dmInner" id="dmStyle_innerContainer">
+                <div class="dmLayoutWrapper standard-var dmStandardMobile">
+                  <div id="site_content">
+                    <div class="p_hfcontainer">
+                      <!-- New simple mobile menu (from scratch) -->
+                      <div id="tower-mobile-menu" class="tower-mobile-menu" aria-hidden="true" hidden>
+                        <button type="button" id="tower-menu-close" class="tower-menu-close" aria-label="Chiudi menu">×</button>
+                        <a href="homepage_mobile.html">HOME</a>
+                        <a href="room.html">CAMERE</a>
+                        <a href="service.html">SERVIZI</a>
+                        <a href="about.html">CHI SIAMO</a>
+                        <a href="contact.html">CONTATTI</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="site_content">
+                  <div class="hamburger-header-container p_hfcontainer" id="hamburger-header-container">
+                    <div layout="SHARD21f63a6836b274213b2c21706fd98d2cc===header"
+
+                      class="hamburger-header p_hfcontainer" id="mobile-hamburger-header">
+                      <!-- Hamburger button - moved inside navbar -->
+                      <button type="button" aria-expanded="false" aria-controls="tower-mobile-menu" aria-label="Menu" id="tower-menu-btn" class="layout-drawer-hamburger hamburger-on-header">
+                        <span class="hamburger__slice"></span> <span class="hamburger__slice"></span>
+                        <span class="hamburger__slice"></span>
+                      </button>
+                      <div mode="4" id="1233363101" style="text-align:center" class="dmRespRow dmDefaultListContentRow u_1233363101 fullBleedChanged fullBleedMode">
+                        <div id="1732008938" class="dmRespColsWrapper">
+                          <div id="1011055710" class="u_1011055710 dmRespCol medium-6 large-6 small-6">
+                            <div id="1668991152" data-widget-type="image" data-element-type="image"
+
+                              class="u_1668991152 imageWidget align-center"> <a
+
+                                file="false" id="1617717245" href="/"><img width="130.0"
+
+                                  height="63.140625" onerror="handleImageLoadError(this)"
+
+                                  data-dm-image-path="img/logo_hotel.png"
+
+                                  class="" id="1145205844" src="img/logo_hotel.png" /></a>
+                            </div>
+                          </div>
+                          <div id="1142168709" class="u_1142168709 dmRespCol medium-6 large-6 small-6">
+                            <a target="_blank" id="1777798433" data-element-type="dButtonLinkId"
+
+                              href="rooms.html"
+
+                              file="false" class="u_1777798433 align-center dmButtonLink dmWidget dmWwr default dmOnlyButton dmDefaultGradient"
+
+                              data-display-type="block"> <span id="1366070502"
+
+                                class="iconBg"> <span id="1383787052" class="icon hasFontIcon icon-star"></span>
+                              </span> <span id="1076455292" class="text">PRENOTA
+                                ORA</span> </a> </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div mobile-global-classes="header-over-content" tablet-global-classes="header-over-content"
+
+                    desktop-global-classes="header-over-content" themewaschanged="true"
+
+                    class="dmBody u_dmStyle_template_home dm-home-page" id="dmFirstContainer"
+
+                    dmwrapped="true">
+                    <div class="allWrapper" id="allWrapper"><!-- navigation placeholders -->
+                      <div role="main" class="dmContent" id="dm_content">
+                        <div id="1716942098" class="dmHomeRespTmpl mainBorder dmRespRowsWrapper dmFullRowRespTmpl"
+
+                          dm:templateorder="170">
+                          <div id="1610327324" class="dmRespRow fullBleedChanged fullBleedMode u_1610327324">
+                            <div id="1375851229" class="dmRespColsWrapper">
+                              <div class="dmRespCol large-12 medium-12 small-12 u_1166113357" id="1166113357"> <div class="u_1117545222 flex-container dmImageSlider dmNoMargin dmNoMark hasFullWidth hasFullWidthMobile hide-for-medium hide-for-large" data-widget-type="imageSlider" dmle_volatile_widget="true" data-element-type="dSliderId" id="1117545222"> <div class="flexslider ed-version nav-layout-2" sliderscriptparams="{'stretch':true,'animation':true,'randomize':false,'directionNav':true,'isAutoPlay':true,'isFade':false,'controlNav':false,'slideshowSpeed':5000,'animationDuration':600,'pausePlay':true,'prevText':'','nextText':''}" id="1926145371" layout="center"> <ul class="slides" id="1947083596"> <li layout="center" position="center" animation="zoomIn" show-content="true" color-overlay="true" text-background="true" id="1287780172" class="u_1287780172"> <img dm="true" src="img/carousel-1.jpg" id="1179329576" class="" onerror="handleImageLoadError(this)" height="0.0" width="0.0"/> 
+ <div class="color-overlay" id="1023905838"></div> 
+ <div class="slide-inner" id="1301632911"> <div class="text-wrapper" id="1686311060"> <h3 class="slide-title" id="1844727186">The Tower Hotel</h3> 
+ <div class="slide-text richText" id="1451116256" style=""><p class="rteBlock">Benvenuti nel cuore di Torreglia</p></div> 
+                                    </div>
+                                </div>
+</li> 
+ <li layout="center" position="center" animation="zoomIn" show-content="true" color-overlay="true" text-background="true" id="1876711946" class="u_1876711946"> <img dm="true" src="img/room-1.jpg" id="1836673696" class="" onerror="handleImageLoadError(this)" height="0.0" width="0.0"/> 
+ <div class="color-overlay" id="1979345576"></div> 
+ <div class="slide-inner" id="1890210822"> <div class="text-wrapper" id="1976862661"> <h3 class="slide-title" id="1568330472">LE CAMERE</h3> 
+ <div class="slide-text richText" id="1270494722" style=""><p class="rteBlock">Comfort e eleganza per ogni esigenza</p></div> 
+                                        </div>
+                                        </div>
+</li> 
+ <li layout="center" position="center" animation="zoomIn" show-content="true" color-overlay="true" text-background="true" id="1730433094" class="u_1730433094"> <img dm="true" src="img/restaurant-1.jpg" id="1553733515" class="" onerror="handleImageLoadError(this)" height="0.0" width="0.0"/> 
+ <div class="color-overlay" id="1247606801"></div> 
+ <div class="slide-inner" id="1660572389"> <div class="text-wrapper" id="1426592043"> <h3 class="slide-title" id="1473448920">IL RISTORANTE</h3> 
+ <div class="slide-text richText" id="1657241819" style=""><p class="rteBlock">Delizie culinarie per un'esperienza indimenticabile</p></div> 
+                                    </div>
+                                </div>
+</li> 
+ <li layout="center" position="center" animation="zoomIn" show-content="true" color-overlay="true" text-background="true" id="1923630611" class="u_1923630611"> <img dm="true" src="img/room-2.jpg" id="1325250039" class="" onerror="handleImageLoadError(this)" height="0.0" width="0.0"/> 
+ <div class="color-overlay" id="1289000034"></div> 
+ <div class="slide-inner" id="1451430546"> <div class="text-wrapper" id="1632227713"> <h3 class="slide-title" id="1715563884">I SERVIZI</h3> 
+ <div class="slide-text richText" id="1042318526" style=""><p class="rteBlock">Eventi, comfort e molto altro</p></div> 
+                            </div>
+                        </div>
+</li> 
+</ul> 
+                    </div>
+                </div>
+                                <div id="1988099631" data-element-type="dSliderId"
+
+                                  dmle_volatile_widget="true" data-widget-type="imageSlider"
+
+                                  class="u_1988099631 flex-container dmImageSlider dmNoMargin dmNoMark hasFullWidth hasFullWidthMobile hide-for-small">
+                                  <div layout="center" id="1746930389" sliderscriptparams="{'stretch':true,'animation':true,'randomize':false,'directionNav':true,'isAutoPlay':true,'isFade':false,'controlNav':false,'slideshowSpeed':5000,'animationDuration':600,'pausePlay':true,'prevText':'','nextText':''}"
+
+                                    class="flexslider ed-version nav-layout-2">
+                                    <ul id="1378241963" class="slides">
+                                      <li layout="center" position="center" animation="zoomIn" show-content="true" color-overlay="true" text-background="true" id="1606441391" class="u_1606441391">
+                                        <img dm="true" src="img/carousel-1.jpg" id="1269809570" class="" onerror="handleImageLoadError(this)" height="0.0" width="0.0"/>
+                                        <div class="color-overlay" id="1457944839"></div>
+                                        <div class="slide-inner" id="1551022000"> <div class="text-wrapper" id="1804090054"> <h3 class="slide-title" id="1455392752">The Tower Hotel</h3>
+                                            <div class="slide-text richText" id="1468067431" style=""><p class="rteBlock">Benvenuti nel cuore di Torreglia</p></div>
+            </div>
+        </div>
+                                      </li>
+                                      <li layout="center" position="center" animation="zoomIn" show-content="true" color-overlay="true" text-background="true" id="1473513603" class="u_1473513603">
+                                        <img dm="true" src="img/room-1.jpg" id="1507405951" class="" onerror="handleImageLoadError(this)" height="0.0" width="0.0"/>
+                                        <div class="color-overlay" id="1123349165"></div>
+                                        <div class="slide-inner" id="1819227660"> <div class="text-wrapper" id="1842181186"> <h3 class="slide-title" id="1575194659">LE CAMERE</h3>
+                                            <div class="slide-text richText" id="1158051337" style=""><p class="rteBlock">Comfort e eleganza per ogni esigenza</p></div>
+                    </div>
+                    </div>
+                                      </li>
+                                      <li layout="center" position="center" animation="zoomIn" show-content="true" color-overlay="true" text-background="true" id="1269594948" class="u_1269594948">
+                                        <img dm="true" src="img/restaurant-1.jpg" id="1336970346" class="" onerror="handleImageLoadError(this)" height="0.0" width="0.0"/>
+                                        <div class="color-overlay" id="1355674676"></div>
+                                        <div class="slide-inner" id="1978841495"> <div class="text-wrapper" id="1952890677"> <h3 class="slide-title" id="1743031707">IL RISTORANTE</h3>
+                                            <div class="slide-text richText" id="1888984948" style=""><p class="rteBlock">Delizie culinarie per un'esperienza indimenticabile</p></div>
+                    </div>
+                    </div>
+                                      </li>
+                                    </ul>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div data-anchor="place" id="place" style="text-align: center;"
+
+                            class="u_place dmRespRow dmSectionNoParallax fullBleedChanged fullBleedMode mobile-columns-reversed">
+                            <div id="1399932385" class="dmRespColsWrapper">
+                              <div id="1647440734" class="u_1647440734 dmRespCol small-12 large-7 medium-7">
+                                <div id="1828317811" data-element-type="dSliderId"
+
+                                  dmle_volatile_widget="true" data-widget-type="imageSlider"
+
+                                  class="flex-container dmImageSlider dmNoMargin dmNoMark hasFullWidth u_1828317811">
+                                  <div layout="empty" id="1954653945" sliderscriptparams="{'stretch':true,'animation':true,'randomize':false,'directionNav':true,'isAutoPlay':true,'isFade':true,'controlNav':false,'slideshowSpeed':5000,'animationDuration':600,'pausePlay':true}"
+
+                                    class="flexslider ed-version nav-layout-2">
+                                    <ul id="1289273225" class="slides">
+                                      <li id="1737712438" text-background="true"
+
+                                        color-overlay="true" show-content="true"
+
+                                        animation="fadeInUp" position="center" layout="center"><img
+
+                                          width="390.0" height="250.0" onerror="handleImageLoadError(this)"
+
+                                          id="1994696263" src="img/about-1.jpg"
+
+                                          dm="true" />
+                                        <div id="1211467689" class="color-overlay"></div>
+                                        <div id="1148928272" class="slide-inner">
+                                          <div id="1224810406" class="text-wrapper">
+                                            <h3 id="1121904551" class="slide-title">The
+                                              Tower Hotel</h3>
+                                            <div id="1266323478" class="slide-text richText">Scopri il lusso del The Tower Hotel nel cuore di Torreglia</div>
+                                          </div>
+                                          <div id="1499432776" class="slide-button dmWidget clearfix">
+                                            <span id="1516726326" class="iconBg">
+                                              <span id="1499787204" class="icon hasFontIcon icon-star"></span>
+                                            </span> <span id="1245023492" class="text">Prenota
+                                              Ora</span> </div>
+                                        </div>
+                                      </li>
+                                      <li id="1981849362" text-background="true"
+
+                                        color-overlay="true" show-content="true"
+
+                                        animation="fadeInUp" position="center" layout="center"><img
+
+                                          width="390.0" height="250.0" onerror="handleImageLoadError(this)"
+
+                                          id="1105912556" src="img/about-2.jpg"
+
+                                          dm="true" />
+                                        <div id="1035584158" class="color-overlay"></div>
+                                        <div id="1102175991" class="slide-inner">
+                                          <div id="1933391413" class="text-wrapper">
+                                            <h3 id="1432850208" class="slide-title">The
+                                              Tower Hotel</h3>
+                                            <div id="1300372808" class="slide-text richText">Scopri il lusso del The Tower Hotel nel cuore di Torreglia</div>
+                                          </div>
+                                          <div id="1458914210" class="slide-button dmWidget clearfix">
+                                            <span id="1026578140" class="iconBg">
+                                              <span id="1624036313" class="icon hasFontIcon icon-star"></span>
+                                            </span> <span id="1886408594" class="text">Prenota
+                                              Ora</span> </div>
+                                        </div>
+                                      </li>
+                                      <li id="1543822993" text-background="true"
+
+                                        color-overlay="true" show-content="true"
+
+                                        animation="fadeInUp" position="center" layout="center"><img
+
+                                          width="390.0" height="250.0" onerror="handleImageLoadError(this)"
+
+                                          id="1080097052" src="img/about-3.jpg"
+
+                                          dm="true" />
+                                        <div id="1677987489" class="color-overlay"></div>
+                                        <div id="1539987763" class="slide-inner">
+                                          <div id="1415066482" class="text-wrapper">
+                                            <h3 id="1510367195" class="slide-title">The
+                                              Tower Hotel</h3>
+                                            <div id="1843701733" class="slide-text richText">Scopri il lusso del The Tower Hotel nel cuore di Torreglia</div>
+                                          </div>
+                                          <div id="1367946767" class="slide-button dmWidget clearfix">
+                                            <span id="1818889849" class="iconBg">
+                                              <span id="1627914002" class="icon hasFontIcon icon-star"></span>
+                                            </span> <span id="1816752599" class="text">Prenota
+                                              Ora</span> </div>
+                                        </div>
+                                      </li>
+                                      <li id="1746633958" text-background="true"
+
+                                        color-overlay="true" show-content="true"
+
+                                        animation="fadeInUp" position="center" layout="center"><img
+
+                                          width="390.0" height="250.0" onerror="handleImageLoadError(this)"
+
+                                          id="1128519175" src="img/about-4.jpg"
+
+                                          dm="true" />
+                                        <div id="1805155363" class="color-overlay"></div>
+                                        <div id="1150606092" class="slide-inner">
+                                          <div id="1374113496" class="text-wrapper">
+                                            <h3 id="1622445584" class="slide-title">The
+                                              Tower Hotel</h3>
+                                            <div id="1578459774" class="slide-text richText">Scopri il lusso del The Tower Hotel nel cuore di Torreglia</div>
+                                          </div>
+                                          <div id="1159491047" class="slide-button dmWidget clearfix">
+                                            <span id="1289694507" class="iconBg">
+                                              <span id="1763319724" class="icon hasFontIcon icon-star"></span>
+                                            </span> <span id="1658181905" class="text">Prenota
+                                              Ora</span> </div>
+                                        </div>
+                                      </li>
+                                      <li id="1854405191" text-background="true"
+
+                                        color-overlay="true" show-content="true"
+
+                                        animation="fadeInUp" position="center" layout="center"><img
+
+                                          width="390.0" height="250.0" onerror="handleImageLoadError(this)"
+
+                                          id="1173900192" src="img/carousel-1.jpg"
+
+                                          dm="true" />
+                                        <div id="1848194650" class="color-overlay"></div>
+                                        <div id="1993668417" class="slide-inner">
+                                          <div id="1510931851" class="text-wrapper">
+                                            <h3 id="1999177370" class="slide-title">The
+                                              Tower Hotel</h3>
+                                            <div id="1273643858" class="slide-text richText">Scopri il lusso del The Tower Hotel nel cuore di Torreglia</div>
+                                          </div>
+                                          <div id="1904427861" class="slide-button dmWidget clearfix">
+                                            <span id="1269723844" class="iconBg">
+                                              <span id="1943979422" class="icon hasFontIcon icon-star"></span>
+                                            </span> <span id="1602824045" class="text">Prenota
+                                              Ora</span> </div>
+                                        </div>
+                                      </li>
+                                    </ul>
+                                  </div>
+                                </div>
+                              </div>
+                              <div data-anim-desktop="fadeIn" id="1645854659" class="u_1645854659 dmRespCol small-12 large-5 medium-5">
+                                <div data-version="5" data-element-type="paragraph"
+
+                                  style="transition: opacity 1s ease-in-out;" id="1543639101"
+
+                                  class="u_1543639101 dmNewParagraph">
+                                  <h2><span style="font-style: normal; color: var(--color_1); display: initial; font-weight: normal;">THE</span><span
+
+                                      style="display: initial; font-weight: normal; font-style: normal;"
+
+                                      class="" single-space="true"> <span style="display: initial; font-weight: normal; font-style: normal;"></span>
+                                    </span><span style="display: initial; font-weight: normal; color: var(--color_1); font-style: normal;">TOWER
+                                      HOTEL</span></h2>
+                                </div>
+                                <div data-version="5" data-element-type="paragraph"
+
+                                  style="transition: opacity 1s ease-in-out;" id="1778518540"
+
+                                  class="dmNewParagraph">
+                                  <p><span style="display: initial;">The Tower Hotel è un accogliente hotel nel cuore di Torreglia, ideale per chi cerca tranquillità, comfort e una posizione strategica per scoprire i Colli Euganei.
+                                    Offriamo camere curate e funzionali, servizi pensati per un soggiorno piacevole e un’ospitalità attenta, per far sentire ogni ospite a proprio agio, sia per una vacanza che per un viaggio di lavoro.
+                                    </span></p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div id="pa_2045691" style="text-align: center;" class="u_pa_2045691 dmRespRow dmSectionNoParallax fullBleedChanged fullBleedMode">
+                            <div id="1896802789" class="dmRespColsWrapper">
+                              <div data-anim-desktop="fadeIn" id="1678972967" class="u_1678972967 dmRespCol small-12 large-5 medium-5">
+                                <div data-version="5" data-element-type="paragraph"
+
+                                  style="transition: opacity 1s ease-in-out;" id="1542702546"
+
+                                  class="dmNewParagraph u_1542702546">
+                                  <h2><span style="display: initial; font-style: normal; font-weight: normal; color: var(--color_1);">LE
+                                      CAMERE</span></h2>
+                                </div>
+                                <div data-version="5" data-element-type="paragraph"
+
+                                  style="transition: opacity 1s ease-in-out;" id="1068815334"
+
+                                  class="dmNewParagraph">
+                                  <p><span style="display: initial;">Camere
+                                      eleganti e spaziose con vista panoramica,
+                                      arredate con mobili di lusso e dotate di
+                                      ogni comfort moderno per un soggiorno
+                                      indimenticabile.</span></p>
+                                </div>
+                                <div style="margin-top: 30px;">
+                                  <a target="_blank" id="camere_prenota_btn" data-element-type="dButtonLinkId"
+                                    href="https://thetower.kross.travel/"
+                                    file="false" class="align-center dmButtonLink dmWidget dmWwr default dmOnlyButton dmDefaultGradient"
+                                    data-display-type="block" style="display: inline-block; padding: 15px 40px; background-color: var(--color_1); color: #ffffff; text-decoration: none; border-radius: 5px; font-size: 16px; font-weight: 600; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+                                    <span id="camere_iconbg" class="iconBg">
+                                      <span id="camere_icon" class="icon hasFontIcon icon-star"></span>
+                                    </span>
+                                    <span id="camere_btn_text" class="text">PRENOTA ORA</span>
+                                  </a>
+                                </div>
+                              </div>
+                              <div id="1787939505" class="u_1787939505 dmRespCol small-12 large-7 medium-7">
+                                <div id="1139560360" data-element-type="dSliderId"
+
+                                  dmle_volatile_widget="true" data-widget-type="imageSlider"
+
+                                  class="flex-container dmImageSlider dmNoMargin dmNoMark hasFullWidth u_1139560360">
+                                  <div layout="empty" id="1101298475" sliderscriptparams="{'stretch':true,'animation':true,'randomize':false,'directionNav':true,'isAutoPlay':true,'isFade':true,'controlNav':false,'slideshowSpeed':5000,'animationDuration':600,'pausePlay':true}"
+
+                                    class="flexslider ed-version nav-layout-2">
+                                    <ul id="1751590202" class="slides">
+                                      <li id="1059398584" text-background="true"
+
+                                        color-overlay="true" show-content="true"
+
+                                        animation="fadeInUp" position="center" layout="center">
+                                        <a file="false" id="1628096650" href="room.html"><img
+
+                                            width="390.0" height="250.0" onerror="handleImageLoadError(this)"
+
+                                            id="1294224159" src="img/room-1.jpg"
+
+                                            dm="true" /></a>
+                                        <div id="1309085582" class="color-overlay"></div>
+                                        <div id="1822524317" class="slide-inner">
+                                          <div id="1028833833" class="text-wrapper">
+                                            <h3 id="1891637596" class="slide-title">The
+                                              Tower Hotel</h3>
+                                            <div id="1427830622" class="slide-text richText">Scopri il lusso del The Tower Hotel nel cuore di Torreglia</div>
+                                          </div>
+                                          <div id="1783304288" class="slide-button dmWidget clearfix">
+                                            <span id="1809128427" class="iconBg">
+                                              <span id="1008650755" class="icon hasFontIcon icon-star"></span>
+                                            </span> <span id="1999214890" class="text">Prenota
+                                              Ora</span> </div>
+                                        </div>
+                                      </li>
+                                      <li id="1767598921" text-background="true"
+
+                                        color-overlay="true" show-content="true"
+
+                                        animation="fadeInUp" position="center" layout="center">
+                                        <a file="false" id="1277452795" href="room.html"><img
+
+                                            width="390.0" height="250.0" onerror="handleImageLoadError(this)"
+
+                                            id="1173005023" src="img/room-2.jpg"
+
+                                            dm="true" /></a>
+                                        <div id="1372804460" class="color-overlay"></div>
+                                        <div id="1738186414" class="slide-inner">
+                                          <div id="1555855255" class="text-wrapper">
+                                            <h3 id="1775046763" class="slide-title">The
+                                              Tower Hotel</h3>
+                                            <div id="1214887633" class="slide-text richText">Scopri il lusso del The Tower Hotel nel cuore di Torreglia</div>
+                                          </div>
+                                          <div id="1658963863" class="slide-button dmWidget clearfix">
+                                            <span id="1360646383" class="iconBg">
+                                              <span id="1415567004" class="icon hasFontIcon icon-star"></span>
+                                            </span> <span id="1552240880" class="text">Prenota
+                                              Ora</span> </div>
+                                        </div>
+                                      </li>
+                                      <li id="1758790324" text-background="true"
+
+                                        color-overlay="true" show-content="true"
+
+                                        animation="fadeInUp" position="center" layout="center">
+                                        <a file="false" id="1116272231" href="room.html"><img
+
+                                            width="390.0" height="250.0" onerror="handleImageLoadError(this)"
+
+                                            id="1317764322" src="img/room-3.jpg"
+
+                                            dm="true" /></a>
+                                        <div id="1487465610" class="color-overlay"></div>
+                                        <div id="1789160634" class="slide-inner">
+                                          <div id="1858213739" class="text-wrapper">
+                                            <h3 id="1704647045" class="slide-title">The
+                                              Tower Hotel</h3>
+                                            <div id="1345626894" class="slide-text richText">Scopri il lusso del The Tower Hotel nel cuore di Torreglia</div>
+                                          </div>
+                                          <div id="1135172316" class="slide-button dmWidget clearfix">
+                                            <span id="1867498041" class="iconBg">
+                                              <span id="1888226831" class="icon hasFontIcon icon-star"></span>
+                                            </span> <span id="1196325301" class="text">Prenota
+                                              Ora</span> </div>
+                                        </div>
+                                      </li>
+                                      <li id="1526958235" text-background="true"
+
+                                        color-overlay="true" show-content="true"
+
+                                        animation="fadeInUp" position="center" layout="center">
+                                        <a file="false" id="1218554831" href="room.html"><img
+
+                                            width="390.0" height="250.0" onerror="handleImageLoadError(this)"
+
+                                            id="1167437944" src="img/room-2.jpg"
+
+                                            dm="true" /></a>
+                                        <div id="1103976383" class="color-overlay"></div>
+                                        <div id="1371498686" class="slide-inner">
+                                          <div id="1498436479" class="text-wrapper">
+                                            <h3 id="1640639328" class="slide-title">The
+                                              Tower Hotel</h3>
+                                            <div id="1466178590" class="slide-text richText">Scopri il lusso del The Tower Hotel nel cuore di Torreglia</div>
+                                          </div>
+                                          <div id="1480245831" class="slide-button dmWidget clearfix">
+                                            <span id="1991801204" class="iconBg">
+                                              <span id="1633815337" class="icon hasFontIcon icon-star"></span>
+                                            </span> <span id="1394952008" class="text">Prenota
+                                              Ora</span> </div>
+                                        </div>
+                                      </li>
+                                    </ul>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <!-- IL RISTORANTE Section - Same structure as LE CAMERE -->
+                          <div id="pa_ristorante" style="text-align: center;" class="u_pa_ristorante dmRespRow dmSectionNoParallax fullBleedChanged fullBleedMode">
+                            <div id="ristorante_cols_wrapper" class="dmRespColsWrapper">
+                              <div data-anim-desktop="fadeIn" id="ristorante_text_col" class="u_ristorante_text_col dmRespCol small-12 large-5 medium-5">
+                                <div data-version="5" data-element-type="paragraph"
+                                  style="transition: opacity 1s ease-in-out;" id="ristorante_title"
+                                  class="dmNewParagraph u_ristorante_title">
+                                  <h2><span style="display: initial; font-style: normal; font-weight: normal; color: var(--color_1);">il</span> <span style="display: initial; font-style: normal; font-weight: normal; color: var(--color_1);">RISTORANTE</span></h2>
+                                </div>
+                                <div data-version="5" data-element-type="paragraph"
+                                  style="transition: opacity 1s ease-in-out;" id="ristorante_desc"
+                                  class="dmNewParagraph">
+                                  <p><span style="display: initial;">Offriamo una cucina genuina, realizzata con ingredienti freschi e locali, pensata per regalare agli ospiti un’esperienza piacevole e autentica.
+                                    L’hotel dispone di spazi adatti all’organizzazione di eventi privati e celebrazioni, in un contesto tranquillo e ben organizzato.</span></p>
+                                </div>
+                              </div>
+                              <div id="ristorante_photos_col" class="u_ristorante_photos_col dmRespCol small-12 large-7 medium-7">
+                                <div id="ristorante_slider" data-element-type="dSliderId"
+                                  dmle_volatile_widget="true" data-widget-type="imageSlider"
+                                  class="flex-container dmImageSlider dmNoMargin dmNoMark hasFullWidth u_ristorante_slider">
+                                  <div layout="empty" id="ristorante_slider_inner" sliderscriptparams="{'stretch':true,'animation':true,'randomize':false,'directionNav':true,'isAutoPlay':true,'isFade':true,'controlNav':false,'slideshowSpeed':5000,'animationDuration':600,'pausePlay':true}"
+                                    class="flexslider ed-version nav-layout-2">
+                                    <ul id="ristorante_slides" class="slides">
+                                      <li id="ristorante_slide_1" text-background="true"
+                                        color-overlay="true" show-content="true"
+                                        animation="fadeInUp" position="center" layout="center">
+                                        <a file="false" id="ristorante_link_1" href="service.html"><img
+                                            width="390.0" height="250.0" onerror="handleImageLoadError(this)"
+                                            id="ristorante_img_1" src="img/restaurant-1.jpg"
+                                            dm="true" /></a>
+                                        <div id="ristorante_overlay_1" class="color-overlay"></div>
+                                        <div id="ristorante_inner_1" class="slide-inner">
+                                          <div id="ristorante_wrapper_1" class="text-wrapper">
+                                            <h3 id="ristorante_title_1" class="slide-title">The
+                                              Tower Hotel</h3>
+                                            <div id="ristorante_text_1" class="slide-text richText">Scopri il lusso del The Tower Hotel nel cuore di Torreglia</div>
+                                          </div>
+                                          <div id="ristorante_button_1" class="slide-button dmWidget clearfix">
+                                            <span id="ristorante_iconbg_1" class="iconBg">
+                                              <span id="ristorante_icon_1" class="icon hasFontIcon icon-star"></span>
+                                            </span> <span id="ristorante_btn_text_1" class="text">Prenota
+                                              Ora</span> </div>
+                                        </div>
+                                      </li>
+                                      <li id="ristorante_slide_2" text-background="true"
+                                        color-overlay="true" show-content="true"
+                                        animation="fadeInUp" position="center" layout="center">
+                                        <a file="false" id="ristorante_link_2" href="service.html"><img
+                                            width="390.0" height="250.0" onerror="handleImageLoadError(this)"
+                                            id="ristorante_img_2" src="img/restaurant-2.jpg"
+                                            dm="true" /></a>
+                                        <div id="ristorante_overlay_2" class="color-overlay"></div>
+                                        <div id="ristorante_inner_2" class="slide-inner">
+                                          <div id="ristorante_wrapper_2" class="text-wrapper">
+                                            <h3 id="ristorante_title_2" class="slide-title">The
+                                              Tower Hotel</h3>
+                                            <div id="ristorante_text_2" class="slide-text richText">Scopri il lusso del The Tower Hotel nel cuore di Torreglia</div>
+                                          </div>
+                                          <div id="ristorante_button_2" class="slide-button dmWidget clearfix">
+                                            <span id="ristorante_iconbg_2" class="iconBg">
+                                              <span id="ristorante_icon_2" class="icon hasFontIcon icon-star"></span>
+                                            </span> <span id="ristorante_btn_text_2" class="text">Prenota
+                                              Ora</span> </div>
+                                        </div>
+                                      </li>
+                                      <li id="ristorante_slide_3" text-background="true"
+                                        color-overlay="true" show-content="true"
+                                        animation="fadeInUp" position="center" layout="center">
+                                        <a file="false" id="ristorante_link_3" href="service.html"><img
+                                            width="390.0" height="250.0" onerror="handleImageLoadError(this)"
+                                            id="ristorante_img_3" src="img/restaurant-3.jpg"
+                                            dm="true" /></a>
+                                        <div id="ristorante_overlay_3" class="color-overlay"></div>
+                                        <div id="ristorante_inner_3" class="slide-inner">
+                                          <div id="ristorante_wrapper_3" class="text-wrapper">
+                                            <h3 id="ristorante_title_3" class="slide-title">The
+                                              Tower Hotel</h3>
+                                            <div id="ristorante_text_3" class="slide-text richText">Scopri il lusso del The Tower Hotel nel cuore di Torreglia</div>
+                                          </div>
+                                          <div id="ristorante_button_3" class="slide-button dmWidget clearfix">
+                                            <span id="ristorante_iconbg_3" class="iconBg">
+                                              <span id="ristorante_icon_3" class="icon hasFontIcon icon-star"></span>
+                                            </span> <span id="ristorante_btn_text_3" class="text">Prenota
+                                              Ora</span> </div>
+                                        </div>
+                                      </li>
+                                      <li id="ristorante_slide_4" text-background="true"
+                                        color-overlay="true" show-content="true"
+                                        animation="fadeInUp" position="center" layout="center">
+                                        <a file="false" id="ristorante_link_4" href="service.html"><img
+                                            width="390.0" height="250.0" onerror="handleImageLoadError(this)"
+                                            id="ristorante_img_4" src="img/restaurant-4.jpg"
+                                            dm="true" /></a>
+                                        <div id="ristorante_overlay_4" class="color-overlay"></div>
+                                        <div id="ristorante_inner_4" class="slide-inner">
+                                          <div id="ristorante_wrapper_4" class="text-wrapper">
+                                            <h3 id="ristorante_title_4" class="slide-title">The
+                                              Tower Hotel</h3>
+                                            <div id="ristorante_text_4" class="slide-text richText">Scopri il lusso del The Tower Hotel nel cuore di Torreglia</div>
+                                          </div>
+                                          <div id="ristorante_button_4" class="slide-button dmWidget clearfix">
+                                            <span id="ristorante_iconbg_4" class="iconBg">
+                                              <span id="ristorante_icon_4" class="icon hasFontIcon icon-star"></span>
+                                            </span> <span id="ristorante_btn_text_4" class="text">Prenota
+                                              Ora</span> </div>
+                                        </div>
+                                      </li>
+                                    </ul>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Featured Restaurant Section -->
+                  <div class="dmRespRow fullBleedChanged fullBleedMode" style="text-align: center; padding: 60px 20px; background: linear-gradient(135deg, #f5f5f5 0%, #ffffff 100%);">
+                    <div class="dmRespColsWrapper">
+                      <div class="dmRespCol small-12 medium-12 large-12">
+                        <div class="dmNewParagraph" data-element-type="paragraph" data-version="5" style="margin-bottom: 20px;">
+                          <h2 style="color: var(--color_1); font-family: 'Abril Fatface', 'Abril Fatface Fallback'; font-size: 36px; margin-bottom: 15px; font-weight: normal;">
+                            <span style="display: initial;">B&B - RISTORANTE AI COLLI</span>
+                          </h2>
+                        </div>
+                        <div class="dmNewParagraph" data-element-type="paragraph" data-version="5" style="margin-bottom: 30px;">
+                          <p style="font-size: 18px; color: #666; line-height: 1.6; max-width: 800px; margin: 0 auto;">
+                            A pochi chilometri dal nostro hotel, scopri il ristorante AI COLLI, un'esperienza culinaria unica nel cuore della regione.
+                          </p>
+                        </div>
+                        <div class="dmCustomHtml" data-element-type="html">
+                          <a href="https://www.ristoranteaicolli.com/" target="_blank" rel="noopener noreferrer" style="display: inline-block; padding: 15px 40px; background-color: var(--color_1); color: #ffffff; text-decoration: none; border-radius: 5px; font-size: 16px; font-weight: 600; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+                            Visita il Sito Web
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="dmFooterContainer">
+                    <div class="u_fcontainer f_hcontainer dmFooter p_hfcontainer"
+
+                      id="fcontainer">
+                      <div id="1943048428" class="dmFooterResp generalFooter" dm:templateorder="250">
+                        <div id="1543861945" class="dmRespRow fullBleedChanged fullBleedMode u_1543861945">
+                          <div id="1156503097" class="dmRespColsWrapper"> </div>
+                        </div>
+                      </div>
+                      <div surround="false" icon="true" data-element-type="powered_by"
+
+                        dmle_extension="powered_by" id="1236746004"></div>
+                    </div>
+                  </div>
+                </div>
+                <a href="#dmContent" aria-label="Scroll to top" id="dmBackToTop"
+
+                  class="dmBackToTop"></a> </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--  Add full CSS and Javascript before the close tag of the body if needed -->
+    <!-- Google Fonts Include -->
+    <!-- loadCSS function fonts.jsp-->
+    <link onload="loadCSS(this)" fetchpriority="low" as="style" href="https://irp.cdn-website.com/fonts/css2?family=Raleway:wght@100..900&amp;family=Lobster:wght@400&amp;family=Cabin:wght@400..700&amp;family=Abril+Fatface:wght@400&amp;family=Montserrat:wght@100..900&amp;family=Amiko:wght@400;600;700&amp;family=Pacifico:wght@400&amp;family=Source+Sans+Pro:wght@200;300;400;600;700;900&amp;family=Open+Sans:wght@300..800&amp;subset=latin-ext&amp;display=swap"
+
+      rel="preload" />
+    <!-- RT CSS Include d-css-runtime-mobile-one-package-structured-global-->
+    <link href="css/css_runtime_mobile.min.css" onload="loadCSS(this)" fetchpriority="low"
+
+      as="style" rel="preload" />
+    <!-- End of RT CSS Include -->
+    <link onload="loadCSS(this)" fetchpriority="low" as="style" id="widgetCSS" href="css/css_widget.min.css"
+
+      rel="preload" />
+    <!-- Support `img` size attributes -->
+    <style>img[width][height] {
+  height: auto;
+}</style>
+    <!-- Support showing sticky element on page only -->
+    <style>
+  body[data-page-alias="home"] #dm [data-show-on-page-only="home"] {
+    display: block !important;
+  }
+</style><!-- This is populated in Ajax navigation -->
+    <style type="text/css" id="pageAdditionalWidgetsCss">
+</style><!-- Site CSS -->
+    <link onload="loadCSS(this)" fetchpriority="low" as="style" id="siteGlobalCss"
+
+      href="css/css_header_mobile.min.css" rel="preload" />
+    <style type="text/css" id="customWidgetStyle">
+    
+</style>
+    <style type="text/css" id="innerPagesStyle">
+    
+</style>
+    <style type="text/css" id="additionalGlobalCss">
+</style><!-- Page CSS -->
+    <link onload="loadCSS(this)" fetchpriority="low" as="style" id="homeCssLink"
+
+      href="css/css_home_mobile.min.css" rel="preload" />
+    <style type="text/css" id="pagestyle">
+    
+</style>
+    <style type="text/css" id="pagestyleDevice">
+    
+</style><!-- Ensure new mobile menu is closed on page load -->
+<script>
+  (function() {
+    var btn = document.getElementById('tower-menu-btn');
+    var menu = document.getElementById('tower-mobile-menu');
+    if (btn) btn.setAttribute('aria-expanded', 'false');
+    if (menu) { menu.setAttribute('aria-hidden', 'true'); menu.setAttribute('hidden', ''); }
+  })();
+</script>
+<!-- Mobile-only tweaks: smaller nav, taller hero -->
+    <style>
+  @media (max-width: 991px) {
+    /* Ensure hamburger header container is positioned for absolute children */
+    #hamburger-header-container {
+      position: relative !important;
+    }
+    #mobile-hamburger-header {
+      min-height: 90px !important;
+      padding: 6px 10px !important;
+      position: relative !important;
+    }
+    /* Hamburger button - positioned on left side of navbar */
+    #mobile-hamburger-header .layout-drawer-hamburger {
+      position: absolute !important;
+      left: 10px !important;
+      top: 50% !important;
+      transform: translateY(-50%) !important;
+      width: 32px !important;
+      height: 32px !important;
+      padding: 4px !important;
+      z-index: 10000 !important;
+      pointer-events: auto !important;
+      cursor: pointer !important;
+      touch-action: manipulation !important;
+      display: flex !important;
+      flex-direction: column !important;
+      justify-content: space-between !important;
+      align-items: center !important;
+      background: transparent !important;
+      border: none !important;
+      box-sizing: border-box !important;
+    }
+    /* Hamburger slices - show 3 lines by default */
+    #mobile-hamburger-header .layout-drawer-hamburger .hamburger__slice {
+      display: block !important;
+      width: 24px !important;
+      height: 3px !important;
+      background-color: #333 !important;
+      border-radius: 2px !important;
+      transition: all 0.3s ease !important;
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+    /* Default state - show 3 lines (when closed or no aria-expanded) */
+    #mobile-hamburger-header .layout-drawer-hamburger .hamburger__slice:nth-child(1) {
+      transform: translateY(0) rotate(0deg) !important;
+      opacity: 1 !important;
+    }
+    #mobile-hamburger-header .layout-drawer-hamburger .hamburger__slice:nth-child(2) {
+      transform: scale(1) !important;
+      opacity: 1 !important;
+    }
+    #mobile-hamburger-header .layout-drawer-hamburger .hamburger__slice:nth-child(3) {
+      transform: translateY(0) rotate(0deg) !important;
+      opacity: 1 !important;
+    }
+    /* When menu is open, transform to X */
+    #mobile-hamburger-header .layout-drawer-hamburger[aria-expanded="true"] .hamburger__slice:nth-child(1) {
+      transform: translateY(10px) rotate(45deg) !important;
+    }
+    #mobile-hamburger-header .layout-drawer-hamburger[aria-expanded="true"] .hamburger__slice:nth-child(2) {
+      opacity: 0 !important;
+      transform: scale(0) !important;
+    }
+    #mobile-hamburger-header .layout-drawer-hamburger[aria-expanded="true"] .hamburger__slice:nth-child(3) {
+      transform: translateY(-10px) rotate(-45deg) !important;
+    }
+    /* New simple mobile menu */
+    .tower-mobile-menu {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 99999;
+      background: #fff;
+      padding: 80px 24px 24px;
+      overflow-y: auto;
+      box-sizing: border-box;
+    }
+    .tower-mobile-menu[aria-hidden="false"] {
+      display: flex !important;
+      flex-direction: column;
+      gap: 0;
+    }
+    .tower-menu-close {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      width: 52px;
+      height: 52px;
+      padding: 0;
+      border: none;
+      background: transparent;
+      font-size: 42px;
+      line-height: 1;
+      color: #333;
+      cursor: pointer;
+      -webkit-tap-highlight-color: rgba(0,0,0,0.08);
+      touch-action: manipulation;
+      z-index: 1;
+    }
+    .tower-mobile-menu a {
+      display: block;
+      padding: 16px 0;
+      font-size: 18px;
+      color: #222;
+      text-decoration: none;
+      border-bottom: 1px solid #eee;
+      -webkit-tap-highlight-color: rgba(0,0,0,0.08);
+      touch-action: manipulation;
+    }
+    #mobile-hamburger-header .dmRespRow {
+      padding-top: 0 !important;
+      padding-bottom: 0 !important;
+      display: flex !important;
+      justify-content: space-between !important;
+      align-items: center !important;
+      position: relative !important;
+      width: 100% !important;
+    }
+    #mobile-hamburger-header .dmRespRow .dmRespCol {
+      padding-top: 0 !important;
+      padding-bottom: 0 !important;
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+    }
+    #mobile-hamburger-header img {
+      max-height: 80px !important;
+      width: auto !important;
+    }
+    /* Position logo in mobile navbar - shifted to the right */
+    #mobile-hamburger-header #1011055710 {
+      position: absolute !important;
+      left: 60% !important; /* Shifted from 50% to 60% to move right */
+      transform: translateX(-50%) !important;
+      width: auto !important;
+      max-width: 200px !important;
+      text-align: center !important;
+      display: flex !important;
+      justify-content: center !important;
+      align-items: center !important;
+      z-index: 1 !important;
+    }
+    /* PRENOTA ORA button - positioned on right side */
+    #mobile-hamburger-header #1142168709 {
+      position: absolute !important;
+      right: 10px !important;
+      top: 50% !important;
+      transform: translateY(-50%) !important;
+      z-index: 1 !important;
+      display: block !important;
+    }
+    #mobile-hamburger-header .imageWidget {
+      display: flex !important;
+      justify-content: center !important;
+      align-items: center !important;
+      width: 100% !important;
+      margin: 0 auto !important;
+    }
+    #mobile-hamburger-header .imageWidget img {
+      margin: 0 auto !important;
+      display: block !important;
+    }
+    /* Taller hero */
+    .dmMobileBody .dmImageSlider,
+    .dmMobileBody .flexslider,
+    .dmMobileBody .flexslider .slides>li {
+      height: 700px !important;
+    }
+    .dmMobileBody .flexslider .slides img {
+      height: 700px !important;
+      object-fit: cover !important;
+    }
+    /* ============================================
+       HERO TEXT - ULTRA SIMPLE, NO ANIMATIONS
+       Just show text on each photo
+       ============================================ */
+    
+    /* Disable all animations */
+    .flexslider .slides > li,
+    .dmImageSlider .slides > li,
+    .flexslider .slide-inner,
+    .dmImageSlider .slide-inner,
+    .flexslider .text-wrapper,
+    .dmImageSlider .text-wrapper,
+    .flexslider .slide-title,
+    .dmImageSlider .slide-title,
+    .flexslider .slide-text,
+    .dmImageSlider .slide-text {
+      animation: none !important;
+      transition: none !important;
+      -webkit-animation: none !important;
+      -moz-animation: none !important;
+      -o-animation: none !important;
+    }
+    
+    /* Overlay behind text */
+    .flexslider .color-overlay,
+    .dmImageSlider .color-overlay {
+      z-index: 1 !important;
+      position: absolute !important;
+    }
+    
+    /* Slide container */
+    .flexslider .slides > li,
+    .dmImageSlider .slides > li {
+      position: relative !important;
+    }
+    
+    /* Slide-inner: Simple center positioning */
+    .flexslider .slide-inner,
+    .dmImageSlider .slide-inner,
+    #1117545222 .slide-inner,
+    #1926145371 .slide-inner,
+    #1301632911, #1890210822, #1660572389, #1451430546 {
+      position: absolute !important;
+      top: 50% !important;
+      left: 50% !important;
+      transform: translate(-50%, -50%) !important;
+      z-index: 9999 !important;
+      width: 90% !important;
+      max-width: 500px !important;
+      padding: 20px !important;
+      margin: 0 !important;
+      display: block !important;
+      visibility: visible !important;
+      opacity: 1 !important;
+      text-align: center !important;
+    }
+    
+    /* Text wrapper */
+    .slide-inner .text-wrapper,
+    #1686311060, #1976862661, #1426592043, #1632227713 {
+      display: block !important;
+      width: 100% !important;
+      text-align: center !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      visibility: visible !important;
+      opacity: 1 !important;
+    }
+    
+    /* Title - always visible */
+    .slide-inner .slide-title,
+    .text-wrapper .slide-title,
+    h3.slide-title,
+    #1844727186, #1568330472, #1473448920, #1715563884 {
+      display: block !important;
+      visibility: visible !important;
+      opacity: 1 !important;
+      color: #ffffff !important;
+      font-size: 1.8rem !important;
+      font-weight: bold !important;
+      text-align: center !important;
+      text-shadow: 2px 2px 6px rgba(0,0,0,1) !important;
+      margin: 0 auto 15px auto !important;
+      padding: 0 15px !important;
+      width: 100% !important;
+      box-sizing: border-box !important;
+    }
+    
+    /* Text - always visible */
+    .slide-inner .slide-text,
+    .text-wrapper .slide-text,
+    #1451116256, #1270494722, #1657241819, #1042318526 {
+      display: block !important;
+      visibility: visible !important;
+      opacity: 1 !important;
+      color: #ffffff !important;
+      font-size: 1.1rem !important;
+      text-align: center !important;
+      text-shadow: 1px 1px 4px rgba(0,0,0,1) !important;
+      margin: 0 auto !important;
+      padding: 0 15px !important;
+      width: 100% !important;
+      box-sizing: border-box !important;
+    }
+    
+    /* Paragraphs */
+    .slide-text p,
+    .slide-text .rteBlock {
+      display: block !important;
+      text-align: center !important;
+      margin: 0 auto !important;
+      padding: 0 !important;
+      width: 100% !important;
+      color: #ffffff !important;
+      visibility: visible !important;
+      opacity: 1 !important;
+    }
+    
+    /* Spans */
+    .slide-text p span,
+    .slide-text .rteBlock span {
+      display: block !important;
+      text-align: center !important;
+      width: 100% !important;
+      color: #ffffff !important;
+      visibility: visible !important;
+      opacity: 1 !important;
+    }
+    
+    /* Force show on active AND inactive slides */
+    .flexslider .slides > li .slide-inner,
+    .dmImageSlider .slides > li .slide-inner {
+      display: block !important;
+      visibility: visible !important;
+      opacity: 1 !important;
+    }
+    /* ============================================
+       IL RISTORANTE SECTION - Same structure as LE CAMERE
+       Text on top, photos below on mobile
+       ============================================ */
+    
+    /* Section container - same as other sections */
+    #pa_ristorante {
+      display: block !important;
+      width: 100% !important;
+      position: relative !important;
+    }
+    
+    /* Column wrapper - force vertical stacking on mobile */
+    #pa_ristorante .dmRespColsWrapper,
+    #pa_ristorante #ristorante_cols_wrapper {
+      display: flex !important;
+      flex-direction: column !important;
+      width: 100% !important;
+      flex-wrap: nowrap !important;
+    }
+    
+    /* Text column - ALWAYS FIRST on mobile (order: 1) */
+    #pa_ristorante #ristorante_text_col,
+    #pa_ristorante .dmRespCol.small-12.large-5.medium-5 {
+      order: 1 !important;
+      -webkit-order: 1 !important;
+      width: 100% !important;
+      max-width: 100% !important;
+      flex: 0 0 auto !important;
+      float: none !important;
+      clear: both !important;
+      display: block !important;
+    }
+    
+    /* Photos column - ALWAYS SECOND on mobile (order: 2) */
+    #pa_ristorante #ristorante_photos_col,
+    #pa_ristorante .dmRespCol.small-12.large-7.medium-7 {
+      order: 2 !important;
+      -webkit-order: 2 !important;
+      width: 100% !important;
+      max-width: 100% !important;
+      flex: 0 0 auto !important;
+      float: none !important;
+      clear: both !important;
+      display: block !important;
+    }
+    
+    /* Ensure all columns stack vertically on mobile */
+    #pa_ristorante .dmRespCol {
+      width: 100% !important;
+      max-width: 100% !important;
+      float: none !important;
+      display: block !important;
+    }
+    /* Featured Restaurant Section Mobile */
+    .dmRespRow[style*="background: linear-gradient(135deg, #f5f5f5"] {
+      padding: 40px 15px !important;
+    }
+    .dmRespRow[style*="background: linear-gradient(135deg, #f5f5f5"] h2 {
+      font-size: 28px !important;
+    }
+    .dmRespRow[style*="background: linear-gradient(135deg, #f5f5f5"] p {
+      font-size: 16px !important;
+      padding: 0 10px;
+    }
+    .dmRespRow[style*="background: linear-gradient(135deg, #f5f5f5"] a {
+      padding: 12px 30px !important;
+      font-size: 14px !important;
+      width: 90%;
+      max-width: 300px;
+    }
+    .dmRespRow[style*="background: linear-gradient(135deg, #f5f5f5"] a:active {
+      transform: translateY(0);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2) !important;
+    }
+  }
+</style><!-- Flex Sections CSS -->
+    <style type="text/css" id="globalFontSizeStyle">
+    .font-size-48, .size-48, .size-48 > font { font-size: 48px !important; }.font-size-36, .size-36, .size-36 > font { font-size: 36px !important; }.font-size-18, .size-18, .size-18 > font { font-size: 18px !important; }.dmMobileBody .m-font-size-38, .dmMobileBody .m-size-38, .dmMobileBody .m-size-38 > font { font-size: 38px !important; }.dmMobileBody .m-font-size-29, .dmMobileBody .m-size-29, .dmMobileBody .m-size-29 > font { font-size: 29px !important; }.dmMobileBody .m-font-size-14, .dmMobileBody .m-size-14, .dmMobileBody .m-size-14 > font { font-size: 14px !important; }
+</style>
+    <style type="text/css" id="pageFontSizeStyle">
+</style><!-- ========= JS Section ========= -->
+    <script>
+    var isWLR = true;
+
+    window.customWidgetsFunctions = {};
+    window.customWidgetsStrings = {};
+    window.collections = {};
+    window.currentLanguage = "ENGLISH_UK"
+    window.isSitePreview = false;
+</script>
+    <script type="text/javascript">
+
+    var d_version = "production_5989";
+    var build = "2025-12-04T13_49_44";
+    window['v' + 'ersion'] = d_version;
+
+    function buildEditorParent() {
+        window.isMultiScreen = true;
+        window.editorParent = {};
+        window.previewParent = {};
+        window.assetsCacheQueryParam = "?version=2025-12-04T13_49_44";
+        try {
+            var _p = window.parent;
+            if (_p && _p.document && _p.$ && _p.$.dmfw) {
+                window.editorParent = _p;
+            } else if (_p.isSitePreview) {
+                window.previewParent = _p;
+            }
+        } catch (e) {
+
+        }
+    }
+
+    buildEditorParent();
+</script><!-- Load jQuery -->
+    <script src="https://static.cdn-website.com/libs/jquery/jquery-3.7.0.min.js"
+
+id="d-js-jquery" type="text/javascript"></script>
+    <!-- End Load jQuery -->
+    <!-- Injecting site-wide before scripts -->
+    <!-- End Injecting site-wide to the head -->
+    <script>
+    var _jquery = window.$;
+
+    var jqueryAliases = ['$', 'jquery', 'jQuery'];
+
+    jqueryAliases.forEach((alias) => {
+        Object.defineProperty(window, alias, {
+            get() {
+                return _jquery;
+            },
+            set() {
+                console.warn("Trying to over-write the global jquery object!");
+            }
+        });
+    });
+    window.jQuery.migrateMute = true;
+</script>
+    <script>
+    window.cookiesNotificationMarkupPreview = 'null';
+</script><!-- HEAD RT JS Include -->
+    <script id="d-js-params">
+    window.INSITE = window.INSITE || {};
+    window.INSITE.device = "mobile";
+
+    window.rtCommonProps = {};
+    rtCommonProps["rt.ajax.ajaxScriptsFix"] =true;
+    rtCommonProps["rt.pushnotifs.sslframe.encoded"] = 'aHR0cHM6Ly97c3ViZG9tYWlufS5wdXNoLW5vdGlmcy5jb20=';
+    rtCommonProps["runtimecollector.url"] = 'https://rtc.multiscreensite.com';
+    rtCommonProps["performance.tabletPreview.removeScroll"] = 'false';
+    rtCommonProps["inlineEditGrid.snap"] =true;
+    rtCommonProps["popup.insite.cookie.ttl"] = '0.5';
+    rtCommonProps["rt.pushnotifs.force.button"] =true;
+    rtCommonProps["common.mapbox.token"] = ''; // Add your Mapbox public token here if needed
+    rtCommonProps["common.mapbox.js.override"] =false;
+    rtCommonProps["common.here.appId"] = '';
+    rtCommonProps["common.here.appCode"] = '';
+    rtCommonProps["isCoverage.test"] =false;
+    rtCommonProps["ecommerce.ecwid.script"] = 'https://app.multiscreenstore.com/script.js';
+    rtCommonProps["common.resources.dist.cdn"] =true;
+    rtCommonProps["common.build.dist.folder"] = 'production/5989';
+    rtCommonProps["common.resources.cdn.host"] = 'https://static.cdn-website.com';
+    rtCommonProps["common.resources.folder"] = 'https://static.cdn-website.com/mnlt/production/5989';
+    rtCommonProps["feature.flag.runtime.backgroundSlider.preload.slowly"] =true;
+    rtCommonProps["feature.flag.runtime.newAnimation.enabled"] =true;
+    rtCommonProps["feature.flag.runtime.newAnimation.jitAnimation.enabled"] =true;
+    rtCommonProps["feature.flag.sites.google.analytics.gtag"] =true;
+    rtCommonProps["feature.flag.runOnReadyNewTask"] =true;
+    rtCommonProps["isAutomation.test"] =false;
+    rtCommonProps["booking.cal.api.domain"] = 'api.cal.com';
+
+    
+    rtCommonProps['common.mapsProvider'] = 'mapbox';
+    
+    rtCommonProps['common.mapsProvider.version'] = '0.52.0';
+    rtCommonProps['common.geocodeProvider'] = 'mapbox';
+    rtCommonProps['server.for.resources'] = '';
+    rtCommonProps['feature.flag.lazy.widgets'] = true;
+    rtCommonProps['feature.flag.single.wow'] = false;
+    rtCommonProps['feature.flag.disallowPopupsInEditor'] = true;
+    rtCommonProps['feature.flag.mark.anchors'] = true;
+    rtCommonProps['captcha.public.key'] = '6LffcBsUAAAAAMU-MYacU-6QHY4iDtUEYv_Ppwlz';
+    rtCommonProps['captcha.invisible.public.key'] = '6LeiWB8UAAAAAHYnVJM7_-7ap6bXCUNGiv7bBPME';
+    rtCommonProps["images.sizes.small"] =160;
+    rtCommonProps["images.sizes.mobile"] =640;
+    rtCommonProps["images.sizes.tablet"] =1280;
+    rtCommonProps["images.sizes.desktop"] =1920;
+    rtCommonProps["modules.resources.cdn"] =true;
+    rtCommonProps["import.images.storage.imageCDN"] = 'https://lirp.cdn-website.com/';
+    rtCommonProps["feature.flag.runtime.inp.threshold"] =150;
+    rtCommonProps["feature.flag.performance.logs"] =true;
+    rtCommonProps["site.widget.form.captcha.type"] = 'g_recaptcha';
+    rtCommonProps["friendly.captcha.site.key"] = 'FCMGSQG9GVNMFS8K';
+    rtCommonProps["cookiebot.mapbox.consent.category"] = 'marketing';
+    // feature flags that's used out of runtime module (in  legacy files)
+    rtCommonProps["platform.monolith.personalization.dateTimeCondition.popupMsgAction.moveToclient.enabled"] =true;
+    rtCommonProps["streamline.personalization.decodeTimeZone.enabled"] =true;
+
+    window.rtFlags = {};
+    rtFlags["unsuspendEcwidStoreOnRuntime.enabled"] =true;
+    rtFlags["scripts.widgetCount.enabled"] =true;
+    rtFlags["fnb.animations.tracking.enabled"] =true;
+    rtFlags["ecom.ecwidNewUrlStructure.enabled"] = false;
+    rtFlags["ecom.ecwid.accountPage.emptyBaseUrl.enabled"] = true;
+    rtFlags["ecom.ecwid.pages.links.disable.listeners"] = true;
+    rtFlags["ecom.ecwid.storefrontV3.enabled"] = false;
+    rtFlags["ecom.ecwid.old.store.fix.facebook.share"] = true;
+    rtFlags["feature.flag.photo.gallery.exact.size"] =true;
+    rtFlags["geocode.search.localize"] =false;
+    rtFlags["feature.flag.runtime.newAnimation.asyncInit.setTimeout.enabled"] =false;
+    rtFlags["twitter.heightLimit.enabled"] = true;
+    rtFlags["runtime.lottieOverflow"] =false;
+    rtFlags["runtime.monitoring.sentry.ignoreErrors"] = "";
+    rtFlags["contact.form.browserValidation.enabled"] =true;
+    rtFlags["streamline.monolith.personalization.supportMultipleConditions.enabled"] =false;
+    rtFlags["flex.animation.design.panel.layout"] =false;
+    rtFlags["runtime.cwv.report.cls.enabled"] =true;
+    rtFlags["runtime.cwv.report.lcp.enabled"] =false;
+    rtFlags["flex.runtime.popup.with.show"] =true;
+    rtFlags["contact.form.useActiveForm"] =true;
+    rtFlags["runtime.ssr.productStore.internal.observer"] =true;
+    rtFlags["runtime.ssr.productCustomizations"] =true;
+</script>
+    <script id="d-js-core" src="https://static.cdn-website.com/mnlt/production/5989/_dm/s/rt/dist/scripts/d-js-one-runtime-unified-mobile.min.js"></script>
+    <!-- End of HEAD RT JS Include -->
+    <script src="https://static.cdn-website.com/mnlt/production/5989/_dm/s/rt/dist/scripts/d-js-jquery-migrate.min.js"></script>
+    <script>
+    
+    $(window).bind("orientationchange", function (e) {
+        $.layoutManager.initLayout();
+        
+    });
+    $(document).resize(function () {
+        
+    });
+</script>
+    <script id="d_track_campaign" type="text/javascript">
+(function() {
+    if (!window.location.search) {
+        return;
+    }
+	const cleanParams = window.location.search.substring(1); // Strip ?
+	const queryParams = cleanParams.split('&');
+
+	const expires = 'expires=' + new Date().getTime() + 24 * 60 * 60 * 1000;
+	const domain = 'domain=' + window.location.hostname;
+	const path = "path=/";
+
+	queryParams.forEach((param) => {
+		const [key, value = ''] = param.split('=');
+		if (key.startsWith('utm_')) {
+			const cookieName = "_dm_rt_" + key.substring(4);
+			const cookie = cookieName + "=" + value;
+			const joined = [cookie, expires, domain, path].join(";");
+			document.cookie = joined;
+		}
+	});
+}());
+</script>
+    <script type="text/javascript">
+  var _dm_gaq = {};
+  var _gaq = _gaq || [];
+  var _dm_insite = [];
+</script>
+    <script>
+window.dataLayer = window.dataLayer || [];
+window.dataLayer.push({'gtm.start': new Date().getTime(), event: 'gtm.js'});
+</script>
+    <script onload="window.dispatchEvent(new CustomEvent('gtmLoaded', { bubbles: true }))"
+
+id="d-js-gtm" src="https://www.googletagmanager.com/gtm.js?id=GTM-P3HH7T7" async=""></script>
+    <script id="d_track_sp" type="text/javascript">
+;(function(p,l,o,w,i,n,g){if(!p[i]){p.GlobalSnowplowNamespace=p.GlobalSnowplowNamespace||[];
+p.GlobalSnowplowNamespace.push(i);p[i]=function(){(p[i].q=p[i].q||[]).push(arguments)
+};p[i].q=p[i].q||[];n=l.createElement(o);g=l.getElementsByTagName(o)[0];n.async=1;
+n.src=w;g.parentNode.insertBefore(n,g)}}(window,document,"script","//d32hwlnfiv2gyn.cloudfront.net/sp-2.0.0-dm-0.1.min.js","snowplow"));
+window.dmsnowplow  = window.snowplow;
+
+dmsnowplow('newTracker', 'cf', 'd32hwlnfiv2gyn.cloudfront.net', { // Initialise a tracker
+  appId: '8f5df2ca'
+});
+
+// snowplow queries element styles so we wait until CSS calculations are done.
+requestAnimationFrame(() => {
+	dmsnowplow('trackPageView');
+	_dm_insite.forEach((rule) => {
+		// Specifically in popup only the client knows if it is shown or not so we don't always want to track its impression here
+		// the tracking is in popup.js
+		if (rule.actionName !== "popup") {
+			dmsnowplow('trackStructEvent', 'insite', 'impression', rule.ruleType, rule.ruleId);
+		}
+		window?.waitForDeferred?.('dmAjax', () => {
+			$.DM.events.trigger('event-ruleTriggered', {value: rule});
+		});
+	});
+});
+</script> <!-- photoswipe markup -->
+    <!-- Root element of PhotoSwipe. Must have class pswp. -->
+    <div aria-hidden="true" role="dialog" tabindex="-1" class="pswp">
+      <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+      <!-- Slides wrapper with overflow:hidden. -->
+      <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container"> </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+          <div class="pswp__top-bar">
+            <!--  Controls are self-explanatory. Order can be changed. --> <button
+
+              title="Close (Esc)" class="pswp__button pswp__button--close"></button>
+            <button title="Share" class="pswp__button pswp__button--share"></button>
+            <button title="Toggle fullscreen" class="pswp__button pswp__button--fs"></button>
+            <button title="Zoom in/out" class="pswp__button pswp__button--zoom"></button>
+            <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+            <!-- element will get class pswp__preloader--active when preloader is running -->
+            <div class="pswp__preloader">
+              <div class="pswp__preloader__icn">
+                <div class="pswp__preloader__cut"> </div>
+              </div>
+            </div>
+          </div>
+          <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+          </div>
+          <button title="Previous (arrow left)" class="pswp__button pswp__button--arrow--left">
+          </button> <button title="Next (arrow right)" class="pswp__button pswp__button--arrow--right">
+          </button>
+          <div class="pswp__caption"> </div>
+        </div>
+      </div>
+    </div>
+    <!-- Alias: 8f5df2ca -->
+    <script id="d_track_personalization">window?.waitForDeferred?.('dmAjax', () => {
+		// Collects client data and updates cookies used by smart sites
+		window.expireDays = 365;
+		window.visitLength = 30 * 60000;
+		$.setCookie("dm_timezone_offset", (new Date()).getTimezoneOffset(), window.expireDays);
+			setSmartSiteCookiesInternal("dm_this_page_view","dm_last_page_view","dm_total_visits","dm_last_visit");
+	});
+</script>
+    <script type="text/javascript">
+    
+    Parameters.NavigationAreaParams.MoreButtonText = 'MORE';
+    
+    Parameters.NavigationAreaParams.LessButtonText = 'LESS';
+    Parameters.HomeLinkText = 'Home';
+    </script>
+    <!--  End Script tags -->
+    <!--  Site Wide Html Markup -->
+    <div id="swh-c2ca75a14bd449088c4f3653c67a1323">
+      <div data-wrapper-source="appstore">
+        <div id="hb_popup_script">
+          <script type="text/javascript">if($ && $.dmrt && $.dmrt.isEditorMode) { window.hellobarDisableInitialize=true; }</script>
+          <script async="async" charset="utf-8" type="text/javascript" src="https://my.hellobar.com/abfd127d9cd047f748caa9275a6722f01e8a2b09.js"></script></div>
+      </div>
+    </div>
+    <!--  Site Wide Html Markup -->
+    <footer class="dmFooter u_mobileSimpleFooter">
+      <div class="footer-inner" style="text-align:center; padding:24px 16px; background:#0b172a; color:#ffffff;">
+        <p style="margin:4px 0; font-weight:600;">The Tower Hotel</p>
+        <p style="margin:4px 0;">Via delle Industrie 1A<br/>35010 LIMENA (PD)</p>
+        <p style="margin:4px 0;">Partita IVA 0195990933</p>
+        <p style="margin:4px 0;">PEC <a href="mailto:arcsrl@pec.it" style="color:#ffffff;">arcsrl@pec.it</a></p>
+        <p style="margin:4px 0;"><a href="tel:+390499930111" style="color:#ffffff;">+39 049 993 0111</a> · <a href="mailto:info@thetower25.it" style="color:#ffffff;">info@thetower25.it</a></p>
+        <p style="margin:8px 0;"><a href="contact.html" style="color:#ffffff;">Location</a> · <a href="room.html" style="color:#ffffff;">Rooms</a> · <a href="service.html" style="color:#ffffff;">Restaurant</a> · <a href="contact.html" style="color:#ffffff;">Contacts</a></p>
+        <p style="margin:8px 0;"><a href="privacy.html" style="color:#ffffff;">Privacy Policy</a> · <a href="termini.html" style="color:#ffffff;">Termini di Servizio</a></p>
+        <p style="margin:8px 0 0 0; font-size:12px;">© 2025 Tower Hotel · Made by <a href="https://www.netech-360.com" target="_blank" style="color:#ffffff;">www.netech-360.com</a></p>
+      </div>
+    </footer>
+  <script>
+    // New simple mobile menu: toggle + close X + hero untouchable
+    (function() {
+      var style = document.createElement('style');
+      style.textContent = '.u_1117545222, .u_1988099631 { pointer-events: none !important; }';
+      document.head.appendChild(style);
+      function initMenu() {
+        var btn = document.getElementById('tower-menu-btn');
+        var menu = document.getElementById('tower-mobile-menu');
+        var closeBtn = document.getElementById('tower-menu-close');
+        if (!btn || !menu) return;
+        function closeMenu(e) {
+          if (e) { e.preventDefault(); e.stopPropagation(); }
+          menu.setAttribute('aria-hidden', 'true');
+          menu.setAttribute('hidden', '');
+          btn.setAttribute('aria-expanded', 'false');
+        }
+        function openMenu(e) {
+          if (e) { e.preventDefault(); e.stopPropagation(); }
+          menu.removeAttribute('hidden');
+          menu.setAttribute('aria-hidden', 'false');
+          btn.setAttribute('aria-expanded', 'true');
+        }
+        function toggle(e) {
+          e.preventDefault();
+          e.stopPropagation();
+          var open = menu.getAttribute('aria-hidden') !== 'true';
+          if (open) closeMenu();
+          else openMenu();
+        }
+        btn.addEventListener('click', toggle, false);
+        btn.addEventListener('touchend', toggle, { passive: false });
+        if (closeBtn) {
+          closeBtn.addEventListener('click', closeMenu, false);
+          closeBtn.addEventListener('touchend', closeMenu, { passive: false });
+        }
+      }
+      if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initMenu);
+      else initMenu();
+    })();
+  </script>
+  </body>
+</html>
