@@ -1,0 +1,20 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(Get-ChildItem -Path \"C:\\\\Users\\\\eneam\\\\Downloads\\\\hotel_work\\\\Hotel\" -Recurse -Force)",
+      "Bash(Select-Object FullName, PSIsContainer)",
+      "Bash(Sort-Object FullName)",
+      "Bash(Format-Table -AutoSize)",
+      "Bash(Get-ChildItem \"C:\\\\Users\\\\eneam\\\\Downloads\\\\hotel_work\\\\Hotel\" -Recurse -File)",
+      "Bash(Select-Object DirectoryName, Name)",
+      "PowerShell(Get-ChildItem \"C:\\\\Users\\\\eneam\\\\Downloads\\\\hotel_work\\\\Hotel\" -Recurse -File | Select-Object @{N='Folder';E={$_.DirectoryName.Split\\('\\\\'\\)[-1]}}, Name | Format-Table -AutoSize)",
+      "PowerShell(\\(Get-ChildItem \"C:\\\\Users\\\\eneam\\\\Downloads\\\\hotel_work\\\\Hotel\" -Recurse -File | Measure-Object -Property Length -Sum\\).Sum / 1MB)",
+      "PowerShell(Get-ChildItem \"C:\\\\Users\\\\eneam\\\\Downloads\\\\hotel_work\\\\Hotel\" -Recurse -File | Where-Object { $_.Length -gt 50MB } | Select-Object Name, @{N='MB';E={[math]::Round\\($_.Length/1MB,1\\)}} | Sort-Object MB -Descending)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "Bash(git push *)",
+      "Bash(Get-ChildItem -Path \"C:\\\\Users\\\\eneam\\\\Downloads\\\\hotel_work\" -Recurse -Filter \"*.html\")",
+      "Bash(Select-Object -ExpandProperty FullName)"
+    ]
+  }
+}
