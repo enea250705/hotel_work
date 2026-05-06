@@ -14,7 +14,7 @@
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">  
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- Icon Font Stylesheet -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
@@ -30,77 +30,90 @@
 
     <!-- Template Stylesheet -->
     <link href="hotelier/css/style.css" rel="stylesheet">
-    
-    <!-- Custom Styles -->
+
     <style>
-        body {
-            background-color: #FFFFFF !important;
+        body { background-color: #FFFFFF !important; }
+        .container, .container-xxl, .container-fluid { background-color: #FFFFFF !important; }
+        .bg-dark, .navbar.bg-dark, .container-fluid.bg-dark { background-color: #000000 !important; }
+        .footer .container, .footer.bg-dark .container { background-color: transparent !important; }
+        .footer { margin-top: 0 !important; padding-top: 0 !important; }
+
+        /* Filter Buttons */
+        .gallery-filters { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-bottom: 40px; }
+        .gallery-filters .btn-filter {
+            padding: 8px 20px; border: 2px solid #FEA116; background: transparent;
+            color: #FEA116; border-radius: 30px; cursor: pointer; font-weight: 600;
+            transition: all 0.3s ease; font-size: 0.9rem;
         }
-        .bg-white {
-            background-color: #FFFFFF !important;
-        }
-        .container, .container-xxl, .container-fluid {
-            background-color: #FFFFFF !important;
-        }
-        .bg-dark,
-        .navbar.bg-dark,
-        .container-fluid.bg-dark {
-            background-color: #000000 !important;
-        }
-        /* Make footer container transparent */
-        .footer .container,
-        .footer.bg-dark .container {
-            background-color: transparent !important;
-        }
-        /* Fix footer margin overlap */
-        .footer {
-            margin-top: 0 !important;
-            padding-top: 0 !important;
-        }
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 20px;
-            padding: 40px 20px;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
+        .gallery-filters .btn-filter:hover,
+        .gallery-filters .btn-filter.active { background: #FEA116; color: #fff; }
+
+        /* Gallery Grid */
+        .gallery-grid { columns: 3; column-gap: 16px; }
+        @media (max-width: 991px) { .gallery-grid { columns: 2; } }
+        @media (max-width: 576px) { .gallery-grid { columns: 1; } }
+
         .gallery-item {
-            overflow: hidden;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            cursor: pointer;
-            background: #fff;
+            break-inside: avoid; margin-bottom: 16px; overflow: hidden;
+            border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            cursor: pointer; position: relative;
         }
-        .gallery-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        .gallery-item img { width: 100%; display: block; transition: transform 0.4s ease; }
+        .gallery-item:hover img { transform: scale(1.05); }
+        .gallery-item .overlay {
+            position: absolute; inset: 0; background: rgba(254,161,22,0); display: flex;
+            align-items: center; justify-content: center; transition: background 0.3s ease;
         }
-        .gallery-item img {
-            width: 100%;
-            height: 300px;
-            object-fit: cover;
-            display: block;
-            transition: transform 0.3s ease;
+        .gallery-item:hover .overlay { background: rgba(0,0,0,0.25); }
+        .gallery-item .overlay i { color: #fff; font-size: 2rem; opacity: 0; transition: opacity 0.3s ease; }
+        .gallery-item:hover .overlay i { opacity: 1; }
+        .gallery-item.hidden { display: none; }
+
+        /* Category label */
+        .category-section { margin-bottom: 50px; }
+        .category-section h3 {
+            font-size: 1.4rem; font-weight: 700; color: #0F172B;
+            border-left: 4px solid #FEA116; padding-left: 15px; margin-bottom: 20px;
         }
-        .gallery-item:hover img {
-            transform: scale(1.1);
+
+        /* Lightbox */
+        #lightbox {
+            display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.92);
+            z-index: 9999; align-items: center; justify-content: center;
+        }
+        #lightbox.active { display: flex; }
+        #lightbox img { max-height: 90vh; max-width: 90vw; border-radius: 6px; object-fit: contain; }
+        #lightbox-close {
+            position: absolute; top: 20px; right: 30px; color: #fff; font-size: 2.5rem;
+            cursor: pointer; line-height: 1;
+        }
+        #lightbox-prev, #lightbox-next {
+            position: absolute; top: 50%; transform: translateY(-50%);
+            color: #fff; font-size: 2.5rem; cursor: pointer; padding: 10px;
+            background: rgba(255,255,255,0.1); border-radius: 50%; line-height: 1;
+            transition: background 0.2s;
+        }
+        #lightbox-prev:hover, #lightbox-next:hover { background: rgba(254,161,22,0.8); }
+        #lightbox-prev { left: 20px; }
+        #lightbox-next { right: 20px; }
+        #lightbox-caption {
+            position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%);
+            color: #fff; font-size: 0.95rem; background: rgba(0,0,0,0.5);
+            padding: 6px 18px; border-radius: 20px; white-space: nowrap;
         }
     </style>
 </head>
 
 <body>
     <div class="container-fluid p-0">
-        <!-- Spinner Start -->
+        <!-- Spinner -->
         <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
             <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
                 <span class="sr-only">Caricamento...</span>
             </div>
         </div>
-        <!-- Spinner End -->
 
-        <!-- Header Start -->
+        <!-- Header -->
         <div class="container-fluid bg-dark px-0">
             <div class="row gx-0">
                 <div class="col-lg-4 bg-dark d-none d-lg-block ps-5">
@@ -123,6 +136,7 @@
                                 <a href="index.html" class="nav-item nav-link">Home</a>
                                 <a href="room.html" class="nav-item nav-link">Camere</a>
                                 <a href="service.html" class="nav-item nav-link">Servizi</a>
+                                <a href="gallery.html" class="nav-item nav-link active">Galleria</a>
                                 <a href="about.html" class="nav-item nav-link">Chi Siamo</a>
                                 <a href="contact.html" class="nav-item nav-link">Contatti</a>
                             </div>
@@ -132,93 +146,350 @@
                 </div>
             </div>
         </div>
-        <!-- Header End -->
 
-        <!-- Hero Section Start -->
-        <div class="hero-simple">
-            <div class="hero-bg" style="background-image: url('hotelier/img/restaurant-1.jpg'); background-size: cover; background-position: center center;"></div>
-            <div class="hero-content-simple">
-                <div class="container">
-                    <div class="hero-badge-elegant">Galleria</div>
-                    <h1 class="hero-title-simple">La Nostra Galleria</h1>
-                    <div class="hero-divider"></div>
-                    <p style="color: white; font-size: 1.2rem; margin-top: 20px;">Scopri la bellezza del The Tower Hotel attraverso le nostre foto</p>
+        <!-- Page Header -->
+        <div class="container-fluid page-header mb-5 p-0" style="background-image: url('Hotel/Altre/2S7A5209.jpg');">
+            <div class="container-fluid page-header-inner py-5">
+                <div class="container text-center pb-5">
+                    <h1 class="display-3 text-white mb-3 animated slideInDown">Galleria</h1>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb justify-content-center text-uppercase">
+                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item"><a href="#">Pagine</a></li>
+                            <li class="breadcrumb-item text-white active" aria-current="page">Galleria</li>
+                        </ol>
+                    </nav>
                 </div>
             </div>
         </div>
-        <!-- Hero Section End -->
 
-        <!-- Gallery Start -->
+        <!-- Gallery -->
         <div class="container-xxl py-5">
             <div class="container">
-                <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+                <div class="text-center wow fadeInUp mb-4" data-wow-delay="0.1s">
                     <h6 class="section-title text-center text-primary text-uppercase">Galleria Fotografica</h6>
-                    <h1 class="mb-5">Esplora La Nostra <span class="text-primary text-uppercase">Galleria</span></h1>
+                    <h1 class="mb-4">Esplora Il Nostro <span class="text-primary text-uppercase">Hotel</span></h1>
                 </div>
-                <div class="gallery-grid">
-                    <!-- Restaurant Photos -->
-                    <div class="gallery-item"><img src="hotelier/img/restaurant-1.jpg" alt="Ristorante"></div>
-                    <div class="gallery-item"><img src="hotelier/img/restaurant-2.jpg" alt="Ristorante"></div>
-                    <div class="gallery-item"><img src="hotelier/img/restaurant-3.jpg" alt="Ristorante"></div>
-                    <div class="gallery-item"><img src="hotelier/img/restaurant24.jpg" alt="Ristorante"></div>
-                    <div class="gallery-item"><img src="hotelier/img/restaurant-4.jpg" alt="Ristorante"></div>
-                    <div class="gallery-item"><img src="hotelier/img/restaurant-5.jpg" alt="Ristorante"></div>
-                    <div class="gallery-item"><img src="hotelier/img/restaurant-6.jpg" alt="Ristorante"></div>
-                    <div class="gallery-item"><img src="hotelier/img/restaurant-7.jpg" alt="Ristorante"></div>
-                    <div class="gallery-item"><img src="hotelier/img/restaurant-8.jpg" alt="Ristorante"></div>
-                    <div class="gallery-item"><img src="hotelier/img/restaurant-9.jpg" alt="Ristorante"></div>
-                    <div class="gallery-item"><img src="hotelier/img/restaurant-10.jpg" alt="Ristorante"></div>
-                    <div class="gallery-item"><img src="hotelier/img/restaurant-11.jpg" alt="Ristorante"></div>
-                    
-                    <!-- Room Photos -->
-                    <div class="gallery-item"><img src="hotelier/img/room-1.jpg" alt="Camera"></div>
-                    <div class="gallery-item"><img src="hotelier/img/room-2.jpg" alt="Camera"></div>
-                    <div class="gallery-item"><img src="hotelier/img/room-3.jpg" alt="Camera"></div>
-                    <div class="gallery-item"><img src="hotelier/img/room-4.jpg" alt="Camera"></div>
-                    <div class="gallery-item"><img src="hotelier/img/room23.jpg" alt="Camera"></div>
-                    
-                    <!-- Menu Photos -->
-                    <div class="gallery-item"><img src="hotelier/img/menu-1.jpg" alt="Menu"></div>
-                    <div class="gallery-item"><img src="hotelier/img/menu-2.jpg" alt="Menu"></div>
-                    <div class="gallery-item"><img src="hotelier/img/menu-3.jpg" alt="Menu"></div>
-                    <div class="gallery-item"><img src="hotelier/img/menu-4.jpg" alt="Menu"></div>
-                    <div class="gallery-item"><img src="hotelier/img/menu-5.jpg" alt="Menu"></div>
-                    <div class="gallery-item"><img src="hotelier/img/menu-6.jpg" alt="Menu"></div>
-                    <div class="gallery-item"><img src="hotelier/img/menu-7.jpg" alt="Menu"></div>
-                    
-                    <!-- Serving Photos -->
-                    <div class="gallery-item"><img src="hotelier/img/serving-1.jpg" alt="Servizio"></div>
-                    <div class="gallery-item"><img src="hotelier/img/serving-2.jpg" alt="Servizio"></div>
-                    <div class="gallery-item"><img src="hotelier/img/serving-3.jpg" alt="Servizio"></div>
-                    <div class="gallery-item"><img src="hotelier/img/serving-4.jpg" alt="Servizio"></div>
-                    <div class="gallery-item"><img src="hotelier/img/serving-5.jpg" alt="Servizio"></div>
-                    <div class="gallery-item"><img src="hotelier/img/serving-6.jpg" alt="Servizio"></div>
-                    <div class="gallery-item"><img src="hotelier/img/serving-7.jpg" alt="Servizio"></div>
-                    
-                    <!-- About Photos -->
-                    <div class="gallery-item"><img src="hotelier/img/about-1.jpg" alt="Hotel"></div>
-                    <div class="gallery-item"><img src="hotelier/img/about-2.jpg" alt="Hotel"></div>
-                    <div class="gallery-item"><img src="hotelier/img/about-3.jpg" alt="Hotel"></div>
-                    <div class="gallery-item"><img src="hotelier/img/about-4.jpg" alt="Hotel"></div>
-                    
-                    <!-- Carousel Photos -->
-                    <div class="gallery-item"><img src="hotelier/img/carousel-1.jpg" alt="Hotel"></div>
-                    <div class="gallery-item"><img src="hotelier/img/carousel-2.jpg" alt="Hotel"></div>
-                    <div class="gallery-item"><img src="hotelier/img/carousel-3.jpg" alt="Hotel"></div>
-                    <div class="gallery-item"><img src="hotelier/img/carousel-4.jpg" alt="Hotel"></div>
-                    <div class="gallery-item"><img src="hotelier/img/carousel-5.jpg" alt="Hotel"></div>
-                    
-                    <!-- Other Photos -->
-                    <div class="gallery-item"><img src="hotelier/img/grill-1.jpg" alt="Griglia"></div>
-                    <div class="gallery-item"><img src="hotelier/img/grill-2.jpg" alt="Griglia"></div>
-                    <div class="gallery-item"><img src="hotelier/img/bar-1.jpg" alt="Bar"></div>
-                    <div class="gallery-item"><img src="hotelier/img/bathroom-1.jpg" alt="Bagno"></div>
+
+                <!-- Filter Buttons -->
+                <div class="gallery-filters wow fadeInUp" data-wow-delay="0.2s">
+                    <button class="btn-filter active" data-filter="all">Tutte</button>
+                    <button class="btn-filter" data-filter="singola">Camera Singola</button>
+                    <button class="btn-filter" data-filter="doppia">Camera Doppia</button>
+                    <button class="btn-filter" data-filter="matrimoniale">Matrimoniale</button>
+                    <button class="btn-filter" data-filter="junior">Junior Suite</button>
+                    <button class="btn-filter" data-filter="suite">Suite</button>
+                    <button class="btn-filter" data-filter="colazione">Colazione</button>
+                    <button class="btn-filter" data-filter="altre">Hotel & Spazi</button>
+                </div>
+
+                <!-- Gallery Grid -->
+                <div class="gallery-grid" id="galleryGrid">
+
+                    <!-- Camera Singola -->
+                    <div class="gallery-item" data-category="singola" data-caption="Camera Singola" onclick="openLightbox(this)">
+                        <img src="Hotel/Singola/2S7A5121.jpg" alt="Camera Singola">
+                        <div class="overlay"><i class="fas fa-expand"></i></div>
+                    </div>
+                    <div class="gallery-item" data-category="singola" data-caption="Camera Singola" onclick="openLightbox(this)">
+                        <img src="Hotel/Singola/2S7A5122.jpg" alt="Camera Singola">
+                        <div class="overlay"><i class="fas fa-expand"></i></div>
+                    </div>
+                    <div class="gallery-item" data-category="singola" data-caption="Camera Singola" onclick="openLightbox(this)">
+                        <img src="Hotel/Singola/2S7A5130.jpg" alt="Camera Singola">
+                        <div class="overlay"><i class="fas fa-expand"></i></div>
+                    </div>
+                    <div class="gallery-item" data-category="singola" data-caption="Camera Singola" onclick="openLightbox(this)">
+                        <img src="Hotel/Singola/2S7A5134.jpg" alt="Camera Singola">
+                        <div class="overlay"><i class="fas fa-expand"></i></div>
+                    </div>
+                    <div class="gallery-item" data-category="singola" data-caption="Camera Singola" onclick="openLightbox(this)">
+                        <img src="Hotel/Singola/2S7A5140.jpg" alt="Camera Singola">
+                        <div class="overlay"><i class="fas fa-expand"></i></div>
+                    </div>
+                    <div class="gallery-item" data-category="singola" data-caption="Camera Singola" onclick="openLightbox(this)">
+                        <img src="Hotel/Singola/2S7A5145.jpg" alt="Camera Singola">
+                        <div class="overlay"><i class="fas fa-expand"></i></div>
+                    </div>
+                    <div class="gallery-item" data-category="singola" data-caption="Camera Singola" onclick="openLightbox(this)">
+                        <img src="Hotel/Singola/2S7A5152.jpg" alt="Camera Singola">
+                        <div class="overlay"><i class="fas fa-expand"></i></div>
+                    </div>
+                    <div class="gallery-item" data-category="singola" data-caption="Camera Singola" onclick="openLightbox(this)">
+                        <img src="Hotel/Singola/2S7A5154.jpg" alt="Camera Singola">
+                        <div class="overlay"><i class="fas fa-expand"></i></div>
+                    </div>
+                    <div class="gallery-item" data-category="singola" data-caption="Camera Singola" onclick="openLightbox(this)">
+                        <img src="Hotel/Singola/2S7A5156.jpg" alt="Camera Singola">
+                        <div class="overlay"><i class="fas fa-expand"></i></div>
+                    </div>
+                    <div class="gallery-item" data-category="singola" data-caption="Camera Singola" onclick="openLightbox(this)">
+                        <img src="Hotel/Singola/2S7A5158.jpg" alt="Camera Singola">
+                        <div class="overlay"><i class="fas fa-expand"></i></div>
+                    </div>
+
+                    <!-- Camera Doppia -->
+                    <div class="gallery-item" data-category="doppia" data-caption="Camera Doppia" onclick="openLightbox(this)">
+                        <img src="Hotel/Doppia/2S7A5160.jpg" alt="Camera Doppia">
+                        <div class="overlay"><i class="fas fa-expand"></i></div>
+                    </div>
+                    <div class="gallery-item" data-category="doppia" data-caption="Camera Doppia" onclick="openLightbox(this)">
+                        <img src="Hotel/Doppia/2S7A5161.jpg" alt="Camera Doppia">
+                        <div class="overlay"><i class="fas fa-expand"></i></div>
+                    </div>
+                    <div class="gallery-item" data-category="doppia" data-caption="Camera Doppia" onclick="openLightbox(this)">
+                        <img src="Hotel/Doppia/2S7A5172.jpg" alt="Camera Doppia">
+                        <div class="overlay"><i class="fas fa-expand"></i></div>
+                    </div>
+                    <div class="gallery-item" data-category="doppia" data-caption="Camera Doppia" onclick="openLightbox(this)">
+                        <img src="Hotel/Doppia/2S7A5174.jpg" alt="Camera Doppia">
+                        <div class="overlay"><i class="fas fa-expand"></i></div>
+                    </div>
+                    <div class="gallery-item" data-category="doppia" data-caption="Camera Doppia" onclick="openLightbox(this)">
+                        <img src="Hotel/Doppia/2S7A5178.jpg" alt="Camera Doppia">
+                        <div class="overlay"><i class="fas fa-expand"></i></div>
+                    </div>
+                    <div class="gallery-item" data-category="doppia" data-caption="Camera Doppia" onclick="openLightbox(this)">
+                        <img src="Hotel/Doppia/DSC09823.JPG" alt="Camera Doppia">
+                        <div class="overlay"><i class="fas fa-expand"></i></div>
+                    </div>
+                    <div class="gallery-item" data-category="doppia" data-caption="Camera Doppia" onclick="openLightbox(this)">
+                        <img src="Hotel/Doppia/DSC09829.JPG" alt="Camera Doppia">
+                        <div class="overlay"><i class="fas fa-expand"></i></div>
+                    </div>
+                    <div class="gallery-item" data-category="doppia" data-caption="Camera Doppia" onclick="openLightbox(this)">
+                        <img src="Hotel/Doppia/DSC09830.JPG" alt="Camera Doppia">
+                        <div class="overlay"><i class="fas fa-expand"></i></div>
+                    </div>
+
+                    <!-- Camera Matrimoniale -->
+                    <div class="gallery-item" data-category="matrimoniale" data-caption="Camera Matrimoniale" onclick="openLightbox(this)">
+                        <img src="Hotel/Matrimoniale/2S7A5034.jpg" alt="Camera Matrimoniale">
+                        <div class="overlay"><i class="fas fa-expand"></i></div>
+                    </div>
+                    <div class="gallery-item" data-category="matrimoniale" data-caption="Camera Matrimoniale" onclick="openLightbox(this)">
+                        <img src="Hotel/Matrimoniale/2S7A5037.jpg" alt="Camera Matrimoniale">
+                        <div class="overlay"><i class="fas fa-expand"></i></div>
+                    </div>
+                    <div class="gallery-item" data-category="matrimoniale" data-caption="Camera Matrimoniale" onclick="openLightbox(this)">
+                        <img src="Hotel/Matrimoniale/2S7A5041.jpg" alt="Camera Matrimoniale">
+                        <div class="overlay"><i class="fas fa-expand"></i></div>
+                    </div>
+                    <div class="gallery-item" data-category="matrimoniale" data-caption="Camera Matrimoniale" onclick="openLightbox(this)">
+                        <img src="Hotel/Matrimoniale/2S7A5046.jpg" alt="Camera Matrimoniale">
+                        <div class="overlay"><i class="fas fa-expand"></i></div>
+                    </div>
+                    <div class="gallery-item" data-category="matrimoniale" data-caption="Camera Matrimoniale" onclick="openLightbox(this)">
+                        <img src="Hotel/Matrimoniale/2S7A5048.jpg" alt="Camera Matrimoniale">
+                        <div class="overlay"><i class="fas fa-expand"></i></div>
+                    </div>
+                    <div class="gallery-item" data-category="matrimoniale" data-caption="Camera Matrimoniale" onclick="openLightbox(this)">
+                        <img src="Hotel/Matrimoniale/2S7A5183.jpg" alt="Camera Matrimoniale">
+                        <div class="overlay"><i class="fas fa-expand"></i></div>
+                    </div>
+                    <div class="gallery-item" data-category="matrimoniale" data-caption="Camera Matrimoniale" onclick="openLightbox(this)">
+                        <img src="Hotel/Matrimoniale/2S7A5184.jpg" alt="Camera Matrimoniale">
+                        <div class="overlay"><i class="fas fa-expand"></i></div>
+                    </div>
+                    <div class="gallery-item" data-category="matrimoniale" data-caption="Camera Matrimoniale" onclick="openLightbox(this)">
+                        <img src="Hotel/Matrimoniale/2S7A5206.jpg" alt="Camera Matrimoniale">
+                        <div class="overlay"><i class="fas fa-expand"></i></div>
+                    </div>
+
+                    <!-- Junior Suite -->
+                    <div class="gallery-item" data-category="junior" data-caption="Junior Suite" onclick="openLightbox(this)">
+                        <img src="Hotel/Junior/2S7A5016.jpg" alt="Junior Suite">
+                        <div class="overlay"><i class="fas fa-expand"></i></div>
+                    </div>
+                    <div class="gallery-item" data-category="junior" data-caption="Junior Suite" onclick="openLightbox(this)">
+                        <img src="Hotel/Junior/2S7A5019.jpg" alt="Junior Suite">
+                        <div class="overlay"><i class="fas fa-expand"></i></div>
+                    </div>
+                    <div class="gallery-item" data-category="junior" data-caption="Junior Suite" onclick="openLightbox(this)">
+                        <img src="Hotel/Junior/2S7A5021.jpg" alt="Junior Suite">
+                        <div class="overlay"><i class="fas fa-expand"></i></div>
+                    </div>
+                    <div class="gallery-item" data-category="junior" data-caption="Junior Suite" onclick="openLightbox(this)">
+                        <img src="Hotel/Junior/2S7A5187.jpg" alt="Junior Suite">
+                        <div class="overlay"><i class="fas fa-expand"></i></div>
+                    </div>
+                    <div class="gallery-item" data-category="junior" data-caption="Junior Suite" onclick="openLightbox(this)">
+                        <img src="Hotel/Junior/2S7A5195.jpg" alt="Junior Suite">
+                        <div class="overlay"><i class="fas fa-expand"></i></div>
+                    </div>
+                    <div class="gallery-item" data-category="junior" data-caption="Junior Suite" onclick="openLightbox(this)">
+                        <img src="Hotel/Junior/2S7A5205.jpg" alt="Junior Suite">
+                        <div class="overlay"><i class="fas fa-expand"></i></div>
+                    </div>
+                    <div class="gallery-item" data-category="junior" data-caption="Junior Suite" onclick="openLightbox(this)">
+                        <img src="Hotel/Junior/DSC09659.JPG" alt="Junior Suite">
+                        <div class="overlay"><i class="fas fa-expand"></i></div>
+                    </div>
+                    <div class="gallery-item" data-category="junior" data-caption="Junior Suite" onclick="openLightbox(this)">
+                        <img src="Hotel/Junior/DSC09663.JPG" alt="Junior Suite">
+                        <div class="overlay"><i class="fas fa-expand"></i></div>
+                    </div>
+                    <div class="gallery-item" data-category="junior" data-caption="Junior Suite" onclick="openLightbox(this)">
+                        <img src="Hotel/Junior/DSC09879.JPG" alt="Junior Suite">
+                        <div class="overlay"><i class="fas fa-expand"></i></div>
+                    </div>
+                    <div class="gallery-item" data-category="junior" data-caption="Junior Suite" onclick="openLightbox(this)">
+                        <img src="Hotel/Junior/DSC09881.JPG" alt="Junior Suite">
+                        <div class="overlay"><i class="fas fa-expand"></i></div>
+                    </div>
+                    <div class="gallery-item" data-category="junior" data-caption="Junior Suite" onclick="openLightbox(this)">
+                        <img src="Hotel/Junior/DSC09895.JPG" alt="Junior Suite">
+                        <div class="overlay"><i class="fas fa-expand"></i></div>
+                    </div>
+                    <div class="gallery-item" data-category="junior" data-caption="Junior Suite" onclick="openLightbox(this)">
+                        <img src="Hotel/Junior/DSC09901.JPG" alt="Junior Suite">
+                        <div class="overlay"><i class="fas fa-expand"></i></div>
+                    </div>
+
+                    <!-- Suite -->
+                    <div class="gallery-item" data-category="suite" data-caption="Suite" onclick="openLightbox(this)">
+                        <img src="Hotel/Suite/2S7A5063.jpg" alt="Suite">
+                        <div class="overlay"><i class="fas fa-expand"></i></div>
+                    </div>
+                    <div class="gallery-item" data-category="suite" data-caption="Suite" onclick="openLightbox(this)">
+                        <img src="Hotel/Suite/2S7A5067.jpg" alt="Suite">
+                        <div class="overlay"><i class="fas fa-expand"></i></div>
+                    </div>
+                    <div class="gallery-item" data-category="suite" data-caption="Suite" onclick="openLightbox(this)">
+                        <img src="Hotel/Suite/2S7A5068.jpg" alt="Suite">
+                        <div class="overlay"><i class="fas fa-expand"></i></div>
+                    </div>
+                    <div class="gallery-item" data-category="suite" data-caption="Suite" onclick="openLightbox(this)">
+                        <img src="Hotel/Suite/2S7A5071.jpg" alt="Suite">
+                        <div class="overlay"><i class="fas fa-expand"></i></div>
+                    </div>
+                    <div class="gallery-item" data-category="suite" data-caption="Suite" onclick="openLightbox(this)">
+                        <img src="Hotel/Suite/2S7A5081.jpg" alt="Suite">
+                        <div class="overlay"><i class="fas fa-expand"></i></div>
+                    </div>
+                    <div class="gallery-item" data-category="suite" data-caption="Suite" onclick="openLightbox(this)">
+                        <img src="Hotel/Suite/2S7A5086.jpg" alt="Suite">
+                        <div class="overlay"><i class="fas fa-expand"></i></div>
+                    </div>
+                    <div class="gallery-item" data-category="suite" data-caption="Suite" onclick="openLightbox(this)">
+                        <img src="Hotel/Suite/2S7A5089.jpg" alt="Suite">
+                        <div class="overlay"><i class="fas fa-expand"></i></div>
+                    </div>
+                    <div class="gallery-item" data-category="suite" data-caption="Suite" onclick="openLightbox(this)">
+                        <img src="Hotel/Suite/2S7A5102.jpg" alt="Suite">
+                        <div class="overlay"><i class="fas fa-expand"></i></div>
+                    </div>
+                    <div class="gallery-item" data-category="suite" data-caption="Suite" onclick="openLightbox(this)">
+                        <img src="Hotel/Suite/2S7A5108.jpg" alt="Suite">
+                        <div class="overlay"><i class="fas fa-expand"></i></div>
+                    </div>
+                    <div class="gallery-item" data-category="suite" data-caption="Suite" onclick="openLightbox(this)">
+                        <img src="Hotel/Suite/2S7A5110.jpg" alt="Suite">
+                        <div class="overlay"><i class="fas fa-expand"></i></div>
+                    </div>
+
+                    <!-- Colazione -->
+                    <div class="gallery-item" data-category="colazione" data-caption="Colazione" onclick="openLightbox(this)">
+                        <img src="Hotel/Colazione/2S7A5264.jpg" alt="Colazione">
+                        <div class="overlay"><i class="fas fa-expand"></i></div>
+                    </div>
+                    <div class="gallery-item" data-category="colazione" data-caption="Colazione" onclick="openLightbox(this)">
+                        <img src="Hotel/Colazione/2S7A5268.jpg" alt="Colazione">
+                        <div class="overlay"><i class="fas fa-expand"></i></div>
+                    </div>
+                    <div class="gallery-item" data-category="colazione" data-caption="Colazione" onclick="openLightbox(this)">
+                        <img src="Hotel/Colazione/2S7A5272.jpg" alt="Colazione">
+                        <div class="overlay"><i class="fas fa-expand"></i></div>
+                    </div>
+                    <div class="gallery-item" data-category="colazione" data-caption="Colazione" onclick="openLightbox(this)">
+                        <img src="Hotel/Colazione/2S7A5290.jpg" alt="Colazione">
+                        <div class="overlay"><i class="fas fa-expand"></i></div>
+                    </div>
+                    <div class="gallery-item" data-category="colazione" data-caption="Colazione" onclick="openLightbox(this)">
+                        <img src="Hotel/Colazione/2S7A5296.jpg" alt="Colazione">
+                        <div class="overlay"><i class="fas fa-expand"></i></div>
+                    </div>
+                    <div class="gallery-item" data-category="colazione" data-caption="Colazione" onclick="openLightbox(this)">
+                        <img src="Hotel/Colazione/2S7A5303.jpg" alt="Colazione">
+                        <div class="overlay"><i class="fas fa-expand"></i></div>
+                    </div>
+                    <div class="gallery-item" data-category="colazione" data-caption="Colazione" onclick="openLightbox(this)">
+                        <img src="Hotel/Colazione/2S7A5311.jpg" alt="Colazione">
+                        <div class="overlay"><i class="fas fa-expand"></i></div>
+                    </div>
+                    <div class="gallery-item" data-category="colazione" data-caption="Colazione" onclick="openLightbox(this)">
+                        <img src="Hotel/Colazione/2S7A5331.jpg" alt="Colazione">
+                        <div class="overlay"><i class="fas fa-expand"></i></div>
+                    </div>
+                    <div class="gallery-item" data-category="colazione" data-caption="Colazione" onclick="openLightbox(this)">
+                        <img src="Hotel/Colazione/DSC00012.JPG" alt="Colazione">
+                        <div class="overlay"><i class="fas fa-expand"></i></div>
+                    </div>
+                    <div class="gallery-item" data-category="colazione" data-caption="Colazione" onclick="openLightbox(this)">
+                        <img src="Hotel/Colazione/DSC00018.JPG" alt="Colazione">
+                        <div class="overlay"><i class="fas fa-expand"></i></div>
+                    </div>
+                    <div class="gallery-item" data-category="colazione" data-caption="Colazione" onclick="openLightbox(this)">
+                        <img src="Hotel/Colazione/DSC00031.JPG" alt="Colazione">
+                        <div class="overlay"><i class="fas fa-expand"></i></div>
+                    </div>
+
+                    <!-- Altre (Hotel & Spazi) -->
+                    <div class="gallery-item" data-category="altre" data-caption="Hotel & Spazi" onclick="openLightbox(this)">
+                        <img src="Hotel/Altre/2S7A5209.jpg" alt="Hotel">
+                        <div class="overlay"><i class="fas fa-expand"></i></div>
+                    </div>
+                    <div class="gallery-item" data-category="altre" data-caption="Hotel & Spazi" onclick="openLightbox(this)">
+                        <img src="Hotel/Altre/2S7A5210.jpg" alt="Hotel">
+                        <div class="overlay"><i class="fas fa-expand"></i></div>
+                    </div>
+                    <div class="gallery-item" data-category="altre" data-caption="Hotel & Spazi" onclick="openLightbox(this)">
+                        <img src="Hotel/Altre/2S7A5213.jpg" alt="Hotel">
+                        <div class="overlay"><i class="fas fa-expand"></i></div>
+                    </div>
+                    <div class="gallery-item" data-category="altre" data-caption="Hotel & Spazi" onclick="openLightbox(this)">
+                        <img src="Hotel/Altre/2S7A5218.jpg" alt="Hotel">
+                        <div class="overlay"><i class="fas fa-expand"></i></div>
+                    </div>
+                    <div class="gallery-item" data-category="altre" data-caption="Hotel & Spazi" onclick="openLightbox(this)">
+                        <img src="Hotel/Altre/2S7A5304.jpg" alt="Hotel">
+                        <div class="overlay"><i class="fas fa-expand"></i></div>
+                    </div>
+                    <div class="gallery-item" data-category="altre" data-caption="Hotel & Spazi" onclick="openLightbox(this)">
+                        <img src="Hotel/Altre/2S7A5305.jpg" alt="Hotel">
+                        <div class="overlay"><i class="fas fa-expand"></i></div>
+                    </div>
+                    <div class="gallery-item" data-category="altre" data-caption="Hotel & Spazi" onclick="openLightbox(this)">
+                        <img src="Hotel/Altre/2S7A5306.jpg" alt="Hotel">
+                        <div class="overlay"><i class="fas fa-expand"></i></div>
+                    </div>
+                    <div class="gallery-item" data-category="altre" data-caption="Hotel & Spazi" onclick="openLightbox(this)">
+                        <img src="Hotel/Altre/2S7A5332.jpg" alt="Hotel">
+                        <div class="overlay"><i class="fas fa-expand"></i></div>
+                    </div>
+                    <div class="gallery-item" data-category="altre" data-caption="Hotel & Spazi" onclick="openLightbox(this)">
+                        <img src="Hotel/Altre/2S7A5336.jpg" alt="Hotel">
+                        <div class="overlay"><i class="fas fa-expand"></i></div>
+                    </div>
+                    <div class="gallery-item" data-category="altre" data-caption="Hotel & Spazi" onclick="openLightbox(this)">
+                        <img src="Hotel/Altre/DSC00111.JPG" alt="Hotel">
+                        <div class="overlay"><i class="fas fa-expand"></i></div>
+                    </div>
+
                 </div>
             </div>
         </div>
-        <!-- Gallery End -->
 
-                <!-- Footer Start -->
+        <!-- Lightbox -->
+        <div id="lightbox">
+            <span id="lightbox-close" onclick="closeLightbox()">&times;</span>
+            <span id="lightbox-prev" onclick="changeLightbox(-1)">&#8249;</span>
+            <img id="lightbox-img" src="" alt="">
+            <span id="lightbox-next" onclick="changeLightbox(1)">&#8250;</span>
+            <div id="lightbox-caption"></div>
+        </div>
+
+        <!-- Footer -->
         <div class="container-fluid bg-dark text-light footer py-5" style="background-color: #000000;">
             <div class="container">
                 <div class="row g-4 align-items-center text-center">
@@ -246,9 +517,7 @@
                 </div>
             </div>
         </div>
-        <!-- Footer End -->
 
-        <!-- Back to Top -->
         <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
     </div>
 
@@ -263,10 +532,69 @@
     <script src="hotelier/lib/tempusdominus/js/moment.min.js"></script>
     <script src="hotelier/lib/tempusdominus/js/moment-timezone.min.js"></script>
     <script src="hotelier/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
-
-    <!-- Template Javascript -->
     <script src="hotelier/js/main.js"></script>
+
+    <script>
+        // Filter gallery
+        document.querySelectorAll('.btn-filter').forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.btn-filter').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                var filter = this.getAttribute('data-filter');
+                document.querySelectorAll('.gallery-item').forEach(function(item) {
+                    if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                        item.classList.remove('hidden');
+                    } else {
+                        item.classList.add('hidden');
+                    }
+                });
+            });
+        });
+
+        // Lightbox
+        var allItems = [];
+        var currentIndex = 0;
+
+        function buildItemList() {
+            allItems = Array.from(document.querySelectorAll('.gallery-item:not(.hidden)'));
+        }
+
+        function openLightbox(el) {
+            buildItemList();
+            currentIndex = allItems.indexOf(el);
+            showLightboxItem(currentIndex);
+            document.getElementById('lightbox').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function showLightboxItem(idx) {
+            var item = allItems[idx];
+            document.getElementById('lightbox-img').src = item.querySelector('img').src;
+            document.getElementById('lightbox-caption').textContent =
+                item.getAttribute('data-caption') + ' (' + (idx + 1) + ' / ' + allItems.length + ')';
+        }
+
+        function changeLightbox(dir) {
+            currentIndex = (currentIndex + dir + allItems.length) % allItems.length;
+            showLightboxItem(currentIndex);
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        document.getElementById('lightbox').addEventListener('click', function(e) {
+            if (e.target === this) closeLightbox();
+        });
+
+        document.addEventListener('keydown', function(e) {
+            if (!document.getElementById('lightbox').classList.contains('active')) return;
+            if (e.key === 'ArrowLeft') changeLightbox(-1);
+            if (e.key === 'ArrowRight') changeLightbox(1);
+            if (e.key === 'Escape') closeLightbox();
+        });
+    </script>
 </body>
 
 </html>
-
